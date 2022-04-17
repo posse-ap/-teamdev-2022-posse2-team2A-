@@ -1,0 +1,36 @@
+/* headerここから */
+
+header{
+    background-color: #05a59a;
+    width: 100%;
+    height: 120px;
+    padding: 8px;
+}
+header .icon{
+    width: 100%;
+    height: 80px;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+}
+header .icon img{
+    height: 40px;
+    object-fit: cover;
+}
+header .menu{
+    width: 100%;
+    height: 20px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+header .menu .menu-item{
+    font-size: 12px;
+    list-style: none;
+    color: #ffffff;
+    padding: 8px;
+}
+
+/* headerここまで */
