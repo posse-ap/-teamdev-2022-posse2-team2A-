@@ -12,7 +12,10 @@
     <a href="../agent/index.php">企業の方はこちら</a>
     <ul>
         <li>
-            <a href="./form.php">お問合せはこちら</a>
+            <a href="./form.php?1">お問合せはこちら</a>
+        </li>
+        <li>
+            <a href="./form.php?2">お問合せはこちら</a>
         </li>
     </ul>
 

@@ -1,3 +1,15 @@
+<?php
+require(dirname(__FILE__) . "../../dbconnect.php");
+
+$stmt = $db->query('SELECT * FROM agents');
+$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$data= explode(",",$_SERVER['QUERY_STRING']);
+
+$agent = $db->prepare('SELECT * FROM customers WHERE agent_id = ?');
+    $agent->execute(array($agent_id));
+    $agent_customers = $agent->fetchAll();
+?>
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -9,7 +21,7 @@
 </head>
 
 <body>
-    <div>
+    <section>
         <h1>応募フォーム</h1>
         <form action="/admin/index.php" method="POST">
             <p> 氏名：<input type="text" name="name" required></p>
@@ -32,10 +44,11 @@
             <p> 学部：<input type="text" name="department" required></p>
             <p> 学科：<input type="text" name="major_subject" required></p>
             <p> 自由記入欄：<input type="text" name="comments" required></p>
+            <input type="hidden" value=<?php echo $data[0];?> name="agent_id">
             <input type="submit" value="登録する">
         </form>
         <a href="./index.php">企業一覧に戻る</a>
-    </div>
+    </section>
 </body>
 
 </html>

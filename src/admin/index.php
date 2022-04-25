@@ -17,7 +17,7 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <ul>
     <?php foreach ($customers as $key => $customer) : ?>
         <li>
-            <?= $customer["id"]; ?>:
+            <?= $customer["id"]; ?>
             <?= $customer["name"]; ?>
             <?= $customer["name_kana"]; ?>
             <?= $customer["sex"]; ?>
