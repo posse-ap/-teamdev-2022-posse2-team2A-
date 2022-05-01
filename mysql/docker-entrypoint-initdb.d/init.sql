@@ -43,6 +43,13 @@ SET
   password = sha1('password3'),
   name = "jobTV";
 
+DROP TABLE IF EXISTS passwords_reset;
+
+CREATE TABLE password_resets (
+    email varchar(50) PRIMARY KEY,
+    token varchar(80) NOT NULL,
+    token_sent_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP
+);
 
   DROP TABLE IF EXISTS customers;
 CREATE TABLE customers (
