@@ -4,9 +4,9 @@ CREATE SCHEMA shukatsu;
 
 USE shukatsu;
 
-DROP TABLE IF EXISTS boozer;
+DROP TABLE IF EXISTS admin;
 
-CREATE TABLE boozer (
+CREATE TABLE admin (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   email VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE boozer (
 );
 
 INSERT INTO
-  boozer
+  admin
 SET
   email = 'test@posse-ap.com',
   password = sha1('password');
