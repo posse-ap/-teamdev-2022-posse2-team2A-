@@ -1,3 +1,4 @@
+<!-- フォーム -->
 <?php
 require(dirname(__FILE__) . "../../dbconnect.php");
 
