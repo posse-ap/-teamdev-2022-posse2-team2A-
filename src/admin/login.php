@@ -3,7 +3,7 @@ session_start();
 require('../dbconnect.php');
 
 if (!empty($_POST)) {
-  $login = $db->prepare('SELECT * FROM boozer WHERE email=? AND password=?');
+  $login = $db->prepare('SELECT * FROM admin WHERE email=? AND password=?');
   $login->execute(array(
     $_POST['email'],
     sha1($_POST['password'])
@@ -12,7 +12,7 @@ if (!empty($_POST)) {
 
   if ($user) {
     $_SESSION = array();
-    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['admin_id'] = $user['id'];
     $_SESSION['time'] = time();
     header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
     exit();
