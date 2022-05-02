@@ -43,7 +43,7 @@
   "table": {
     "tables": [
       {
-        "name": "boozer",
+        "name": "admin",
         "comment": "",
         "columns": [
           {
@@ -843,7 +843,7 @@
         "id": "0767e9e2-ebb3-4cd1-8ee6-69a507a6c1f2"
       },
       {
-        "name": "boozer",
+        "name": "admin",
         "comment": "",
         "columns": [],
         "ui": {
