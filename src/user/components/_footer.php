@@ -1,4 +1,4 @@
-<footer class="footer flex flex-col items-center mt-10 mb-10">
+<footer id="footer" class="footer flex flex-col items-center mt-10 mb-10">
     <p class="green text-base">就活の教科書</p>
     <p class="gReen text-xs mt-4">23卒/24卒の内定者と運営する。新しい就活情報サイト</p>
     <ul class="footer-list-item flex flex-wrap grid grid-cols-2 gap-4 place-content-around m-3">

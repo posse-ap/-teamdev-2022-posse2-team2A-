@@ -36,6 +36,178 @@ header .menu .menu-item{
 /* headerここまで */
 
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* top-pageのmainここから */
+main{
+    width: 100%;
+}
+main .title-wrapper{
+    width: 100%;
+    padding: 8px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main .title-wrapper .title{
+    font-size: 40px;
+}
+main .title-wrapper .subtitle{
+    /* font-size: 16px; */
+}
+.agent-container{
+    margin: 12px 10%;
+    padding: 12px;
+}
+.agent-container .agent-container-title{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.agent-container .agent-container-title::before,
+.agent-container .agent-container-title::after{
+    content: "";
+    height: 1px;
+    flex-grow: 1;
+    background-color: #666;
+}
+.agent-container .agent-container-title::before{
+    margin-right: 1rem;
+}
+.agent-container .agent-container-title::after{
+    margin-left: 1rem;
+}
+
+.agent-list{
+    width: 100%;
+    padding: 8px;
+    background-color: #fffff5;
+}
+.agent-list .agent-list-item{
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+}
+.text-wrapper{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.text-wrapper .text1{
+    font-size: 16px;
+    color: #b56441;
+    margin-left: 3rem;
+}
+.text-wrapper .text2{
+    font-size: 12px;
+    margin-left: 3rem;
+}
+
+.strong{
+    /* strongクラスがついた文字は赤色+黄色マーカーが引かれる */
+    color: #ff0000;
+    background:linear-gradient(transparent 60%, #ff6 60%);
+}
+.agent-pr-wrapper{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+}
+.agent-pr-img{
+    width: 25%;
+    object-fit: cover;
+}
+.agent-pr-list{
+    width: calc(70%-40px);
+}
+.agent-info-table{
+    width: 100%;
+}
+.agent-info-table th{
+    background-color: #26eded;
+    border: 1px solid #ffffff;
+    border-collapse: collapse;
+    padding: 8px;
+    text-align: center;
+}
+.agent-info-table td{
+    background-color: #ffffff;
+    border: 1px solid #26eded;
+    border-collapse: collapse;
+    padding: 8px;
+    text-align: center;
+
+}
+.agent-pr-text{
+    border: 1px solid;
+}
+.btn-wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* top-pageのmainここから */
+
+
+
+/* スクロール時、一番下に到着するとfooterのアイコンが消える動きここから */
+#mainFooter{
+    /*fixedで上部固定*/
+	position: fixed;
+	height: 70px;
+	width:100%;
+    z-index: 999;/*最前面へ*/
+	/*以下はレイアウトのためのCSS*/
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background:#333;
+	color:#fff;
+	text-align: center;
+	padding: 20px;
+}
+
+/*　上に上がる動き　*/
+
+#mainFooter.UpMove{
+	animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime{
+  from {
+    opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+	transform: translateY(-100px);
+  }
+}
+
+/*　下に下がる動き　*/
+
+#mainFooter.DownMove{
+	animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+  	opacity: 0;
+	transform: translateY(-100px);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+/* スクロール時、一番下に到着するとfooterのアイコンが消える動きここまで */
+
 /* footerここから */
 
 .gReen{/*メインの文字の色*/
