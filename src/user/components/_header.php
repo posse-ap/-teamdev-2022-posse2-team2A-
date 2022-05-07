@@ -1,6 +1,6 @@
 <header>
         <div class="icon">
-            <img src="./スクリーンショット 2022-04-17 14.34.38.png" alt="">
+            <img src="./_header phpに入れてる.png" alt="">
         </div>
         <ul class="menu">
             <li class="menu-item">就活サイト</li>
