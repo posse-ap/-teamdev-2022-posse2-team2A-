@@ -36,11 +36,6 @@ header .menu .menu-item{
 /* headerここまで */
 
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
 /* top-pageのmainここから */
 main{
     width: 100%;
