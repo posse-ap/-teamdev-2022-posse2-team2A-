@@ -2,9 +2,12 @@
 <html lang="ja">
 
 <head>
-    <?php
-    require(dirname(__FILE__) . "/components/_head.php");
-    ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>ユーザーtop画面</title>
 </head>
 
@@ -85,7 +88,7 @@
                     </p>
                     <div class="btn-wrapper">                    
                         <button class="detail-btn bg-blue-200 text-blue-600 rounded-3xl m-1 p-3 pl-10 pr-10">詳細を見る</button>
-                        <a href="./input.html"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
+                        <a href="./form.php"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                     </div>
                 </li>
                 <!-- 例2 -->
@@ -148,7 +151,7 @@
                     </p>
                     <div class="btn-wrapper">                    
                         <button class="detail-btn bg-blue-200 text-blue-600 rounded-3xl m-1 p-3 pl-10 pr-10">詳細を見る</button>
-                        <a href="./input.html"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
+                        <a href="./form.php"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                     </div>
 
                 </li>
