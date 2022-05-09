@@ -5,4 +5,4 @@ $subject = "TEST";
 $message = "メールテスト";
 $headers = "From: from@example.com";
 
-mb_send_mail($to, $subject, $message, $headers);
+var_dump(mb_send_mail($to, $subject, $message, $headers));

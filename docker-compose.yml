@@ -1,9 +1,5 @@
 version: '3'
 
-volumes:
-  db-volume:
-  maildir: {}
-
 services:
   web:
     platform: linux/amd64
