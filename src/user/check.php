@@ -1,43 +1,3 @@
-<?php
-require(dirname(__FILE__) . "../../dbconnect.php");
-
-$stmt = $db->query('SELECT * FROM agents');
-$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
-if (!empty($_POST)) {
-    $stmt = $db->prepare('INSERT INTO customers SET 
-    agent_id =?,
-    name =?,
-    name_kana =?,
-    sex =?,
-    birth =?,
-    address =?,
-    email =?,
-    phone_number =?,
-    education =?,
-    major =?,
-    department =?,
-    major_subject =?,
-    comments =?
-    ');
-    $stmt->execute(array(
-        $_POST['agent_id'],
-        $_POST['name'],
-        $_POST['name_kana'],
-        $_POST['sex'],
-        $_POST['birth'],
-        $_POST['address'],
-        $_POST['email'],
-        $_POST['phone_number'],
-        $_POST['education'],
-        $_POST['major'],
-        $_POST['department'],
-        $_POST['major_subject'],
-        $_POST['comments']
-    ));
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
-    exit();
-}
-?>
 <!-- 内容確認 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -50,18 +10,24 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-    <?php
-    mb_language("Japanese");
-    mb_internal_encoding("UTF-8");
-    $to = "kamibayasitaito@keio.jp";
-    $title = $_POST['mail-title'];
-    $content = $_POST['mail-content'];
-    if (mb_send_mail($to, $title, $content)) {
-        echo "メールを送信しました";
-    } else {
-        echo "メールの送信に失敗しました";
-    };
-    ?>
+    <?= $_POST['agent_id'] ?>
+    <form action="./complete.php" method="post">
+        <input type="hidden" name="agent_id" value="<?= $_POST['agent_id']; ?>">
+        <input type="hidden" name="name" value="<?= $_POST['name']; ?>">
+        <input type="hidden" name="name_kana" value="<?= $_POST['name_kana']; ?>">
+        <input type="hidden" name="sex" value="<?= $_POST['sex']; ?>">
+        <input type="hidden" name="birth" value="<?= $_POST['birth']; ?>">
+        <input type="hidden" name="address" value="<?= $_POST['address']; ?>">
+        <input type="hidden" name="email" value="<?= $_POST['email']; ?>">
+        <input type="hidden" name="phone_number" value="<?= $_POST['phone_number']; ?>">
+        <input type="hidden" name="education" value="<?= $_POST['education']; ?>">
+        <input type="hidden" name="major" value="<?= $_POST['major']; ?>">
+        <input type="hidden" name="department" value="<?= $_POST['department']; ?>">
+        <input type="hidden" name="major_subject" value="<?= $_POST['major_subject']; ?>">
+        <input type="hidden" name="comments" value="<?= $_POST['comments']; ?>">
+        <input type="submit" value="おせ！！ï￥">
+    </form>
+    こんにちは
 </body>
 
 </html>

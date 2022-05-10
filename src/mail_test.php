@@ -1,5 +1,4 @@
 <?php
-
 $to      = "hoge@localhost.local";
 $subject = "TEST";
 $message = "メールテスト";
