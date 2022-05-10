@@ -169,6 +169,14 @@ main .title-wrapper .subtitle {
   }
 }
 
+
+
+/* formのcssここから */
+.form-section{
+  margin: 16px 25%;
+}
+/* formのcssここまで */
+
 /*　下に下がる動き　*/
 
 #mainFooter.DownMove {

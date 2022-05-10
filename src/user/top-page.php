@@ -87,7 +87,6 @@
                         ハイクラス求人なら必ず登録スべき転職サイトです。
                     </p>
                     <div class="btn-wrapper">                    
-                        <button class="detail-btn bg-blue-200 text-blue-600 rounded-3xl m-1 p-3 pl-10 pr-10">詳細を見る</button>
                         <a href="./form.php"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                     </div>
                 </li>
@@ -150,7 +149,6 @@
                         ハイクラス求人なら必ず登録スべき転職サイトです。
                     </p>
                     <div class="btn-wrapper">                    
-                        <button class="detail-btn bg-blue-200 text-blue-600 rounded-3xl m-1 p-3 pl-10 pr-10">詳細を見る</button>
                         <a href="./form.php"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                     </div>
 
