@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   web:
     platform: linux/amd64
@@ -28,3 +29,8 @@ services:
       - ./mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./mysql/etc/mysql/conf.d:/etc/mysql/conf.d
       - ./mysql/data:/var/lib/mysql
+  mailhog:
+    image: 'mailhog/mailhog'
+    ports:
+      - '1025:1025'
+      - '8025:8025'
