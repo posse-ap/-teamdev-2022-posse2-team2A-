@@ -1,44 +1,8 @@
+<!-- フォーム -->
 <?php
-require(dirname(__FILE__) . "../../dbconnect.php");
-
-$stmt = $db->query('SELECT * FROM agents');
-$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $data = explode(",", $_SERVER['QUERY_STRING']);
 
-if (!empty($_POST)) {
-    $stmt = $db->prepare('INSERT INTO customers SET 
-    agent_id =?,
-    name =?,
-    name_kana =?,
-    sex =?,
-    birth =?,
-    address =?,
-    email =?,
-    phone_number =?,
-    education =?,
-    major =?,
-    department =?,
-    major_subject =?,
-    comments =?
-    ');
-    $stmt->execute(array(
-        $_POST['agent_id'],
-        $_POST['name'],
-        $_POST['name_kana'],
-        $_POST['sex'],
-        $_POST['birth'],
-        $_POST['address'],
-        $_POST['email'],
-        $_POST['phone_number'],
-        $_POST['education'],
-        $_POST['major'],
-        $_POST['department'],
-        $_POST['major_subject'],
-        $_POST['comments']
-    ));
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
-    exit();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -91,7 +55,13 @@ if (!empty($_POST)) {
             <p> 学部：<input type="text" name="department" required></p>
             <p> 学科：<input type="text" name="major_subject" required></p>
             <p> 自由記入欄：<input type="text" name="comments" required></p>
-            <input type="submit" value="登録する">
+
+            <!-- 企業に送るメール -->
+            <input type="hidden" name="mail-title" value="新規申込の方がいらっしゃいます">
+            <input type="hidden" name="mail-content" value="新規だよ">
+            <a href="./check.php">
+                <input type="submit" value="登録する">
+            </a>
         </form>
         <a href="./index.php">企業一覧に戻る</a>
     </section>
