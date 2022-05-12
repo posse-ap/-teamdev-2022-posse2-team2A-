@@ -70,28 +70,79 @@ if (!empty($_POST)) {
             <!-- プログレスバーここから -->
             <!-- プログレスバーここまで -->
         </div>
-        <form action="/user/form.php?1" method="POST" class="flex">
+        <form action="/user/form.php?1" method="POST" class="m-2 p-2">
             <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id">
-            <p> 氏名：<input type="text" name="name" required></p>
-            <p> ふりがな：<input type="text" name="name_kana" required></p>
-            <p>
-                性別
-                <input type="radio" name="sex" value="男">男
-                <input type="radio" name="sex" value="女">女
-                <input type="radio" name="sex" value="その他">無回答
-            </p>
-            <p> 生年月日：<input type="text" name="birth" required></p>
-            <p> 住所：<input type="text" name="address" required></p>
-            <p> メールアドレス：<input type="text" name="email" required></p>
-            <p> 電話番号：<input type="text" name="phone_number" required></p>
-            <p> 最終学歴：<input type="text" name="education" required></p>
-            <p>
-                <input type="radio" name="major" value="文系">文系
-                <input type="radio" name="major" value="理系">理系
-            </p>
-            <p> 学部：<input type="text" name="department" required></p>
-            <p> 学科：<input type="text" name="major_subject" required></p>
-            <p> 自由記入欄：<input type="text" name="comments" required></p>
+            <table>
+                <tr>
+                    <th>氏名</th>
+                    <td><input type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <th>ふりがな</th>
+                    <td><input type="text" name="name_kana" required></td>
+                </tr>
+                <tr>
+                    <th>性別</th>
+                    <td>
+                        <input type="radio" name="sex" value="男">男
+                        <input type="radio" name="sex" value="女">女
+                        <input type="radio" name="sex" value="その他">無回答
+                    </td>
+                </tr>
+                <tr>
+                    <th>生年月日</th>
+                    <td><input type="text" name="birth" required></td>
+                </tr>
+                <tr>
+                    <th>住所</th>
+                    <td>
+                        郵便番号<input type="text" name="address" required>
+                        都道府県<input type="text" name="address" required>
+                        市区町村・町名・丁目<input type="text" name="address" required>
+                        番地・号<input type="text" name="address" required>
+                        建物名等<input type="text" name="address" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td><input type="text" name="email" required></td>
+                </tr>
+                <tr>
+                    <th>電話番号</th>
+                    <td><input type="text" name="phone_number" required></td>
+                </tr>
+                <tr>
+                    <th>最終学歴</th>
+                    <td><input type="text" name="education" required>大学</td>
+                </tr>
+                <tr>
+                    <th>専攻</th>
+                    <td>
+                        <input type="radio" name="major" value="文系">文系
+                        <input type="radio" name="major" value="理系">理系
+                        <p> 学部：<input type="text" name="department" required></p>
+                        <p> 学科：<input type="text" name="major_subject" required></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>卒業年度</th>
+                    <td>
+                        <input type="text" name="year" list="year">年
+                        <p>3月</p>
+                        <input type="text" name="status" list="status">
+                    </td>
+                    <datalist id="year">
+                        <option value="23"></option>
+                        <option value="24"></option>
+                        <option value="25"></option>
+                    </datalist>
+                    <datalist id="status">
+                        <option value="卒業見込"></option>
+                        <option value="卒業"></option>
+                    </datalist>
+                </tr>
+                <p> 自由記入欄：<input type="text" name="comments" required></p>
+            </table>
             <input type="submit" value="登録する">
         </form>
         <a href="./index.php">企業一覧に戻る</a>
