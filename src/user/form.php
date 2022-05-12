@@ -1,46 +1,8 @@
 <!-- フォーム -->
 <?php
-require(dirname(__FILE__) . "../../dbconnect.php");
-
-$stmt = $db->query('SELECT * FROM agents');
-$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $data = explode(",", $_SERVER['QUERY_STRING']);
-
-if (!empty($_POST)) {
-    $stmt = $db->prepare('INSERT INTO customers SET 
-    agent_id =?,
-    name =?,
-    name_kana =?,
-    sex =?,
-    birth =?,
-    address =?,
-    email =?,
-    phone_number =?,
-    education =?,
-    major =?,
-    department =?,
-    major_subject =?,
-    comments =?
-    ');
-    $stmt->execute(array(
-        $_POST['agent_id'],
-        $_POST['name'],
-        $_POST['name_kana'],
-        $_POST['sex'],
-        $_POST['birth'],
-        $_POST['address'],
-        $_POST['email'],
-        $_POST['phone_number'],
-        $_POST['education'],
-        $_POST['major'],
-        $_POST['department'],
-        $_POST['major_subject'],
-        $_POST['comments']
-    ));
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
-    exit();
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
