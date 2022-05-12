@@ -1,12 +1,50 @@
-<!-- <-- 送信完了ページ -->
-<!DOCTYPE html>
 <?php
+require("../dbconnect.php");
+
+$stmt = $db->query('SELECT * FROM agents');
+$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if (!empty($_POST)) {
+  $stmt = $db->prepare('INSERT INTO customers SET 
+    agent_id =?,
+    name =?,
+    name_kana =?,
+    sex =?,
+    birth =?,
+    address =?,
+    email =?,
+    phone_number =?,
+    education =?,
+    major =?,
+    department =?,
+    major_subject =?,
+    comments =?
+    ');
+  $stmt->execute(array(
+    $_POST['agent_id'],
+    $_POST['name'],
+    $_POST['name_kana'],
+    $_POST['sex'],
+    $_POST['birth'],
+    $_POST['address'],
+    $_POST['email'],
+    $_POST['phone_number'],
+    $_POST['education'],
+    $_POST['major'],
+    $_POST['department'],
+    $_POST['major_subject'],
+    $_POST['comments']
+  ));
+}
+?>
+
+<!DOCTYPE html>
+  <?php
 $_TNX = '<span>一週間以内にご連絡しますので、しばらくお待ちください。</span>';
 $_TNX2 = 'なお、登録手続き完了のメールを登録していただいたアドレスあてに送信しましたので、そちらの内容もご確認ください。';
 $_ENGver = 'The confirmation e-mail has been sent to you. <br><span>We will contact you again in a week.</span> Thank you.';
 $_BTP = '一覧に戻る';
 ?>
-<html lang="ja">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -15,6 +53,7 @@ $_BTP = '一覧に戻る';
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./reset.css">
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>ThanksPage</title>
 </head>
 
 <body>
@@ -43,6 +82,19 @@ $_BTP = '一覧に戻る';
       <a href="./top-page.php" class="btn"><span><?= $_BTP ?></span></a>
     </div>
   </main>
+  mb_language("Japanese");
+  mb_internal_encoding("UTF-8");
+  $to = "kamibayasitaito@keio.jp";
+  $title = $_POST['email'];
+  $content = "メール送信しましたご確認ください！";
+  $headers = ['From' => 'テスト<foo@example.jp>', 'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit'];
+  if (mb_send_mail($to, $title, $content, $headers)) {
+    echo "メールを送信しました";
+  } else {
+    echo "メールの送信に失敗しました";
+  };
+  ?>
+  <a href="./index.php">一覧に戻る</a>
 </body>
 
 </html>

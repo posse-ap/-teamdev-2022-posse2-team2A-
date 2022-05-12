@@ -244,39 +244,36 @@ main .title-wrapper .title {
 
 /* top-pageのmainここから */
 
-/* スクロール時、一番下に到着するとfooterのアイコンが消える動きここから */
-#mainFooter {
-  /*fixedで上部固定*/
-  position: fixed;
-  height: 70px;
-  width: 100%;
-  z-index: 999; /*最前面へ*/
-  /*以下はレイアウトのためのCSS*/
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
+
+/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここから */
+/* jsも使ってるからコピペしてね */
 
 /*　上に上がる動き　*/
-
+#mainFooter{
+  top: 100vh;
+}
 #mainFooter.UpMove {
   animation: UpAnime 0.5s forwards;
 }
 
 @keyframes UpAnime {
   from {
-    opacity: 1;
+    opacity: 0;
     transform: translateY(0);
   }
   to {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(-100px);
   }
 }
+
+
+
+/* formのcssここから */
+.form-section{
+  margin: 16px 25%;
+}
+/* formのcssここまで */
 
 /*　下に下がる動き　*/
 
@@ -294,7 +291,7 @@ main .title-wrapper .title {
   }
 }
 
-/* スクロール時、一番下に到着するとfooterのアイコンが消える動きここまで */
+/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここまで */
 
 /* 一覧に戻るボタンここから */
 a.btn{
@@ -337,16 +334,24 @@ a.btn:hover {
 
 /* footerここから */
 
-.gReen {
+.green {
   /*メインの文字の色*/
   color: #00a69a;
 }
 
-.footer-list-item {
-  border-top: solid 4px #00a69a;
-  border-right: solid 4px #00a69a;
-  width: 24px;
-  height: 24px;
+.footer-list-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 0px;
+  border-top: solid 2px #00a69a;
+  border-right: solid 2px #00a69a;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -4px;
 }
 /* footerここまで */
