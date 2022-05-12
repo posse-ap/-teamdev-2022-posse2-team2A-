@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -8,
-    "scrollLeft": -1,
-    "zoomLevel": 1,
+    "scrollTop": -670,
+    "scrollLeft": -465,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -393,10 +393,10 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 47,
           "top": 81,
-          "zIndex": 11,
+          "zIndex": 7,
           "widthName": 60,
           "widthComment": 60
         },
@@ -666,11 +666,11 @@
         "id": "13ae6bcb-6aae-47e3-8fa2-025ef7c14950"
       },
       {
-        "name": "ejent_contents",
+        "name": "agent_contents",
         "comment": "",
         "columns": [
           {
-            "name": "ejent_id",
+            "name": "agent_id",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -693,7 +693,7 @@
             "id": "652ab874-86d0-4b56-bb02-04c6576afaa7"
           },
           {
-            "name": "ejent_name",
+            "name": "agent_name",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -708,7 +708,7 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 75.63194274902344,
+              "widthName": 80.35093688964844,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
@@ -832,11 +832,11 @@
           }
         ],
         "ui": {
-          "active": false,
+          "active": true,
           "left": 498.6669,
           "top": 970.2219,
-          "zIndex": 1,
-          "widthName": 96.89991760253906,
+          "zIndex": 15,
+          "widthName": 101.61891174316406,
           "widthComment": 60
         },
         "visible": true,
