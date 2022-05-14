@@ -44,8 +44,8 @@ header .menu .menu-item {
 /* プログレスバーここから */
 .progressbar {
   display: flex;
-  width: 60%;
-  height: 60px;
+  width: 90%;
+  height: 30px;
   margin-top: 2%;
   margin-bottom: 5%;
 }
@@ -55,9 +55,9 @@ header .menu .menu-item {
     text-align: center;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 0.7rem;
     /* padding: 5px 0; */
-    line-height: 60px;
+    line-height: 30px;
     background: #F5F5F5;
     color: #999999;
 }
@@ -67,9 +67,8 @@ header .menu .menu-item {
   text-align: center;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  /* padding: 5px 0; */
-  line-height: 60px;
+  font-size: 0.7rem;
+  line-height: 30px;
   padding-left: 18px;
   background: #F5F5F5;
   color: #999999;
@@ -83,7 +82,7 @@ header .menu .menu-item {
     left: 100%;
     height: 50%;
     content: '';
-    border: 30px solid transparent;
+    border: 15px solid transparent;
     border-left: 20px solid #F5F5F5;
 }
 .progressbar .item-last::before,
@@ -95,7 +94,7 @@ header .menu .menu-item {
   left: 100%;
   height: 50%;
   content: '';
-  border: 30px solid transparent;
+  border: 15px solid transparent;
   border-left: 20px solid #F5F5F5;
 }
 
@@ -104,7 +103,7 @@ header .menu .menu-item {
     border-left-color: #FFF;
 }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
 .progressbar .item {
     font-size: 12px;
     line-height: 1.4;
@@ -115,7 +114,7 @@ header .menu .menu-item {
     border-width: 25px;
     border-left-width: 12px;
 }
-}
+} */
 
 
 /* active */
@@ -244,39 +243,36 @@ main .title-wrapper .title {
 
 /* top-pageのmainここから */
 
-/* スクロール時、一番下に到着するとfooterのアイコンが消える動きここから */
-#mainFooter {
-  /*fixedで上部固定*/
-  position: fixed;
-  height: 70px;
-  width: 100%;
-  z-index: 999; /*最前面へ*/
-  /*以下はレイアウトのためのCSS*/
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
+
+/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここから */
+/* jsも使ってるからコピペしてね */
 
 /*　上に上がる動き　*/
-
+#mainFooter{
+  top: 100vh;
+}
 #mainFooter.UpMove {
   animation: UpAnime 0.5s forwards;
 }
 
 @keyframes UpAnime {
   from {
-    opacity: 1;
+    opacity: 0;
     transform: translateY(0);
   }
   to {
-    opacity: 0;
+    opacity: 1;
     transform: translateY(-100px);
   }
 }
+
+
+
+/* formのcssここから */
+.form-section{
+  margin: 16px 25%;
+}
+/* formのcssここまで */
 
 /*　下に下がる動き　*/
 
@@ -294,7 +290,7 @@ main .title-wrapper .title {
   }
 }
 
-/* スクロール時、一番下に到着するとfooterのアイコンが消える動きここまで */
+/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここまで */
 
 /* 一覧に戻るボタンここから */
 a.btn{
@@ -302,7 +298,7 @@ a.btn{
   font-weight: 700;
   line-height: 1.5;
   position: relative;
-  width: 20%;
+  width: 60%;
   margin: 20px auto;
   display: block;
   align-items: center;
@@ -337,16 +333,51 @@ a.btn:hover {
 
 /* footerここから */
 
-.gReen {
+.green {
   /*メインの文字の色*/
   color: #00a69a;
 }
 
-.footer-list-item {
-  border-top: solid 4px #00a69a;
-  border-right: solid 4px #00a69a;
-  width: 24px;
-  height: 24px;
+.footer-list-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 0px;
+  border-top: solid 2px #00a69a;
+  border-right: solid 2px #00a69a;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -4px;
 }
 /* footerここまで */
+@media screen and (min-width: 480px) {
+  a.btn{
+    width: 20%;
+  }
+  .progressbar{
+    width: 60%;
+    height: 60px;
+  }
+  .progressbar .item{
+    font-size: 18px;
+    line-height: 60px;
+  }
+  .item-last{
+    font-size: 18px;
+    line-height: 60px;
+  }
+  .progressbar .item::before,
+  .progressbar .item::after {
+    border: 30px solid transparent;
+    border-left: 20px solid #F5F5F5;
+  }
+  .progressbar .item-last::before,
+.progressbar .item-last::after{
+  border: 30px solid transparent;
+  border-left: 20px solid #F5F5F5;
+  }
+}

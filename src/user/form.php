@@ -11,13 +11,29 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>応募フォーム</title>
 </head>
 
 <body>
-    <section>
-        <h1>応募フォーム</h1>
-        <form action="/user/check.php" method="POST">
+    <!-- header -->
+    <?php
+    require(dirname(__FILE__) . "/components/_header.php");
+    ?>
+    <main>
+    <div class="title-wrapper">
+        <h1 class="title">CRAFT</h1>
+        <h2 class="subtitle">就活生のための就活情報サイト</h2>
+    </div>
+    <section class="form-section">
+        <div class="flex justify-around w-full">
+            <h1 class="font-bold text-2xl">応募フォーム</h1>
+            <!-- プログレスバーここから -->
+            <!-- プログレスバーここまで -->
+        </div>
+        <form action="/user/form.php?1" method="POST" class="flex">
             <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id">
             <p> 氏名：<input type="text" name="name" required></p>
             <p> ふりがな：<input type="text" name="name_kana" required></p>
@@ -49,6 +65,15 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
         </form>
         <a href="./index.php">企業一覧に戻る</a>
     </section>
+    </main>
+    <!-- アイコンの部分 -->
+    <?php
+    require(dirname(__FILE__) . "/components/_mainFooter.php");
+    ?>
+    <!-- footer -->
+    <?php
+    require(dirname(__FILE__) . "/components/_footer.php");
+    ?>
 </body>
 
 </html>
