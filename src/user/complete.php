@@ -38,7 +38,7 @@ if (!empty($_POST)) {
 ?>
 
 <!DOCTYPE html>
-  <?php
+<?php
 $_TNX = '<span>一週間以内にご連絡しますので、しばらくお待ちください。</span>';
 $_TNX2 = 'なお、登録手続き完了のメールを登録していただいたアドレスあてに送信しましたので、そちらの内容もご確認ください。';
 $_ENGver = 'The confirmation e-mail has been sent to you. <br><span>We will contact you again in a week.</span> Thank you.';
@@ -82,6 +82,7 @@ $_BTP = '一覧に戻る';
       <a href="./top-page.php" class="btn"><span><?= $_BTP ?></span></a>
     </div>
   </main>
+  <?php
   mb_language("Japanese");
   mb_internal_encoding("UTF-8");
   $to = "kamibayasitaito@keio.jp";
@@ -89,12 +90,9 @@ $_BTP = '一覧に戻る';
   $content = "メール送信しましたご確認ください！";
   $headers = ['From' => 'テスト<foo@example.jp>', 'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit'];
   if (mb_send_mail($to, $title, $content, $headers)) {
-    echo "メールを送信しました";
   } else {
-    echo "メールの送信に失敗しました";
   };
   ?>
-  <a href="./index.php">一覧に戻る</a>
 </body>
 
 </html>
