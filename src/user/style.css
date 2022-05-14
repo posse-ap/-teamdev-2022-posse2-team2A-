@@ -248,7 +248,7 @@ main .title-wrapper .title {
 /* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここから */
 /* jsも使ってるからコピペしてね */
 
-/*　上に上がる動き　*/
+/* 上に上がる動き */
 #mainFooter{
   top: 100vh;
 }
@@ -269,11 +269,7 @@ main .title-wrapper .title {
 
 
 
-/* formのcssここから */
-.form-section{
-  margin: 16px 25%;
-}
-/* formのcssここまで */
+
 
 /*　下に下がる動き　*/
 
@@ -331,6 +327,33 @@ a.btn:hover {
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
   box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
 }
+/* 一覧に戻るボタンここまで */
+
+
+/* formのcssここから */
+.form-section{
+  margin: 16px 15%;
+}
+
+.contact-item,
+.contact-body {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.contact-item {
+    text-align: left;
+    width: 30%;
+    background-color: #eee;
+}
+
+.contact-body {
+    width: 70%;
+}
+.bg-orange{
+  background-color: #ffa549;
+}
+/* formのcssここまで */
 
 /* footerここから */
 
