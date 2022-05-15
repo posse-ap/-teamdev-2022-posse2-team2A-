@@ -1,11 +1,21 @@
 <?php
 require("../dbconnect.php");
 
-$stmt = $db->query('SELECT * FROM agents');
-$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt_exist_email = $db->prepare('SELECT id FROM customers where email =:email');
+$stmt_exist_email->bindValue(":email", $_POST['email'], PDO::PARAM_STR);
+$stmt_exist_email->execute();
+$customer_exist_id = $stmt_exist_email->fetch();
+print_r($customer_exist_id);
+
 if (!empty($_POST)) {
-  $stmt = $db->prepare('INSERT INTO customers SET 
-    agent_id =?,
+
+
+  if (empty($customer_exist_id)) {
+    $stmt_customers_created_at = $db->prepare('SELECT id
+    FROM customers ORDER BY created_at DESC');
+    $stmt_customers_created_at->execute();
+    $customer_id = $stmt_customers_created_at->fetch();
+    $stmt_customers = $db->prepare('INSERT INTO customers SET 
     name =?,
     name_kana =?,
     sex =?,
@@ -19,26 +29,37 @@ if (!empty($_POST)) {
     major_subject =?,
     comments =?
     ');
-  $stmt->execute(array(
+    $stmt_customers->execute(array(
+      $_POST['name'],
+      $_POST['name_kana'],
+      $_POST['sex'],
+      $_POST['birth'],
+      $_POST['address'],
+      $_POST['email'],
+      $_POST['phone_number'],
+      $_POST['education'],
+      $_POST['major'],
+      $_POST['department'],
+      $_POST['major_subject'],
+      $_POST['comments']
+    ));
+  } else {
+    $customer_id = $customer_exist_id;
+  }
+
+  $stmt_agents = $db->prepare('INSERT INTO intermediate SET 
+    agent_id = ?,
+    customer_id =?
+    ');
+  $stmt_agents->execute(array(
     $_POST['agent_id'],
-    $_POST['name'],
-    $_POST['name_kana'],
-    $_POST['sex'],
-    $_POST['birth'],
-    $_POST['address'],
-    $_POST['email'],
-    $_POST['phone_number'],
-    $_POST['education'],
-    $_POST['major'],
-    $_POST['department'],
-    $_POST['major_subject'],
-    $_POST['comments']
+    $customer_id['id']
   ));
 }
 ?>
 
 <!DOCTYPE html>
-  <?php
+<?php
 $_TNX = '<span>一週間以内にご連絡しますので、しばらくお待ちください。</span>';
 $_TNX2 = 'なお、登録手続き完了のメールを登録していただいたアドレスあてに送信しましたので、そちらの内容もご確認ください。';
 $_ENGver = 'The confirmation e-mail has been sent to you. <br><span>We will contact you again in a week.</span> Thank you.';
@@ -82,19 +103,6 @@ $_BTP = '一覧に戻る';
       <a href="./top-page.php" class="btn"><span><?= $_BTP ?></span></a>
     </div>
   </main>
-  mb_language("Japanese");
-  mb_internal_encoding("UTF-8");
-  $to = "kamibayasitaito@keio.jp";
-  $title = $_POST['email'];
-  $content = "メール送信しましたご確認ください！";
-  $headers = ['From' => 'テスト<foo@example.jp>', 'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit'];
-  if (mb_send_mail($to, $title, $content, $headers)) {
-    echo "メールを送信しました";
-  } else {
-    echo "メールの送信に失敗しました";
-  };
-  ?>
-  <a href="./index.php">一覧に戻る</a>
 </body>
 
 </html>
