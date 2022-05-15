@@ -1,15 +1,15 @@
 <?php
+session_start();
+print_r($_SESSION['cart']);
 require("../dbconnect.php");
 
 $stmt_exist_email = $db->prepare('SELECT id FROM customers where email =:email');
 $stmt_exist_email->bindValue(":email", $_POST['email'], PDO::PARAM_STR);
 $stmt_exist_email->execute();
 $customer_exist_id = $stmt_exist_email->fetch();
-print_r($customer_exist_id);
-
+// postに物が入ってきたら
 if (!empty($_POST)) {
-
-
+  // emailが既に登録されているユーザーじゃなければ
   if (empty($customer_exist_id)) {
     $stmt_customers_created_at = $db->prepare('SELECT id
     FROM customers ORDER BY created_at DESC');

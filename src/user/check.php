@@ -1,6 +1,32 @@
-<!-- 内容確認 -->
+<?php
+session_start();
+array_push(
+    $_SESSION['cart'],
+    [
+        [
+            "name" => $_POST['name'],
+            "name_kana" => $_POST['name_kana'],
+            "sex" => $_POST['sex'],
+            "birth" => $_POST['birth'],
+            "address" => $_POST['address'],
+            "email" => $_POST['email'],
+            "phone_number" => $_POST['phone_number'],
+            "education" => $_POST['education'],
+            "major" => $_POST['major'],
+            "department" => $_POST['department'],
+            "major_subject" => $_POST['major_subject'],
+            "comments" => $_POST['comments']
+        ]
+    ]
+);
+
+
+print_r($_SESSION['cart']);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +35,6 @@
 </head>
 
 <body>
-    <?= $_POST['agent_id'] ?>
     <form action="./complete.php" method="post">
         <input type="hidden" name="agent_id" value="<?= $_POST['agent_id']; ?>">
         <input type="hidden" name="name" value="<?= $_POST['name']; ?>">
@@ -24,8 +49,9 @@
         <input type="hidden" name="department" value="<?= $_POST['department']; ?>">
         <input type="hidden" name="major_subject" value="<?= $_POST['major_subject']; ?>">
         <input type="hidden" name="comments" value="<?= $_POST['comments']; ?>">
-        <input type="submit" value="おせ！！ï￥">
+        <input type="submit" value="問い合わせる">
     </form>
-    こんにちは
+
 </body>
+
 </html>
