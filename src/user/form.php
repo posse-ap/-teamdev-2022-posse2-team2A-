@@ -26,11 +26,16 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
         <h1 class="title">CRAFT</h1>
         <h2 class="subtitle">就活生のための就活情報サイト</h2>
     </div>
+    <div class="flex justify-center">
+        <div class="progressbar">
+            <div class="item-last active">登録</div>
+            <div class="item">確認</div>
+            <div class="item">お問い合わせ完了</div>
+        </div>
+    </div>
     <div class="form-section w-2/7">
         <div class="flex justify-around w-full">
             <h1 class="font-bold text-2xl">応募フォーム</h1>
-            <!-- プログレスバーここから -->
-            <!-- プログレスバーここまで -->
         </div>
         <p><span style="color:red">*</span>は必須項目です。</p>
         <form action="/user/form.php?1" method="POST" class="m-2 p-2">
@@ -39,23 +44,23 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <tr>
                     <th class="contact-item">姓名<span style="color:red">*</span><br>Name(Kanji)</th>
                     <td class="contact-body">
-                        姓：<input class="m-2 border-solid border-2" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="first_name" placeholder="山田" required>
-                        名：<input class="m-2 border-solid border-2"  pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="last_name" placeholder="太郎" required>
+                        姓：<input class="m-2 rounded border-solid border-2" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="first_name" placeholder="山田" required>
+                        名：<input class="m-2 rounded border-solid border-2"  pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="last_name" placeholder="太郎" required>
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">フリガナ<span style="color:red">*</span><br>Name(Kana)</th>
                     <td class="contact-body">
-                        セイ：<input class="border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="first_name_kana" placeholder="ヤマダ" required>
-                        カナ：<input class="border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="last_name_kana" placeholder="タロウ" required>
+                        セイ：<input class="m-2 rounded border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="first_name_kana" placeholder="ヤマダ" required>
+                        カナ：<input class="m-2 rounded border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="last_name_kana" placeholder="タロウ" required>
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">生年月日<span style="color:red">*</span><br>Date of Birth</th>
                     <td class="contact-body">
-                        <input class="border-solid border-2" type="text" name="birth" list="birth_year" placeholder="選択" size="8" required>年　
-                        <input class="border-solid border-2" type="text" name="birth" list="birth_month" placeholder="選択" size="8" required>月　
-                        <input class="border-solid border-2" type="text" name="birth" list="birth_day" placeholder="選択" size="8" required>日
+                        <input class=" rounded border-solid border-2" type="text" name="birth" list="birth_year" placeholder="選択" size="8" required>年　
+                        <input class=" rounded border-solid border-2" type="text" name="birth" list="birth_month" placeholder="選択" size="8" required>月　
+                        <input class=" rounded border-solid border-2" type="text" name="birth" list="birth_day" placeholder="選択" size="8" required>日
                         <datalist id="birth_year">
                             <option value="2000"></option>
                             <option value="2001"></option>
@@ -122,43 +127,43 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <tr>
                     <th class="contact-item">メールアドレス<span style="color:red">*</span><br>E-mail</th>
                     <td class="contact-body">
-                        <input class="border-solid border-2 m-2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" placeholder="△△△△△@ooo.xx" required><br>
-                        確認用：<input class="border-solid border-2 m-2" type="text" name="email-check" placeholder="△△△△△@ooo.xx" required>
+                        <input class=" rounded border-solid border-2 m-2"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" placeholder="△△△△△@ooo.xx" required><br>
+                        確認用：<input class=" rounded border-solid border-2 m-2" type="text" name="email-check" placeholder="△△△△△@ooo.xx" required>
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">住所<span style="color:red">*</span><br>Address</th>
                     <td class="contact-body">
-                        郵便番号<span style="color:red">*</span>：〒<input class="m-2 border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address" placeholder="000-0000" required><br>
-                        都道府県<span style="color:red">*</span>：<input class="m-2 border-solid border-2" type="text" name="address" placeholder="東京都" required><br>
-                        市区町村<span style="color:red">*</span>・町名・丁目：<input class="m-2 border-solid border-2" type="text" name="address" placeholder="港区南青山3丁目" required><br>
-                        番地・号<span style="color:red">*</span>：<input class="m-2 border-solid border-2" type="text" name="address" placeholder="15-9" required><br>
-                        建物名等：<input class="m-2 border-solid border-2" type="text" name="address" placeholder="MINOWA表参道 3階">
+                        郵便番号<span style="color:red">*</span>：〒<input class="m-2 rounded border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address" placeholder="000-0000" required><br>
+                        都道府県<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="東京都" required><br>
+                        市区町村<span style="color:red">*</span>・町名・丁目：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="港区南青山3丁目" required><br>
+                        番地・号<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="15-9" required><br>
+                        建物名等：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="MINOWA表参道 3階">
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">電話番号<span style="color:red">*</span><br>Phone</th>
-                    <td class="contact-body"><input class="border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required></td>
+                    <td class="contact-body"><input class=" rounded border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required></td>
                 </tr>
                 <tr>
                     <th class="contact-item">最終学歴<span style="color:red">*</span><br>Education</th>
-                    <td class="contact-body"><input class="border-solid border-2" type="text" name="education" required>　大学</td>
+                    <td class="contact-body"><input class=" rounded border-solid border-2" type="text" name="education" required>　大学</td>
                 </tr>
                 <tr>
                     <th class="contact-item">専攻<span style="color:red">*</span><br>Major</th>
                     <td class="contact-body">
                         <input type="radio" name="major" value="文系">文系　
                         <input type="radio" name="major" value="理系">理系
-                        <p> 学部：<input class="m-2 border-solid border-2" type="text" name="department" required></p>
-                        <p> 学科：<input class="m-2 border-solid border-2" type="text" name="major_subject" required></p>
+                        <p> 学部：<input class="m-2 rounded border-solid border-2" type="text" name="department" required></p>
+                        <p> 学科：<input class="m-2 rounded border-solid border-2" type="text" name="major_subject" required></p>
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">卒業(見込)年月<span style="color:red">*</span><br>Graduation</th>
                     <td class="contact-body">
-                        <input class="border-solid border-2 p-1" type="text" name="year" list="year" size="8" placeholder="選択" required>年
+                        <input class=" rounded border-solid border-2 p-1" type="text" name="year" list="year" size="8" placeholder="選択" required>年
                         <span class="m-1">3月</span>
-                        <input class="border-solid border-2 p-1" type="text" name="status" list="status" size="10" placeholder="選択" required>
+                        <input class=" rounded border-solid border-2 p-1" type="text" name="status" list="status" size="10" placeholder="選択" required>
                     </td>
                     <datalist id="year">
                         <option value="2023"></option>
@@ -173,7 +178,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <tr>
                     <th class="contact-item">自由記入欄<br>Comments</th>
                     <td class="contact-body">
-                        <textarea class="border-solid border-2" type="text" name="comments" col="30" rows="5"></textarea>
+                        <textarea class=" rounded border-solid border-2" type="text" name="comments" col="30" rows="5"></textarea>
                     </td>
                 </tr>
             </table>
