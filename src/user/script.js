@@ -1,3 +1,9 @@
+// headerのハンバーガーメニューの動きここから
+$(".openbtn1").click(function () {
+  $(this).toggleClass('active');
+});
+// headerのハンバーガーメニューの動きここまで
+
 // 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここから
 
 var beforePos = 0;//スクロールの値の比較用の設定
