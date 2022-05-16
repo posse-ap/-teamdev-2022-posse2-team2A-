@@ -34,7 +34,7 @@ header .menu .menu-item {
 }
 
 /* headerここまで */
-/* 波線引く場所 */
+/* top-page波線引く場所 */
 .linetext span{
   color: #ff0000;
   background: linear-gradient(transparent 50%, #FFFE84 0%);
@@ -105,13 +105,16 @@ header .menu .menu-item {
 }
 
 @media screen and (max-width: 767px) {
-.progressbar .item {
+.progressbar .item,
+.progressbar .item-last {
     font-size: 12px;
     line-height: 1.4;
     padding: 8px 0;
 }
 .progressbar .item:not(:last-child)::before,
-.progressbar .item:not(:last-child)::after {
+.progressbar .item:not(:last-child)::after, 
+.progressbar .item-last::before,
+.progressbar .item-last::after{
     border-width: 25px;
     border-left-width: 12px;
 }
@@ -308,7 +311,6 @@ a.btn{
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   text-align: center;
-  vertical-align: middle;
   text-decoration: none;
   letter-spacing: 0.1em;
   color: #212529;
@@ -334,12 +336,17 @@ a.btn:hover {
 .form-section{
   margin: 16px 15%;
 }
-
+@media screen and (max-width: 640px) {/* tailwindのブレイクポイントが640pxのため */
+  .form-section{
+    margin: 16px 5%;
+  }
+}
 .contact-item,
 .contact-body {
-    padding: 20px;
+    padding: 10px 0px 10px 10px;
     border: 1px solid #ccc;
 }
+
 
 .contact-item {
     text-align: left;
