@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 $agent_id = $_POST['agent_id'];
 
 
