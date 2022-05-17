@@ -2,7 +2,7 @@
         <div class="icon">
             <img src="./_header phpに入れてる.png" alt="">
         </div>
-        <ul class="menu">
+        <ul class="menu hidden sm:flex">
             <li class="menu-item p-1 lg:p-2">就活サイト</li>
             <li class="menu-item p-1 lg:p-2">就活支援サービス</li>
             <li class="menu-item p-1 lg:p-2">自己分析診断ツール</li>
