@@ -87,16 +87,15 @@ $_BTP = '一覧に戻る';
       <a href="./top-page.php" class="btn"><span><?= $_BTP ?></span></a>
     </div>
   </main>
-  <?php mb_language("Japanese");
+  <?php
+  mb_language("Japanese");
   mb_internal_encoding("UTF-8");
   $to = "kamibayasitaito@keio.jp";
   $title = $_POST['email'];
   $content = "メール送信しましたご確認ください！";
   $headers = ['From' => 'テスト<foo@example.jp>', 'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit'];
   if (mb_send_mail($to, $title, $content, $headers)) {
-    echo "メールを送信しました";
   } else {
-    echo "メールの送信に失敗しました";
   };
   ?>
   <a href="./index.php">一覧に戻る</a>
