@@ -39,6 +39,13 @@ $_ENGver = '<span>The confirmation e-mail has been sent to you.</span><br>We wil
       <p class="mx-20 line-relaxed text-sm sm:text-base linetext"><?= $_TNX2; ?></p>
       <p class="mx-20 line-relaxed py-4 text-sm sm:text-base linetext"><?= $_ENGver; ?></p>
     </div>
+    <!-- footer -->
+    <?php
+    require(dirname(__FILE__) . "/components/_footer.php");
+    ?>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
   </main>
 </body>
 </html>

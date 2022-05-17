@@ -1,10 +1,12 @@
 /* headerここから */
-
 header {
   background-color: #05a59a;
   width: 100%;
   height: 120px;
   padding: 8px;
+}
+.boozer-login-icon{
+  height: 60px;
 }
 header .icon {
   width: 100%;
@@ -381,3 +383,19 @@ a.btn:hover {
   border-left: 20px solid #F5F5F5;
   }
 }
+/* boozerログイン画面のログインボタンのデザイン */
+form input[type = "email"]{
+  width: 300px;
+  height: 40px;
+}
+form input[type = "password"]{
+  width: 300px;
+  height: 40px;
+}
+
+form input[type = "submit"]{
+  background-color: #E16E2D;
+  color: #F5F5F5;
+  padding: 10px 60px;
+}
+/* ログインボタンここまで */
