@@ -399,3 +399,41 @@ form input[type = "submit"]{
   padding: 10px 60px;
 }
 /* ログインボタンここまで */
+
+/* タブ切り替えなどここから */
+.tab-panel{
+  width: 80%;
+  margin: 0 auto;
+}
+.tab-group{
+  display: flex;
+  justify-content: center;
+}
+.tab{
+  flex-grow: 1;
+  height: 60px;
+  list-style:none;
+  border:solid 1px #CCC;
+  line-height: 60px;
+  text-align:center;
+  cursor:pointer;
+}
+.panel-group{
+  margin: 0 auto;
+  width: 99.8%;
+  height:300px;
+  border:solid 1px #CCC;
+  background:rgb(255, 255, 255);
+}
+.panel{
+  display:none;
+}
+.tab.is-active{
+  background: linear-gradient(to top,white 80%,#04A49C 10%);
+  color:rgb(0, 0, 0);
+  transition: all 0.2s ease-out;
+}
+.panel.is-show{
+  display:block;
+}
+/* タブの切り替えここまで */
