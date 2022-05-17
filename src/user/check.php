@@ -6,7 +6,8 @@ $agent_id = $_POST['agent_id'];
 
 if ($_SESSION['cart'] == NULL) {
     echo "配列がnull";
-    $_SESSION['cart'] = [$agent_id => [
+    $_SESSION['cart'] = [[
+        "agent_id" => $_POST['agent_id'],
         "name" => $_POST['name'],
         "name_kana" => $_POST['name_kana'],
         "sex" => $_POST['sex'],
@@ -23,21 +24,23 @@ if ($_SESSION['cart'] == NULL) {
 } else {
     $_SESSION['cart'] =
         $_SESSION['cart'] +
-        [$agent_id =>
         [
-            "name" => $_POST['name'],
-            "name_kana" => $_POST['name_kana'],
-            "sex" => $_POST['sex'],
-            "birth" => $_POST['birth'],
-            "address" => $_POST['address'],
-            "email" => $_POST['email'],
-            "phone_number" => $_POST['phone_number'],
-            "education" => $_POST['education'],
-            "major" => $_POST['major'],
-            "department" => $_POST['department'],
-            "major_subject" => $_POST['major_subject'],
-            "comments" => $_POST['comments']
-        ]];
+            [
+                "agent_id" => $_POST['agent_id'],
+                "name" => $_POST['name'],
+                "name_kana" => $_POST['name_kana'],
+                "sex" => $_POST['sex'],
+                "birth" => $_POST['birth'],
+                "address" => $_POST['address'],
+                "email" => $_POST['email'],
+                "phone_number" => $_POST['phone_number'],
+                "education" => $_POST['education'],
+                "major" => $_POST['major'],
+                "department" => $_POST['department'],
+                "major_subject" => $_POST['major_subject'],
+                "comments" => $_POST['comments']
+            ]
+        ];
 }
 
 

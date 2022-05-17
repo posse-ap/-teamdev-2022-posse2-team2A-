@@ -1,6 +1,7 @@
-<!-- フォーム -->
 <?php
+session_start();
 $data = explode(",", $_SERVER['QUERY_STRING']);
+error_reporting(0);
 
 
 ?>
@@ -35,26 +36,86 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
             </div>
             <form action="./check.php" method="POST">
                 <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id">
-                <p> 氏名：<input type="text" name="name" required></p>
-                <p> ふりがな：<input type="text" name="name_kana" required></p>
+                <p> 氏名：<input required type="text" name="name" value=<?php
+                                                                        if ($_SESSION['cart']) {
+                                                                            echo $_SESSION['cart'][0]['name'];
+                                                                        } else {
+                                                                            echo "";
+                                                                        } ?>></p>
+                <p> ふりがな：<input type="text" name="name_kana" required value=<?php
+                                                                            if ($_SESSION['cart']) {
+                                                                                echo $_SESSION['cart'][0]['name_kana'];
+                                                                            } else {
+                                                                                echo "";
+                                                                            } ?>></p>
                 <p>
                     性別
-                    <input type="radio" name="sex" value="男">男
-                    <input type="radio" name="sex" value="女">女
-                    <input type="radio" name="sex" value="その他">無回答
+                    <input type="radio" name="sex" value="男" required <?php
+                                                                        if ($_SESSION['cart'][0]['sex'] == "男") {
+                                                                            echo 'checked';
+                                                                        } ?>>男
+                    <input type="radio" name="sex" value="女" <?php
+                                                                if ($_SESSION['cart'][0]['sex'] == "女") {
+                                                                    echo 'checked';
+                                                                } ?>>女
+                    <input type="radio" name="sex" value="無回答" <?php
+                                                                if ($_SESSION['cart'][0]['sex'] == "無回答") {
+                                                                    echo 'checked';
+                                                                } ?>>無回答
                 </p>
-                <p> 生年月日：<input type="text" name="birth" required></p>
-                <p> 住所：<input type="text" name="address" required></p>
-                <p> メールアドレス：<input type="text" name="email" required></p>
-                <p> 電話番号：<input type="text" name="phone_number" required></p>
-                <p> 最終学歴：<input type="text" name="education" required></p>
+                <p> 生年月日：<input type="text" name="birth" required value=<?php
+                                                                        if ($_SESSION['cart']) {
+                                                                            echo $_SESSION['cart'][0]['birth'];
+                                                                        } else {
+                                                                            echo "";
+                                                                        } ?>></p>
+                <p> 住所：<input type="text" name="address" required value=<?php
+                                                                        if ($_SESSION['cart']) {
+                                                                            echo $_SESSION['cart'][0]['address'];
+                                                                        } else {
+                                                                            echo "";
+                                                                        } ?>></p>
+                <p> メールアドレス：<input type="text" name="email" required value=<?php
+                                                                            if ($_SESSION['cart']) {
+                                                                                echo $_SESSION['cart'][0]['email'];
+                                                                            } else {
+                                                                                echo "";
+                                                                            } ?>></p>
+                <p> 電話番号：<input type="text" name="phone_number" required value=<?php
+                                                                                if ($_SESSION['cart']) {
+                                                                                    echo $_SESSION['cart'][0]['phone_number'];
+                                                                                } else {
+                                                                                    echo "";
+                                                                                } ?>></p>
+                <p> 最終学歴：<input type="text" name="education" required value=<?php
+                                                                            if ($_SESSION['cart']) {
+                                                                                echo $_SESSION['cart'][0]['education'];
+                                                                            } else {
+                                                                                echo "";
+                                                                            } ?>></p>
                 <p>
-                    <input type="radio" name="major" value="文系">文系
-                    <input type="radio" name="major" value="理系">理系
+                    <input type="radio" name="major" value="文系" required <?php
+                                                                            if ($_SESSION['cart'][0]['major'] == "文系") {
+                                                                                echo 'checked';
+                                                                            } ?>>文系
+                    <input type="radio" name="major" value="理系" <?php
+                                                                if ($_SESSION['cart'][0]['major'] == "理系") {
+                                                                    echo 'checked';
+                                                                } ?>>理系
                 </p>
-                <p> 学部：<input type="text" name="department" required></p>
-                <p> 学科：<input type="text" name="major_subject" required></p>
-                <p> 自由記入欄：<input type="text" name="comments" required></p>
+                <p> 学部：<input type="text" name="department" required value=<?php
+                                                                            if ($_SESSION['cart']) {
+                                                                                echo $_SESSION['cart'][0]['department'];
+                                                                            } else {
+                                                                                echo "";
+                                                                            } ?>></p>
+                <p> 学科：<input type="text" name="major_subject" required value=<?php
+                                                                                if ($_SESSION['cart']) {
+                                                                                    echo $_SESSION['cart'][0]['major_subject'];
+                                                                                } else {
+                                                                                    echo "";
+                                                                                } ?>></p>
+                <p> 自由記入欄：<input type="text" name="comments"></p>
 
                 <!-- 企業に送るメール -->
                 <input type="hidden" name="mail-title" value="新規申込の方がいらっしゃいます">
