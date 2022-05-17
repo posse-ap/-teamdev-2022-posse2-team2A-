@@ -19,6 +19,9 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../user/style.css">
+    <link rel="stylesheet" href="../user/reset.css">
+    <script src="../user/script.js"></script>
     <title>応募者一覧</title>
 </head>
 
@@ -43,6 +46,38 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </ul>
     <a href="logout.php">ログアウト</a>
+    <div class="tab-panel">
+	<!--タブ-->
+	<ul class="tab-group">
+		<li class="tab tab-A is-active">応募者一覧</li>
+		<li class="tab tab-B">今月の支払い予定額</li>
+		<li class="tab tab-C">担当者情報</li>
+	</ul>
+	
+	<!--タブを切り替えて表示するコンテンツ-->
+    <div class="panel-group">
+		<div class="panel tab-A is-show">
+      <table>
+        <tr>
+          <th>対応ステータス</th>
+          <th>氏名</th>
+          <th>氏名カナ</th>
+          <th>生年月日</th>
+          <th>性別</th>
+          <th>メールアドレス</th>
+          <th>電話番号</th>
+          <th>住所</th>
+          <th>学校、学部学科</th>
+          <th>卒業年度</th>
+          <th>質問等</th>
+          <th>非対応の理由</th>
+        </tr>
+      </table>
+    </div>
+		<div class="panel tab-B">Content-B</div>
+		<div class="panel tab-C">Content-C</div>
+	</div>
+</div>
 </body>
 
 </html>

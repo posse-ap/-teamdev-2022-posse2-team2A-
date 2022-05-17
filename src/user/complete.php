@@ -1,3 +1,4 @@
+<!-- 送信完了ページ -->
 <?php
 require("../dbconnect.php");
 
@@ -38,7 +39,9 @@ if (!empty($_POST)) {
 ?>
 
 <!DOCTYPE html>
-  <?php
+<?php
+$_REGJP = 'お問い合わせが完了しました。';
+$_REG = 'Registration completed.';
 $_TNX = '<span>一週間以内にご連絡しますので、しばらくお待ちください。</span>';
 $_TNX2 = 'なお、登録手続き完了のメールを登録していただいたアドレスあてに送信しましたので、そちらの内容もご確認ください。';
 $_ENGver = 'The confirmation e-mail has been sent to you. <br><span>We will contact you again in a week.</span> Thank you.';
@@ -49,7 +52,8 @@ $_BTP = '一覧に戻る';
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./reset.css">
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
@@ -65,7 +69,7 @@ $_BTP = '一覧に戻る';
       <h1 class="title">CRAFT</h1>
       <h2 class="subtitle">就活生のための就活情報サイト</h2>
     </div>
-    <div class="flex justify-center">
+    <div class="flex justify-center mr-2">
       <div class="progressbar">
         <div class="item">登録</div>
         <div class="item">確認</div>
@@ -73,15 +77,17 @@ $_BTP = '一覧に戻る';
       </div>
     </div>
     <div class="text-center">
-      <h1 class="text-3xl font-bold mb-8 ">お問い合わせが完了しました！！</h1>
-      <p class="mx-20 line-relaxed mb-1 linetext"><?= $_TNX; ?></p>
-      <p class="mx-20 line-relaxed "><?= $_TNX2; ?></p>
-      <p class="mx-20 line-relaxed py-4 linetext"><?= $_ENGver; ?></p>
+      <h1 class="text-2xl font-bold sm:text-3xl"><?= $_REGJP ?></h1>
+      <h2 class="text-base font-bold mb-7"><?= $_REG ?></h2>
+      <p class="mx-20 line-relaxed mb-1 text-sm linetext sm:text-base"><?= $_TNX; ?></p>
+      <p class="mx-20 line-relaxed text-sm sm:text-base"><?= $_TNX2; ?></p>
+      <p class="mx-20 line-relaxed py-4 text-sm sm:text-base linetext"><?= $_ENGver; ?></p>
     </div>
     <div class="w-50% h-10 align-center">
       <a href="./top-page.php" class="btn"><span><?= $_BTP ?></span></a>
     </div>
   </main>
+  <?php
   mb_language("Japanese");
   mb_internal_encoding("UTF-8");
   $to = "kamibayasitaito@keio.jp";
@@ -89,12 +95,17 @@ $_BTP = '一覧に戻る';
   $content = "メール送信しましたご確認ください！";
   $headers = ['From' => 'テスト<foo@example.jp>', 'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit'];
   if (mb_send_mail($to, $title, $content, $headers)) {
-    echo "メールを送信しました";
   } else {
-    echo "メールの送信に失敗しました";
   };
   ?>
   <a href="./index.php">一覧に戻る</a>
+    <!-- footer -->
+    <?php
+    require(dirname(__FILE__) . "/components/_footer.php");
+    ?>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
