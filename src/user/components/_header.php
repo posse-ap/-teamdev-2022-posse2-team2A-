@@ -1,4 +1,4 @@
-<header>
+<header class="h-25 sm:h-30">
         <div class="icon">
             <img src="./_header phpに入れてる.png" alt="">
         </div>

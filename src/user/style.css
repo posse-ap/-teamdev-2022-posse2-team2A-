@@ -3,7 +3,6 @@
 header {
   background-color: #05a59a;
   width: 100%;
-  height: 120px;
   padding: 8px;
 }
 header .icon {
@@ -40,7 +39,7 @@ header .menu .menu-item {
   top:0;
   width:100%;
   height: 100vh;/*ナビの高さ*/
-  background:#05a59a;
+  background:#04cec1;
   /*動き*/
   transition: all 0.6s;
 }
