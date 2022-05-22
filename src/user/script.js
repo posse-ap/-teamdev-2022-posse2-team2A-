@@ -34,6 +34,27 @@ function ScrollAnime() {
     beforePos = scroll;//現在のスクロール値を比較用のbeforePosに格納
 }
 
+// タブの動きここから
+document.addEventListener('DOMContentLoaded', function(){
+  // タブに対してクリックイベントを適用
+  const tabs = document.getElementsByClassName('tab');
+  for(let i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', tabSwitch, false);
+  }
+
+  // タブをクリックすると実行する関数
+  function tabSwitch(){
+    // タブのclassの値を変更
+    document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+    this.classList.add('is-active');
+    // コンテンツのclassの値を変更
+    document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+    const arrayTabs = Array.prototype.slice.call(tabs);
+    const index = arrayTabs.indexOf(this);
+    document.getElementsByClassName('panel')[index].classList.add('is-show');
+  };
+}, false);
+// タブの動きここまで
 
 // 画面をスクロールをしたら動かしたい場合の記述
 $(window).scroll(function () {
@@ -42,3 +63,28 @@ $(window).scroll(function () {
 
 
 // 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここまで
+
+
+//form関連ここから
+// 「確認する」ボタンを押したらformの入力値を保存するここから
+
+
+// formの入力値を保存するここまで
+
+// メールアドレスが確認用と違っていたらエラーを吐くここから
+function CheckEmail(input){
+  var mail = document.getElementById("email").value; //メールフォームの値を取得
+  var mailConfirm = input.value; //メール確認用フォームの値を取得(引数input)
+  // パスワードの一致確認
+  if(mail != mailConfirm){
+    input.setCustomValidity('メールアドレスが一致しません'); // エラーメッセージのセット
+  }else{
+    input.setCustomValidity(''); // エラーメッセージのクリア
+  }
+  input.reportValidity();
+}
+
+// メールアドレスが確認用と違っていたらエラーを吐くここまで
+
+
+//form関連ここまで
