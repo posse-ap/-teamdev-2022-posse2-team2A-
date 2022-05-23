@@ -477,6 +477,13 @@ a.btn:hover {
   /*メインの文字の色*/
   color: #00a69a;
 }
+.a_link,
+.a_link:visited {
+  color: #00f;
+}
+.a_link:hover {
+  color: #f03;
+}
 
 .footer-list-item::before {
   content: '';

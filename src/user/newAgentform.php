@@ -99,7 +99,8 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                     </td>
                 </tr>
             </table>
-            <p class="w-full text-center"><a class="blue-" href="">エージェント利用規約</a>並びに<a href="">プライバシーポリシー</a>に</p>
+            <!-- 利用規約とプライバシーポリシーの遷移先は未作成 -->
+            <p class="w-full text-center"><a class="a_link" href="">エージェント利用規約</a>並びに<a class="a_link" href="">プライバシーポリシー</a>に</p>
             <div class="flex justify-center w-full mt-10">
                 <input class="bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="同意して申し込む">
             </div>
@@ -114,5 +115,4 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </body>
-
 </html>
