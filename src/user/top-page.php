@@ -17,6 +17,11 @@
     <?php
     require(dirname(__FILE__) . "/components/_header.php");
     ?>
+    <!-- navigation -->
+    <?php
+    require(dirname(__FILE__) . "/components/_nav.php");
+    ?>
+    
 
 <!-- mainここから -->
 <main>
