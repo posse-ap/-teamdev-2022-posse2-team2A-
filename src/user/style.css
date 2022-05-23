@@ -448,9 +448,18 @@ table {
 }
 .scroll{
   white-space: nowrap; /* 勝手に折り返さない */
-  overflow-x: auto; /* 横スクロール */
+  overflow: scroll;
   -webkit-overflow-scrolling: touch; /* スマホでスムーズにスクロールできるように */
+    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+    -ms-overflow-style: none;
+    /*Firefoxへの対応*/
+    scrollbar-width: none;
 }
+/* Safari,Chromeでのスクロールバーの非表示 */
+.scroll::-webkit-scrollbar{
+  display: none;
+}
+
 th, td {
   border: solid 1px #333; /* 線の種類 太さ 色 */
   padding: 5px 15px;
@@ -461,6 +470,15 @@ th, td {
   text-align: center;
 }
 .mint{
-  background-color: #EAF8F1;
+  background-color: #c5ffe2;
   text-align: center;
+}
+/* 表のcssここまで */
+
+/* 応募者詳細情報ここから */
+.memberDetail{
+  display: none;
+}
+.memberDetail.is-show{
+  display: block;
 }
