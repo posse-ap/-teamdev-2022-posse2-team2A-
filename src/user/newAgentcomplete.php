@@ -27,7 +27,7 @@ $_ENGver = '<span>The confirmation e-mail has been sent to you.</span><br>We wil
     </div>
     <div class="flex justify-center mr-3">
       <div class="progressbar">
-        <div class="item">会員登録情報入力</div>
+        <div class="item">登録情報入力</div>
         <div class="item">入力内容確認</div>
         <div class="item-last active">登録完了</div>
       </div>
