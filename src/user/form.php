@@ -21,6 +21,10 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
     <?php
     require(dirname(__FILE__) . "/components/_header.php");
     ?>
+    <!-- navigation -->
+    <?php
+    require(dirname(__FILE__) . "/components/_nav.php");
+    ?>
     <main>
     <div class="title-wrapper">
         <h1 class="title">CRAFT</h1>
@@ -119,8 +123,8 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <tr>
                     <th class="contact-item">性別<span style="color:red">*</span><br>sex</th>
                     <td class="contact-body">
-                        <input type="radio" name="sex" value="男" required>男
-                        <input type="radio" name="sex" value="女" required>女
+                        <input type="radio" name="sex" value="男" required>男性
+                        <input type="radio" name="sex" value="女" required>女性
                         <input type="radio" name="sex" value="その他" required>無回答
                     </td>
                 </tr>
@@ -136,7 +140,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                     <td class="contact-body">
                         <span class="inline-block">郵便番号<span style="color:red">*</span>：〒<input class="m-2 rounded border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address_postal" placeholder="000-0000" required></span>
                         <span class="inline-block">都道府県<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_prefecture" placeholder="東京都" required></span>
-                        <span class="inline-block">市区町村<span style="color:red">*</span>・町名・丁目：<input class="m-2 rounded border-solid border-2" type="text" name="address_municipalities" placeholder="港区南青山3丁目" required></span>
+                        <span class="inline-block">市区町村・町名・丁目<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_municipalities" placeholder="港区南青山3丁目" required></span>
                         <span class="inline-block">番地・号<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_number" placeholder="15-9" required></span>
                         <span class="inline-block">建物名等：<input class="m-2 rounded border-solid border-2" type="text" name="address_building" placeholder="MINOWA表参道 3階"></span>
                     </td>
@@ -178,7 +182,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <tr>
                     <th class="contact-item">自由記入欄<br>Comments</th>
                     <td class="contact-body">
-                        <textarea class=" rounded border-solid border-2" type="text" name="comments" col="30" rows="5"></textarea>
+                        <textarea class=" rounded border-solid border-2" type="text" name="comments" col="50" rows="5"></textarea>
                     </td>
                 </tr>
             </table>
