@@ -3,6 +3,15 @@ session_start();
 error_reporting(0);
 $agent_id = $_POST['agent_id'];
 
+foreach ($_SESSION['cart'] as $cart) {
+    if ($cart['agent_id'] == $_POST['agent_id']) {
+        $agent_is = false;
+        break;
+    } else {
+        $agent_is = true;
+    }
+}
+
 
 if ($_SESSION['cart'] == NULL) {
     echo "配列がnull";
@@ -21,32 +30,31 @@ if ($_SESSION['cart'] == NULL) {
         "major_subject" => $_POST['major_subject'],
         "comments" => $_POST['comments']
     ]];
-} else {
+} else if ($agent_is) {
     $_SESSION['cart'] =
-        $_SESSION['cart'] +
-        [
+        array_merge(
+            $_SESSION['cart'],
             [
-                "agent_id" => $_POST['agent_id'],
-                "name" => $_POST['name'],
-                "name_kana" => $_POST['name_kana'],
-                "sex" => $_POST['sex'],
-                "birth" => $_POST['birth'],
-                "address" => $_POST['address'],
-                "email" => $_POST['email'],
-                "phone_number" => $_POST['phone_number'],
-                "education" => $_POST['education'],
-                "major" => $_POST['major'],
-                "department" => $_POST['department'],
-                "major_subject" => $_POST['major_subject'],
-                "comments" => $_POST['comments']
+                [
+                    "agent_id" => $_POST['agent_id'],
+                    "name" => $_POST['name'],
+                    "name_kana" => $_POST['name_kana'],
+                    "sex" => $_POST['sex'],
+                    "birth" => $_POST['birth'],
+                    "address" => $_POST['address'],
+                    "email" => $_POST['email'],
+                    "phone_number" => $_POST['phone_number'],
+                    "education" => $_POST['education'],
+                    "major" => $_POST['major'],
+                    "department" => $_POST['department'],
+                    "major_subject" => $_POST['major_subject'],
+                    "comments" => $_POST['comments']
+                ]
             ]
-        ];
+        );
 }
 
-
-
-print_r($_SESSION['cart']);
-
+print_r($_SESSION['cart'])
 ?>
 <!DOCTYPE html>
 <html lang="en">

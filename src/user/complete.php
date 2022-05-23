@@ -1,20 +1,24 @@
 <?php
 session_start();
+error_reporting(0);
 print_r($_SESSION['cart']);
 require("../dbconnect.php");
-
+// データベース上のemailをとってくる
 $stmt_exist_email = $db->prepare('SELECT id FROM customers where email =:email');
 $stmt_exist_email->bindValue(":email", $_POST['email'], PDO::PARAM_STR);
 $stmt_exist_email->execute();
 $customer_exist_id = $stmt_exist_email->fetch();
+
+
 // postに物が入ってきたら
 if (!empty($_POST)) {
   // emailが既に登録されているユーザーじゃなければ
   if (empty($customer_exist_id)) {
     $stmt_customers_created_at = $db->prepare('SELECT id
-    FROM customers ORDER BY created_at DESC');
+    FROM customers ORDER BY id DESC LIMIT 1');
     $stmt_customers_created_at->execute();
     $customer_id = $stmt_customers_created_at->fetch();
+    $customer_id = $customer_id['id'] + 1;
     $stmt_customers = $db->prepare('INSERT INTO customers SET 
     name =?,
     name_kana =?,
@@ -46,15 +50,24 @@ if (!empty($_POST)) {
   } else {
     $customer_id = $customer_exist_id;
   }
+  print_r($customer_id);
+  $stmt_exist_intermediate = $db->prepare('SELECT * FROM intermediate where agent_id =:agent_id and customer_id = :customer_id');
+  $stmt_exist_intermediate->bindValue(":agent_id", $_POST['agent_id'], PDO::PARAM_STR);
+  $stmt_exist_intermediate->bindValue(":customer_id", $customer_id['id'], PDO::PARAM_STR);
+  $stmt_exist_intermediate->execute();
+  $exist_intermediate_id = $stmt_exist_intermediate->fetch();
+  print_r($exist_intermediate_id['customer_id']);
 
-  $stmt_agents = $db->prepare('INSERT INTO intermediate SET 
+  if (empty($exist_intermediate_id)) {
+    $stmt_agents = $db->prepare('INSERT INTO intermediate SET 
     agent_id = ?,
     customer_id =?
     ');
-  $stmt_agents->execute(array(
-    $_POST['agent_id'],
-    $customer_id['id']
-  ));
+    $stmt_agents->execute(array(
+      $_POST['agent_id'],
+      $customer_id['id']
+    ));
+  };
 }
 ?>
 
