@@ -15,6 +15,10 @@
     <?php
     require(dirname(__FILE__) . "/components/_header.php");
     ?>
+    <!-- navigation -->
+    <?php
+    require(dirname(__FILE__) . "/components/_nav.php");
+    ?>
     <main>
     <div class="title-wrapper">
         <h1 class="title">CRAFT</h1>
