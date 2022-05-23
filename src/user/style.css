@@ -528,7 +528,7 @@ a.btn:hover {
   border-left: 20px solid #F5F5F5;
   }
 }
-/* boozerログイン画面のログインボタンのデザイン */
+/* boozer,エージェントログイン画面のログインボタンのデザインここから */
 form input[type = "email"]{
   width: 300px;
   height: 40px;
@@ -543,7 +543,13 @@ form input[type = "submit"]{
   color: #F5F5F5;
   padding: 10px 60px;
 }
-/* ログインボタンここまで */
+
+.newAgent_input_button{
+  color: #E16E2D;
+  padding: 10px 60px;
+  border: 2px solid #E16E2D;
+}
+/* boozer,エージェントログイン画面のログインボタンのデザインここまで */
 
 /* タブ切り替えなどここから */
 .tab-panel{

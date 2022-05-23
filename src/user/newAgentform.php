@@ -54,11 +54,11 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <tr>
                     <th class="contact-item">住所<span style="color:red">*</span><br>Address</th>
                     <td class="contact-body">
-                        <span class="inline-block">郵便番号<span style="color:red">*</span>：〒<input class="m-2 rounded border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address" placeholder="000-0000" required></span>
-                        <span class="inline-block">都道府県<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="東京都" required></span>
-                        <span class="inline-block">市区町村<span style="color:red">*</span>・町名・丁目：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="港区南青山3丁目" required></span>
-                        <span class="inline-block">番地・号<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="15-9" required></span>
-                        <span class="inline-block">建物名等：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="MINOWA表参道 3階"></span>
+                        <span class="inline-block">郵便番号<span style="color:red">*</span>：〒<input class="m-2 rounded border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address_postal" placeholder="000-0000" required></span><p class="text-xs text-gray-500">＊海外の方は000-0000と入力してください。</p>
+                        <span class="inline-block">都道府県<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_prefecture" placeholder="東京都" required></span>
+                        <span class="inline-block">市区町村・町名・丁目<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_municipalities" placeholder="港区南青山3丁目" required></span>
+                        <span class="inline-block">番地・号<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_number" placeholder="15-9" required></span>
+                        <span class="inline-block">建物名等：<input class="m-2 rounded border-solid border-2" type="text" name="address_building" placeholder="MINOWA表参道 3階"></span>
                     </td>
                 </tr>
                 <tr>

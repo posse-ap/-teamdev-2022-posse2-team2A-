@@ -17,9 +17,14 @@ $_ENGver = '<span>The confirmation e-mail has been sent to you.</span><br>We wil
   <title>ThanksPage</title>
 </head>
 <body>
-  <?php
-  require(dirname(__FILE__) . "/components/_header.php");
-  ?>
+    <!-- header -->
+    <?php
+    require(dirname(__FILE__) . "/components/_header.php");
+    ?>
+    <!-- navigation -->
+    <?php
+    require(dirname(__FILE__) . "/components/_nav.php");
+    ?>
   <main>
     <div class="title-wrapper">
       <h1 class="title">CRAFT</h1>

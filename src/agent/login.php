@@ -35,11 +35,12 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-<header class="boozer-login-icon">
-    <div class="icon">
-        <img src="../user/_header phpに入れてる.png" alt="">
-    </div>
+    <header class="boozer-login-icon">
+        <div class="icon">
+            <img src="../user/_header phpに入れてる.png" alt="">
+        </div>
     </header>
+    <main>
         <div class="text-center">
             <h1 class="text-2xl font-bold mt-4 mb-4 sm:text-4xl">企業ログイン</h1>
         </div>
@@ -53,6 +54,11 @@ if (!empty($_POST)) {
         <div class="text-center">
             <a href="" class="text-xs">パスワードを忘れた方へ</a>
         </div>
+        <div class="text-center m-10">
+            <a class="newAgent_input_button" href="../user/newAgentform.php">お申し込み</a>
+            <p class="text-xs m-5">新たに自社情報の掲載を希望される方は"お申し込みボタン"から登録をお願いいたします。</p>
+        </div>
+    </main>
 </body>
 
 </html>
