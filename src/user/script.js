@@ -55,15 +55,19 @@ document.addEventListener('DOMContentLoaded', function(){
   };
 }, false);
 // タブの動きここまで
+
+
 // 企業への応募者の表示ここから
 const panel = document.getElementById('tabApanel');
 const memberDetail = document.getElementById('memberDetail');
+const tabA = document.getElementById("tabA");
 const showInfo = ({
     hidden,
     show
 }) => {
     hidden.classList.remove('is-show');
     show.classList.add('is-show');
+    tabA.innerHTML = "応募者一覧";// タブAの名前を変更
 };
 
 const returninfo = ({
@@ -71,7 +75,41 @@ const returninfo = ({
 }) => {
   undo.classList.remove('is-show');
   display.classList.add('is-show');
+  tabA.innerHTML = "企業一覧";
 }
+
+// 企業への応募者の表示ここまで
+
+
+
+// 月ごとの報酬を表示するここから
+
+// 見たい月を動的に変更できるようにするここから
+const today = new Date();
+const monthText = document.getElementById("monthText");
+var todayMonth = today.getMonth()+1;
+monthText.innerHTML = `${todayMonth}月`;
+function prev(){
+  todayMonth -= 1;
+  if(todayMonth<1){
+    todayMonth = 12;
+  }
+  monthText.innerHTML = `${todayMonth}月`;
+}
+function next(){
+  todayMonth += 1;
+  if(todayMonth>12){
+    todayMonth = 1;
+  }
+  monthText.innerHTML = `${todayMonth}月`;
+}
+
+// 見たい月を動的に変更できるようにするここまで
+
+// 月ごとの報酬を表示するここまで
+
+
+
 
 // 画面をスクロールをしたら動かしたい場合の記述
 $(window).scroll(function () {
