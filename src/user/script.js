@@ -55,6 +55,23 @@ document.addEventListener('DOMContentLoaded', function(){
   };
 }, false);
 // タブの動きここまで
+// 企業への応募者の表示ここから
+const panel = document.getElementById('tabApanel');
+const memberDetail = document.getElementById('memberDetail');
+const showInfo = ({
+    hidden,
+    show
+}) => {
+    hidden.classList.remove('is-show');
+    show.classList.add('is-show');
+};
+
+const returninfo = ({
+  undo, display
+}) => {
+  undo.classList.remove('is-show');
+  display.classList.add('is-show');
+}
 
 // 画面をスクロールをしたら動かしたい場合の記述
 $(window).scroll(function () {
