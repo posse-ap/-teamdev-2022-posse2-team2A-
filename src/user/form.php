@@ -38,7 +38,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
             <h1 class="font-bold text-2xl">応募フォーム</h1>
         </div>
         <p><span style="color:red">*</span>は必須項目です。</p>
-        <form action="/user/form.php?1" method="POST" class="m-2 p-2">
+        <form name="inputForm" action="/user/check.php" method="POST" class="m-2 p-2">
             <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id">
             <table class="">
                 <tr>
@@ -58,9 +58,9 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <tr>
                     <th class="contact-item">生年月日<span style="color:red">*</span><br>Date of Birth</th>
                     <td class="contact-body">
-                        <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth" list="birth_year" placeholder="選択" size="8" required>年　</span>
-                        <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth" list="birth_month" placeholder="選択" size="8" required>月　</span>
-                        <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth" list="birth_day" placeholder="選択" size="8" required>日</span>
+                        <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_year" list="birth_year" placeholder="選択" size="8" required>年　</span>
+                        <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_month" list="birth_month" placeholder="選択" size="8" required>月　</span>
+                        <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_day" list="birth_day" placeholder="選択" size="8" required>日</span>
                         <datalist id="birth_year">
                             <option value="2000"></option>
                             <option value="2001"></option>
@@ -128,17 +128,17 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                     <th class="contact-item">メールアドレス<span style="color:red">*</span><br>E-mail</th>
                     <td class="contact-body">
                         <span class="inline-block">メール：<input class=" rounded border-solid border-2 m-2" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" placeholder="△△△△△@ooo.xx" required></span>
-                        <span class="inline-block">確認用：<input class=" rounded border-solid border-2 m-2" id="emailConfirm" type="text" name="email-check" placeholder="△△△△△@ooo.xx" required oninput="CheckEmail(this)"></span>
+                        <span class="inline-block">確認用：<input class=" rounded border-solid border-2 m-2" id="emailConfirm" type="text" name="email_check" placeholder="△△△△△@ooo.xx" required oninput="CheckEmail(this)"></span>
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">住所<span style="color:red">*</span><br>Address</th>
                     <td class="contact-body">
-                        <span class="inline-block">郵便番号<span style="color:red">*</span>：〒<input class="m-2 rounded border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address" placeholder="000-0000" required></span>
-                        <span class="inline-block">都道府県<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="東京都" required></span>
-                        <span class="inline-block">市区町村<span style="color:red">*</span>・町名・丁目：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="港区南青山3丁目" required></span>
-                        <span class="inline-block">番地・号<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="15-9" required></span>
-                        <span class="inline-block">建物名等：<input class="m-2 rounded border-solid border-2" type="text" name="address" placeholder="MINOWA表参道 3階"></span>
+                        <span class="inline-block">郵便番号<span style="color:red">*</span>：〒<input class="m-2 rounded border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address_postal" placeholder="000-0000" required></span>
+                        <span class="inline-block">都道府県<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_prefecture" placeholder="東京都" required></span>
+                        <span class="inline-block">市区町村<span style="color:red">*</span>・町名・丁目：<input class="m-2 rounded border-solid border-2" type="text" name="address_municipalities" placeholder="港区南青山3丁目" required></span>
+                        <span class="inline-block">番地・号<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_number" placeholder="15-9" required></span>
+                        <span class="inline-block">建物名等：<input class="m-2 rounded border-solid border-2" type="text" name="address_building" placeholder="MINOWA表参道 3階"></span>
                     </td>
                 </tr>
                 <tr>
@@ -154,16 +154,16 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                     <td class="contact-body">
                         <input type="radio" name="major" value="文系">文系　
                         <input type="radio" name="major" value="理系">理系
-                        <span class="inline-block">学部：<input class="m-2 rounded border-solid border-2" type="text" name="department" required></span>
+                        <span class="inline-block">学部：<input class="m-2 rounded border-solid border-2" type="text" name="major_department" required></span>
                         <span class="inline-block">学科：<input class="m-2 rounded border-solid border-2" type="text" name="major_subject" required></span>
                     </td>
                 </tr>
                 <tr>
                     <th class="contact-item">卒業(見込)年月<span style="color:red">*</span><br>Graduation</th>
                     <td class="contact-body">
-                        <span class="inline-block"><input class=" rounded border-solid border-2 p-1" type="text" name="year" list="year" size="8" placeholder="選択" required>年</span>
+                        <span class="inline-block"><input class=" rounded border-solid border-2 p-1" type="text" name="graduation_year" list="year" size="8" placeholder="選択" required>年</span>
                         <span class="inline-block"><span class="m-1">3月</span></span>
-                        <span class="inline-block"><input class=" rounded border-solid border-2 p-1" type="text" name="status" list="status" size="10" placeholder="選択" required></span>
+                        <span class="inline-block"><input class=" rounded border-solid border-2 p-1" type="text" name="graduation_status" list="status" size="10" placeholder="選択" required></span>
                     </td>
                     <datalist id="year">
                         <option value="2023"></option>
@@ -183,7 +183,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 </tr>
             </table>
             <div class="flex justify-center w-full mt-10">
-                <input class="bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="入力内容を確認する">
+                <input class="bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" onclick="toCheck()" type="submit" value="入力内容を確認する">
             </div>
         </form>
     </div>

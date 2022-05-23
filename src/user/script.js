@@ -55,7 +55,32 @@ $(window).scroll(function () {
 
 
 //form関連ここから
-// 「確認する」ボタンを押したらformの入力値を保存するここから
+// 「入力内容を確認する」ボタンを押したらformの入力値を保存するここから
+function toCheck(){
+  var formElements = document.forms.inputForm; //form.phpのform全体を取得
+  var firstName = formElements.first_name.value;
+  var lastName = formElements.last_name.value;
+  var firstNameKana= formElements.first_name_kana.value;
+  var lastNameKana= formElements.last_name_kana.value;
+  var birthYear = formElements.birth_year.value;
+  var birthMonth = formElements.birth_month.value;
+  var birthDay = formElements.birth_day.value;
+  var sex = formElements.sex.value;
+  var email = formElements.email_check.value;
+  var addressPost = formElements.address_postal.value;
+  var addressPref = formElements.address_prefecture.value;
+  var addressMnic = formElements.address_municipalities.value;
+  var addressNumber = formElements.address_number.value;
+  var addressBuild = formElements.address_building.value;
+  var phoneNumber = formElements.phone_number.value;
+  var education = formElements.education.value;
+  var major = formElements.major.value;
+  var majorDepart = formElements.major_department.value;
+  var majorSubject = formElements.major_subject.value;
+  var graduationYear = formElements.graduation_year.value;
+  var graduationStatus = formElements.graduation_status.value;
+  var comments = formElements.comments.value;
+}
 
 
 // formの入力値を保存するここまで
