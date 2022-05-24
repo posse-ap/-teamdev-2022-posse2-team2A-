@@ -51,10 +51,10 @@ if (!empty($_POST)) {
     </div>
   </form>
   <div class="text-center">
-    <a href="" class="text-xs">パスワードを忘れた方へ</a>
+    <a href="./password_reset/show_request_form.php" class="text-xs">パスワードを忘れた方へ</a>
   </div>
   <div class="text-center">
-    <a href="./entry.php">新規登録</a>
+    <a href="./new_apply/show_tmp_register_form.php">新規登録</a>
   </div>
 
 
