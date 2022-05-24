@@ -105,3 +105,15 @@ function CheckEmail(input){
 
 
 //form関連ここまで
+
+// boozer画面、企業情報追加の部分ここから
+function previewFile(hoge){
+  var fileData = new FileReader();
+  fileData.onload = (function() {
+      //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
+      //プレビュー表示している
+      document.getElementById('preview').src = fileData.result;
+  });
+  fileData.readAsDataURL(hoge.files[0]);
+}
+// boozer画面、企業情報追加の部分ここまで

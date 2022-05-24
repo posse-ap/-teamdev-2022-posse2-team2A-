@@ -154,7 +154,66 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <div class="w-full text-green-600 text-sm text-right ml-auto" onclick="returninfo({undo:memberDetail, display:panel})">企業一覧に戻る</div>
             </div>
-            <div id="panel" class="panel tab-B">Content-B</div>
+            <div id="panel" class="panel tab-B">
+                Content-B
+                <form class="agent-list-item" action="" method="post" enctype="multipart/form-data">
+                    <div class="text-wrapper">
+                        <p class="text1"><input type="text" name="agent_name" placeholder="企業名"></p>
+                    </div>
+                    <div class="agent-pr-wrapper">
+                        <div class="flex flex-col">
+                            <img class="block w-52 h-48  object-contain" id="preview" src="./スクリーンショット 2022-05-25 0.37.48.png" alt="プレビュー">
+                            <input type="file" name="img" onchange="previewFile(this);">
+                        </div>
+                        <ul class="agent-pr-list">
+                            <li class="agent-pr-item strong w-full"><input type="text"></li>
+                            <li class="agent-pr-item"><input type="text"></li>
+                            <li class="agent-pr-item"><input type="text"></li>
+                            <li class="agent-pr-item"><input type="text"></li>
+                            <li class="agent-pr-item"><input type="text"></li>
+                        </ul>
+                    </div>
+                    <table class="agent-info-table mt-4 mb-4">
+                        <tbody>
+                            <tr>
+                                <th>求人数</th>
+                                <th>非公開求人数</th>
+                                <th>対象年代</th>
+                                <th>エリア</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="field-wrapper flex flex-row items-center bg-blue-200 mt-4 mb-4">
+                        <p class="field-text text-blue-600 w-10 text-xs text-center m-4">得意分野</p>
+                        <ul class="field flex flex-wrap text-xs">
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">大手企業</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">外資・海外</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">ベンチャー</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">ハイクラス</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">IT業界</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">女性向け</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">第二新卒</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">フリーター</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">未経験</li>
+                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">中小企業</li>
+                            <li class="">選択してください</li>
+                        </ul>
+                    </div>
+                    <p class="agent-pr-text border-solid rounded-2xl w-full bg-white mt-4 mb-4 p-2">
+                        PRポイント
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </p>
+                    <div class="btn-wrapper">                    
+                        <input class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20" type="submit" value="企業を追加する"></input></a>
+                    </div>
+                </form>
+            </div>
             <div class="panel tab-C">Content-C</div>
         </div>
     </div>
