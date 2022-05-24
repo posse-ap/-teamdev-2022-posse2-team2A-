@@ -549,6 +549,7 @@ form input[type="submit"] {
   cursor: pointer;
 }
 .panel-group {
+  /* position: relative; */
   margin: 0 auto;
   width: 99.8%;
   height: 300px;
@@ -565,5 +566,50 @@ form input[type="submit"] {
 }
 .panel.is-show {
   display: block;
+  /* position: absolute;
+  top: 10%;
+  left: 8%; */
 }
 /* タブの切り替えここまで */
+/* 表のcssここから、基本的に全て共通 */
+table {
+  border-collapse: collapse;
+  background-color: #04a49c;
+}
+.scroll {
+  white-space: nowrap; /* 勝手に折り返さない */
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; /* スマホでスムーズにスクロールできるように */
+  /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+  -ms-overflow-style: none;
+  /*Firefoxへの対応*/
+  scrollbar-width: none;
+}
+/* Safari,Chromeでのスクロールバーの非表示 */
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+th,
+td {
+  border: solid 1px #333; /* 線の種類 太さ 色 */
+  padding: 5px 15px;
+  font-size: 0.5rem;
+}
+.white {
+  background-color: #f5f5f5;
+  text-align: center;
+}
+.mint {
+  background-color: #c5ffe2;
+  text-align: center;
+}
+/* 表のcssここまで */
+
+/* 応募者詳細情報ここから */
+.memberDetail {
+  display: none;
+}
+.memberDetail.is-show {
+  display: block;
+}
