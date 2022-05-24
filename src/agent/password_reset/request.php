@@ -19,7 +19,7 @@ $email = filter_input(INPUT_POST, 'email');
 require_once '../../dbconnect.php';
 
 // emailがusersテーブルに登録済みか確認
-$sql = 'SELECT * FROM admin WHERE `email` = :email AND `status` = :status';
+$sql = 'SELECT * FROM agents WHERE `email` = :email AND `status` = :status';
 $stmt = $db->prepare($sql);
 $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
 $stmt->bindValue(':status', 'public', \PDO::PARAM_STR);
@@ -69,7 +69,7 @@ try {
     mb_internal_encoding("UTF-8");
 
     // URLはご自身の環境に合わせてください
-    $url = "http://localhost:80/admin/password_reset/show_reset_form.php?token={$passwordResetToken}";
+    $url = "http://localhost:80/agent/password_reset/show_reset_form.php?token={$passwordResetToken}";
 
     $subject =  'パスワードリセット用URLをお送りします';
 

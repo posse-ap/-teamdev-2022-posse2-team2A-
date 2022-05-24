@@ -40,6 +40,7 @@ if (!empty($_POST)) {
             <p>パスワード：<input type="password" required name="password"></p>
             <input type="submit" value="ログイン">
         </form>
+        <a href="/agent/password_reset/show_request_form.php">パスワードを忘れた方へ</a>
     </div>
 </body>
 

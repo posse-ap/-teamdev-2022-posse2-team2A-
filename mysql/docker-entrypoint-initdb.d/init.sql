@@ -29,8 +29,12 @@ DROP TABLE IF EXISTS agents;
 CREATE TABLE agents (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
+    password VARCHAR(255),
     name VARCHAR(255) UNIQUE NOT NULL,
+    register_token VARCHAR(255),
+    register_token_sent_at DATETIME,
+    register_token_verified_at DATETIME,
+    status ENUM('tentative', 'public') DEFAULT 'tentative',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -40,14 +44,16 @@ INSERT INTO
 SET
     email = 'agent@posse-ap.com',
     password = sha1('password2'),
-    name = "リクルート";
+    name = "リクルート",
+    status = 'public';
 
 INSERT INTO
     agents
 SET
     email = 'jobTV@posse-ap.com',
     password = sha1('password3'),
-    name = "jobTV";
+    name = "jobTV",
+    status = 'tentative';
 
 DROP TABLE IF EXISTS passwords_reset;
 
