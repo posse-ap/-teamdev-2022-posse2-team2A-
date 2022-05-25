@@ -19,12 +19,14 @@ $_SESSION['cart'] = [[
     "phone_number" => $_POST['phone_number'],
     "education" => $_POST['education'],
     "major" => $_POST['major'],
-    "department" => $_POST['department'],
+    "major_department" => $_POST['major_department'],
     "major_subject" => $_POST['major_subject'],
     "graduation_year" => $_POST['graduation_year'],
     "graduation_status" => $_POST['graduation_status'],
     "comments" => $_POST['comments']
-]]; ?>
+]];
+
+print_r($_SESSION['cart']) ?>
 <!DOCTYPE html>
 <html lang="ja">
 

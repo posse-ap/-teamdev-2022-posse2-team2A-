@@ -7,7 +7,6 @@ $stmt_exist_email->bindValue(":email", $_POST['email'], PDO::PARAM_STR);
 $stmt_exist_email->execute();
 $customer_exist_id = $stmt_exist_email->fetch();
 
-
 // postに物が入ってきたら
 if (!empty($_POST)) {
   // emailが既に登録されているユーザーじゃなければ
@@ -50,15 +49,13 @@ if (!empty($_POST)) {
       $_POST['comments']
     ));
   } else {
-    $customer_id = $customer_exist_id;
+    $customer_id = $customer_exist_id['id'];
   }
-  print_r($customer_id);
   $stmt_exist_intermediate = $db->prepare('SELECT * FROM intermediate where agent_id =:agent_id and customer_id = :customer_id');
   $stmt_exist_intermediate->bindValue(":agent_id", $_POST['agent_id'], PDO::PARAM_STR);
-  $stmt_exist_intermediate->bindValue(":customer_id", $customer_id['id'], PDO::PARAM_STR);
+  $stmt_exist_intermediate->bindValue(":customer_id", $customer_id, PDO::PARAM_STR);
   $stmt_exist_intermediate->execute();
   $exist_intermediate_id = $stmt_exist_intermediate->fetch();
-  print_r($exist_intermediate_id['customer_id']);
 
   if (empty($exist_intermediate_id)) {
     $stmt_agents = $db->prepare('INSERT INTO intermediate SET 

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $data = explode(",", $_SERVER['QUERY_STRING']);
+error_reporting(0);
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
     <main>
+        <p><?php print_r($_SESSION['cart']); ?></p>
         <div class="title-wrapper">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
