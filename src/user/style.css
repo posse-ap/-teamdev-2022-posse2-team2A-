@@ -1,0 +1,622 @@
+/* headerここから */
+header {
+  background-color: #05a59a;
+  width: 100%;
+  padding: 8px;
+}
+.boozer-login-icon{
+  height: 60px;
+}
+header .icon {
+  width: 100%;
+  height: 80px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+header .icon img {
+  height: 40px;
+  object-fit: cover;
+}
+header .menu {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+header .menu .menu-item {
+  font-size: 12px;
+  list-style: none;
+  color: #ffffff;
+}
+
+/* ハンバーガーメニューここから */
+/*========= ナビゲーションのためのCSS ===============*/
+
+#g-nav{
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position:fixed;
+  z-index: 999;
+  /*ナビのスタート位置と形状*/
+  right:-120%;
+  top:0;
+  width:100%;
+  height: 100vh;/*ナビの高さ*/
+  background:#04cec1;
+  /*動き*/
+  transition: all 0.6s;
+}
+
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive{
+  right: 0;
+}
+
+/*ナビゲーションの横スクロール*/
+#g-nav.panelactive #g-nav-list{
+  /*ナビの数が増えた場合縦スクロール*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;/*表示する高さ*/
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+  /*ナビゲーション天地中央揃え*/
+  position: absolute;
+  z-index: 999;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li{
+  list-style: none;
+  text-align: center; 
+}
+
+#g-nav li a{
+  color: #ffffff;
+  text-decoration: none;
+  padding:10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn1{
+  position:fixed;
+  z-index: 9999;/*ボタンを最前面に*/
+  top:10px;
+  right: 10px;
+  cursor: pointer;
+  width: 50px;
+  height:50px;
+}
+
+/*×に変化*/  
+.openbtn1 span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #000000;
+  width: 45%;
+}
+
+.openbtn1 span:nth-of-type(1) {
+  top:15px; 
+}
+
+.openbtn1 span:nth-of-type(2) {
+  top:23px;
+}
+
+.openbtn1 span:nth-of-type(3) {
+  top:31px;
+}
+
+.openbtn1.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn1.active span:nth-of-type(3){
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+/* ハンバーガーメニューここまで */
+/* headerここまで */
+
+/* top-page波線引く場所 */
+.linetext span{
+  color: #ff0000;
+  background: linear-gradient(transparent 50%, #FFFE84 0%);
+}
+/* 波線ここまで */
+
+/* プログレスバーここから */
+.progressbar {
+  display: flex;
+  width: 90%;
+  height: 30px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+.progressbar .item {
+    position: relative;
+    width: 33%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    /* padding: 5px 0; */
+    line-height: 30px;
+    background: #F5F5F5;
+    color: #999999;
+}
+.item-last{
+  position: relative;
+  width: 33%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  line-height: 30px;
+  padding-left: 18px;
+  background: #F5F5F5;
+  color: #999999;
+}
+.progressbar .item::before,
+.progressbar .item::after {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    height: 50%;
+    content: '';
+    border: 15px solid transparent;
+    border-left: 20px solid #F5F5F5;
+}
+.progressbar .item-last::before,
+.progressbar .item-last::after{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  height: 50%;
+  content: '';
+  border: 15px solid transparent;
+  border-left: 20px solid #F5F5F5;
+}
+
+.progressbar .item:not(:last-child)::before {
+    margin-left: 1px;
+    border-left-color: #FFF;
+}
+
+/* @media screen and (max-width: 767px) {
+.progressbar .item {
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 8px 0;
+}
+.progressbar .item:not(:last-child)::before,
+.progressbar .item:not(:last-child)::after, 
+.progressbar .item-last::before,
+.progressbar .item-last::after{
+    border-width: 25px;
+    border-left-width: 12px;
+}
+} */
+
+
+/* active */
+
+.progressbar .item-last.active {
+    z-index: 1;
+    background: #0070BD;
+    color: #FFF;
+}
+.progressbar .item-last.active::after {
+    border-left-color: #0070bd;
+}
+.progressbar .item-last.active:not(:last-child)::before {
+    border-left: none;
+}
+
+/* プログレスバーここまで */
+
+/* top-pageのmainここから */
+main {
+  width: 100%;
+}
+main .title-wrapper {
+  width: 100%;
+  padding: 8px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .title-wrapper .title {
+  font-size: 40px;
+}
+
+.agent-container {
+  margin: 12px 10%;
+  padding: 12px;
+}
+.agent-container .agent-container-title {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.agent-container .agent-container-title::before,
+.agent-container .agent-container-title::after {
+  content: "";
+  height: 1px;
+  flex-grow: 1;
+  background-color: #666;
+}
+.agent-container .agent-container-title::before {
+  margin-right: 1rem;
+}
+.agent-container .agent-container-title::after {
+  margin-left: 1rem;
+}
+
+.agent-list {
+  width: 100%;
+  padding: 8px;
+  background-color: #fffff5;
+}
+.agent-list .agent-list-item {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+}
+.text-wrapper {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.text-wrapper .text1 {
+  font-size: 16px;
+  color: #b56441;
+  margin-left: 3rem;
+}
+.text-wrapper .text2 {
+  font-size: 12px;
+  margin-left: 3rem;
+}
+
+.strong {
+  /* strongクラスがついた文字は赤色+黄色マーカーが引かれる */
+  color: #ff0000;
+  background: linear-gradient(transparent 60%, #ff6 60%);
+}
+.agent-pr-wrapper {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 40px;
+}
+.agent-pr-img {
+  width: 25%;
+  object-fit: cover;
+}
+.agent-pr-list {
+  width: calc(70%-40px);
+}
+.agent-info-table {
+  width: 100%;
+}
+.agent-info-table th {
+  background-color: #26eded;
+  border: 1px solid #ffffff;
+  border-collapse: collapse;
+  padding: 8px;
+  text-align: center;
+}
+.agent-info-table td {
+  background-color: #ffffff;
+  border: 1px solid #26eded;
+  border-collapse: collapse;
+  padding: 8px;
+  text-align: center;
+}
+.agent-pr-text {
+  border: 1px solid;
+}
+.btn-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* top-pageのmainここから */
+
+
+/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここから */
+/* jsも使ってるからコピペしてね */
+
+/* 上に上がる動き */
+#mainFooter{
+  top: 100vh;
+}
+#mainFooter.UpMove {
+  animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-100px);
+  }
+}
+
+
+
+
+
+/*　下に下がる動き　*/
+
+#mainFooter.DownMove {
+  animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここまで */
+
+/* 一覧に戻るボタンここから */
+a.btn{
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  width: 60%;
+  margin: 20px auto;
+  display: block;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #08A49A;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+a.btn:hover {
+  -webkit-transform: skew(0);
+  transform: skew(0);
+  color: #fff;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+}
+/* 一覧に戻るボタンここまで */
+
+
+/* formのcssここから */
+.form-section{
+  margin: 16px 15%;
+}
+@media screen and (max-width: 640px) {/* tailwindのブレイクポイントが640pxのため */
+  .form-section{
+    margin: 16px 5%;
+  }
+}
+.contact-item,
+.contact-body {
+    padding: 10px 0px 10px 10px;
+    border: 1px solid #ccc;
+}
+
+
+.contact-item {
+    text-align: left;
+    width: 30%;
+    background-color: #eee;
+}
+
+.contact-body {
+    width: 70%;
+}
+.bg-orange{
+  background-color: #ffa549;
+}
+/* formのcssここまで */
+
+/* footerここから */
+
+.green {
+  /*メインの文字の色*/
+  color: #00a69a;
+}
+
+.footer-list-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 0px;
+  border-top: solid 2px #00a69a;
+  border-right: solid 2px #00a69a;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -4px;
+}
+/* footerここまで */
+@media screen and (min-width: 480px) {
+  a.btn{
+    width: 20%;
+  }
+  .progressbar{
+    width: 60%;
+    height: 60px;
+  }
+  .progressbar .item{
+    font-size: 18px;
+    line-height: 60px;
+  }
+  .item-last{
+    font-size: 18px;
+    line-height: 60px;
+  }
+  .progressbar .item::before,
+  .progressbar .item::after {
+    border: 30px solid transparent;
+    border-left: 20px solid #F5F5F5;
+  }
+  .progressbar .item-last::before,
+.progressbar .item-last::after{
+  border: 30px solid transparent;
+  border-left: 20px solid #F5F5F5;
+  }
+}
+/* boozerログイン画面のログインボタンのデザイン */
+form input[type = "email"]{
+  width: 300px;
+  height: 40px;
+}
+form input[type = "password"]{
+  width: 300px;
+  height: 40px;
+}
+
+form input[type = "submit"]{
+  background-color: #E16E2D;
+  color: #F5F5F5;
+  padding: 10px 60px;
+}
+/* ログインボタンここまで */
+
+/* タブ切り替えなどここから */
+.tab-panel{
+  width: 80%;
+  margin: 0 auto;
+}
+.tab-group{
+  display: flex;
+  justify-content: center;
+}
+.tab{
+  flex-grow: 1;
+  height: 60px;
+  list-style:none;
+  border:solid 1px #CCC;
+  line-height: 60px;
+  text-align:center;
+  cursor:pointer;
+}
+.panel-group{
+  /* position: relative; */
+  margin: 0 auto;
+  width: 99.8%;
+  height:300px;
+  border:solid 1px #CCC;
+  background:rgb(255, 255, 255);
+}
+.panel{
+  display:none;
+}
+.tab.is-active{
+  background: linear-gradient(to top,white 80%,#04A49C 10%);
+  color:rgb(0, 0, 0);
+  transition: all 0.2s ease-out;
+}
+.panel.is-show{
+  display:block;
+  /* position: absolute;
+  top: 10%;
+  left: 8%; */
+}
+/* タブの切り替えここまで */
+/* 表のcssここから、基本的に全て共通 */
+table {
+  border-collapse: collapse;
+  background-color: #04A49C;
+}
+.scroll{
+  white-space: nowrap; /* 勝手に折り返さない */
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch; /* スマホでスムーズにスクロールできるように */
+    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+    -ms-overflow-style: none;
+    /*Firefoxへの対応*/
+    scrollbar-width: none;
+}
+/* Safari,Chromeでのスクロールバーの非表示 */
+.scroll::-webkit-scrollbar{
+  display: none;
+}
+
+th, td {
+  border: solid 1px #333; /* 線の種類 太さ 色 */
+  padding: 5px 15px;
+  font-size: 0.5rem;
+}
+.white{
+  background-color: #F5F5F5;
+  text-align: center;
+}
+.mint{
+  background-color: #c5ffe2;
+  text-align: center;
+}
+/* 表のcssここまで */
+
+/* 応募者詳細情報ここから */
+.memberDetail{
+  display: none;
+}
+.memberDetail.is-show{
+  display: block;
+}
