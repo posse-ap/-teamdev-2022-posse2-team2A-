@@ -17,7 +17,6 @@ if (!empty($_POST)) {
     $customer_id = $stmt_customers_created_at->fetch();
     $customer_id = $customer_id['id'] + 1;
     $stmt_customers = $db->prepare('INSERT INTO customers SET 
-    agent_id=?,
     name =?,
     name_kana =?,
     sex =?,
@@ -30,11 +29,9 @@ if (!empty($_POST)) {
     department =?,
     major_subject =?,
     graduation_year=?,
-    graduation_status=?,
-    comments =?
+    graduation_status=?
     ');
     $stmt_customers->execute(array(
-      $_POST['agent_id'],
       $_POST['name'],
       $_POST['name_kana'],
       $_POST['sex'],
@@ -47,8 +44,7 @@ if (!empty($_POST)) {
       $_POST['department'],
       $_POST['major_subject'],
       $_POST['graduation_year'],
-      $_POST['graduation_status'],
-      $_POST['comments']
+      $_POST['graduation_status']
     ));
   } else {
     $customer_id = $customer_exist_id['id'];
@@ -62,11 +58,13 @@ if (!empty($_POST)) {
   if (empty($exist_intermediate_id)) {
     $stmt_agents = $db->prepare('INSERT INTO intermediate SET 
     agent_id = ?,
-    customer_id =?
+    customer_id =?,
+    comments =?
     ');
     $stmt_agents->execute(array(
       $_POST['agent_id'],
-      $customer_id
+      $customer_id,
+      $_POST['comments']
     ));
   };
 }

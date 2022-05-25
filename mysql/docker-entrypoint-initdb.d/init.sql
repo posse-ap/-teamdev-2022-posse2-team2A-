@@ -57,7 +57,6 @@ DROP TABLE IF EXISTS customers;
 
 CREATE TABLE customers (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    agent_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     name_kana VARCHAR(255) NOT NULL,
     sex VARCHAR(255) NOT NULL,
@@ -71,7 +70,6 @@ CREATE TABLE customers (
     major_subject VARCHAR(255) NOT NULL,
     graduation_year INT NOT NULL,
     graduation_status VARCHAR(80) NOT NULL,
-    comments VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -81,13 +79,13 @@ DROP TABLE IF EXISTS intermediate;
 CREATE TABLE intermediate (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     agent_id INT NOT NULL,
-    customer_id INT
+    customer_id INT,
+    comments VARCHAR(80)
 );
 
 INSERT INTO
     customers
 SET
-    agent_id = 1,
     name = "渡邉瑛貴",
     name_kana = "わたなべえいき",
     sex = "男",
@@ -100,13 +98,11 @@ SET
     department = "経済学科",
     major_subject = "渡邉瑛貴",
     graduation_year = 2023,
-    graduation_status = "卒業見込み",
-    comments = "この企業は嫌いですねぇ";
+    graduation_status = "卒業見込み";
 
 INSERT INTO
     customers
 SET
-    agent_id = 1,
     name = "多田和樹",
     name_kana = "ただかずき",
     sex = "男",
@@ -119,13 +115,11 @@ SET
     department = "経済学部",
     major_subject = "経済学科",
     graduation_year = 2023,
-    graduation_status = "卒業見込み",
-    comments = "この企業は好きですねぇ";
+    graduation_status = "卒業見込み";
 
 INSERT INTO
     customers
 SET
-    agent_id = 2,
     name = "鈴木楓花",
     name_kana = "すずきかのか",
     sex = "女",
@@ -138,5 +132,4 @@ SET
     department = "ミュージカル学部",
     major_subject = "ミュージカル学科",
     graduation_year = 2025,
-    graduation_status = "卒業見込み",
-    comments = "歌いたい";
+    graduation_status = "卒業見込み";

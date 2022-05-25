@@ -1,5 +1,6 @@
-<!-- 内容確認 -->
 <?php
+session_start();
+error_reporting(0);
 $agent_id = $_POST['agent_id'];
 
 foreach ($_SESSION['cart'] as $cart) {
@@ -13,13 +14,12 @@ foreach ($_SESSION['cart'] as $cart) {
 
 
 if ($_SESSION['cart'] == NULL) {
-    echo "配列がnull";
     $_SESSION['cart'] = [[
         "agent_id" => $_POST['agent_id'],
         "first_name" => $_POST['first_name'],
         "last_name" => $_POST['last_name'],
-        "name_kana" => $_POST['first_name_kana'],
-        "name_kana" => $_POST['last_name_kana'],
+        "first_name_kana" => $_POST['first_name_kana'],
+        "last_name_kana" => $_POST['last_name_kana'],
         "sex" => $_POST['sex'],
         "birth_year" => $_POST['birth_year'],
         "birth_month" => $_POST['birth_month'],
@@ -47,8 +47,8 @@ if ($_SESSION['cart'] == NULL) {
                 "agent_id" => $_POST['agent_id'],
                 "first_name" => $_POST['first_name'],
                 "last_name" => $_POST['last_name'],
-                "name_kana" => $_POST['first_name_kana'],
-                "name_kana" => $_POST['last_name_kana'],
+                "first_name_kana" => $_POST['first_name_kana'],
+                "last_name_kana" => $_POST['last_name_kana'],
                 "sex" => $_POST['sex'],
                 "birth_year" => $_POST['birth_year'],
                 "birth_month" => $_POST['birth_month'],
@@ -70,8 +70,7 @@ if ($_SESSION['cart'] == NULL) {
             ]]
         );
 };
-
-print_r($_SESSION['cart']) ?>
+?>
 <!DOCTYPE html>
 <html lang="ja">
 

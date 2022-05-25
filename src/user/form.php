@@ -27,7 +27,6 @@ error_reporting(0);
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
     <main>
-        <p><?php print_r($_SESSION['cart']); ?></p>
         <div class="title-wrapper">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
@@ -75,7 +74,7 @@ error_reporting(0);
                                                                                                                                                                                                             } ?>></span>
                             <span class="inline-block">カナ：<input class="m-2 rounded border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="last_name_kana" placeholder="タロウ" required value=<?php
                                                                                                                                                                                                             if ($_SESSION['cart']) {
-                                                                                                                                                                                                                echo $_SESSION['cart'][0]['last_name'];
+                                                                                                                                                                                                                echo $_SESSION['cart'][0]['last_name_kana'];
                                                                                                                                                                                                             } else {
                                                                                                                                                                                                                 echo "";
                                                                                                                                                                                                             } ?>></span>
@@ -228,11 +227,21 @@ error_reporting(0);
                     </tr>
                     <tr>
                         <th class="contact-item">電話番号<span style="color:red">*</span><br>Phone</th>
-                        <td class="contact-body"><input class=" rounded border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required></td>
+                        <td class="contact-body"><input class=" rounded border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required value=<?php
+                                                                                                                                                                                            if ($_SESSION['cart']) {
+                                                                                                                                                                                                echo $_SESSION['cart'][0]['phone_number'];
+                                                                                                                                                                                            } else {
+                                                                                                                                                                                                echo "";
+                                                                                                                                                                                            } ?>></td>
                     </tr>
                     <tr>
                         <th class="contact-item">最終学歴<span style="color:red">*</span><br>Education</th>
-                        <td class="contact-body"><input class=" rounded border-solid border-2" type="text" name="education" required>　大学</td>
+                        <td class="contact-body"><input class=" rounded border-solid border-2" type="text" name="education" required value=<?php
+                                                                                                                                            if ($_SESSION['cart']) {
+                                                                                                                                                echo $_SESSION['cart'][0]['education'];
+                                                                                                                                            } else {
+                                                                                                                                                echo "";
+                                                                                                                                            } ?>>大学</td>
                     </tr>
                     <tr>
                         <th class="contact-item">専攻<span style="color:red">*</span><br>Major</th>
