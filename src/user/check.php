@@ -1,30 +1,75 @@
 <!-- 内容確認 -->
 <?php
-$_SESSION['cart'] = [[
-    "agent_id" => $_POST['agent_id'],
-    "first_name" => $_POST['first_name'],
-    "last_name" => $_POST['last_name'],
-    "name_kana" => $_POST['first_name_kana'],
-    "name_kana" => $_POST['last_name_kana'],
-    "sex" => $_POST['sex'],
-    "birth_year" => $_POST['birth_year'],
-    "birth_month" => $_POST['birth_month'],
-    "birth_day" => $_POST['birth_day'],
-    "address_postal" => $_POST['address_postal'],
-    "address_prefecture" => $_POST['address_prefecture'],
-    "address_municipalities" => $_POST['address_municipalities'],
-    "address_number" => $_POST['address_number'],
-    "address_building" => $_POST['address_building'],
-    "email" => $_POST['email'],
-    "phone_number" => $_POST['phone_number'],
-    "education" => $_POST['education'],
-    "major" => $_POST['major'],
-    "major_department" => $_POST['major_department'],
-    "major_subject" => $_POST['major_subject'],
-    "graduation_year" => $_POST['graduation_year'],
-    "graduation_status" => $_POST['graduation_status'],
-    "comments" => $_POST['comments']
-]];
+$agent_id = $_POST['agent_id'];
+
+foreach ($_SESSION['cart'] as $cart) {
+    if ($cart['agent_id'] == $_POST['agent_id']) {
+        $agent_is = false;
+        break;
+    } else {
+        $agent_is = true;
+    }
+}
+
+
+if ($_SESSION['cart'] == NULL) {
+    echo "配列がnull";
+    $_SESSION['cart'] = [[
+        "agent_id" => $_POST['agent_id'],
+        "first_name" => $_POST['first_name'],
+        "last_name" => $_POST['last_name'],
+        "name_kana" => $_POST['first_name_kana'],
+        "name_kana" => $_POST['last_name_kana'],
+        "sex" => $_POST['sex'],
+        "birth_year" => $_POST['birth_year'],
+        "birth_month" => $_POST['birth_month'],
+        "birth_day" => $_POST['birth_day'],
+        "address_postal" => $_POST['address_postal'],
+        "address_prefecture" => $_POST['address_prefecture'],
+        "address_municipalities" => $_POST['address_municipalities'],
+        "address_number" => $_POST['address_number'],
+        "address_building" => $_POST['address_building'],
+        "email" => $_POST['email'],
+        "phone_number" => $_POST['phone_number'],
+        "education" => $_POST['education'],
+        "major" => $_POST['major'],
+        "major_department" => $_POST['major_department'],
+        "major_subject" => $_POST['major_subject'],
+        "graduation_year" => $_POST['graduation_year'],
+        "graduation_status" => $_POST['graduation_status'],
+        "comments" => $_POST['comments']
+    ]];
+} else if ($agent_is) {
+    $_SESSION['cart'] =
+        array_merge(
+            $_SESSION['cart'],
+            $_SESSION['cart'] = [[
+                "agent_id" => $_POST['agent_id'],
+                "first_name" => $_POST['first_name'],
+                "last_name" => $_POST['last_name'],
+                "name_kana" => $_POST['first_name_kana'],
+                "name_kana" => $_POST['last_name_kana'],
+                "sex" => $_POST['sex'],
+                "birth_year" => $_POST['birth_year'],
+                "birth_month" => $_POST['birth_month'],
+                "birth_day" => $_POST['birth_day'],
+                "address_postal" => $_POST['address_postal'],
+                "address_prefecture" => $_POST['address_prefecture'],
+                "address_municipalities" => $_POST['address_municipalities'],
+                "address_number" => $_POST['address_number'],
+                "address_building" => $_POST['address_building'],
+                "email" => $_POST['email'],
+                "phone_number" => $_POST['phone_number'],
+                "education" => $_POST['education'],
+                "major" => $_POST['major'],
+                "major_department" => $_POST['major_department'],
+                "major_subject" => $_POST['major_subject'],
+                "graduation_year" => $_POST['graduation_year'],
+                "graduation_status" => $_POST['graduation_status'],
+                "comments" => $_POST['comments']
+            ]]
+        );
+};
 
 print_r($_SESSION['cart']) ?>
 <!DOCTYPE html>

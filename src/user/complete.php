@@ -17,6 +17,7 @@ if (!empty($_POST)) {
     $customer_id = $stmt_customers_created_at->fetch();
     $customer_id = $customer_id['id'] + 1;
     $stmt_customers = $db->prepare('INSERT INTO customers SET 
+    agent_id=?,
     name =?,
     name_kana =?,
     sex =?,
@@ -33,6 +34,7 @@ if (!empty($_POST)) {
     comments =?
     ');
     $stmt_customers->execute(array(
+      $_POST['agent_id'],
       $_POST['name'],
       $_POST['name_kana'],
       $_POST['sex'],
@@ -64,7 +66,7 @@ if (!empty($_POST)) {
     ');
     $stmt_agents->execute(array(
       $_POST['agent_id'],
-      $customer_id['id']
+      $customer_id
     ));
   };
 }
