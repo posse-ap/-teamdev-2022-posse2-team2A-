@@ -45,7 +45,7 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </li>
         <?php endforeach; ?>
     </ul>
-    <!-- <a href="logout.php">ログアウト</a> -->
+    <a href="logout.php">ログアウト</a>
     <div class="tab-panel">
         <!--タブ-->
         <ul class="tab-group">
