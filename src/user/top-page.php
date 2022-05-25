@@ -21,10 +21,10 @@
     <?php
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
-    
 
-<!-- mainここから -->
-<main>
+
+    <!-- mainここから -->
+    <main>
         <div class="title-wrapper">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
@@ -91,8 +91,8 @@
                         自分では探せなかった、意外な企業との出会いがあるかもしれません。
                         ハイクラス求人なら必ず登録スべき転職サイトです。
                     </p>
-                    <div class="btn-wrapper">                    
-                        <a href="./form.php"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
+                    <div class="btn-wrapper">
+                        <a href="./form.php?1"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                     </div>
                 </li>
                 <!-- 例2 -->
@@ -153,8 +153,8 @@
                         自分では探せなかった、意外な企業との出会いがあるかもしれません。
                         ハイクラス求人なら必ず登録スべき転職サイトです。
                     </p>
-                    <div class="btn-wrapper">                    
-                        <a href="./form.php"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
+                    <div class="btn-wrapper">
+                        <a href="./form.php?2"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                     </div>
 
                 </li>
