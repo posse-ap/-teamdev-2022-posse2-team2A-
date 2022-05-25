@@ -117,6 +117,9 @@
             <div class="relative">
                 <button class="absolute top-1 right-1 green" type="button" onclick="history.back()">修正する</button>
             </div>
+
+
+            <!-- 裏側で送るデータここから下は変更しないで　to ともあき -->
             <div class="sm:flex justify-around w-full mt-10">
                 <?php
                 $full_name = $_POST['first_name'] . $_POST['last_name'];

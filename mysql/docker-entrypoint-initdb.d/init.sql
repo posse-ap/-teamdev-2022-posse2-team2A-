@@ -76,6 +76,14 @@ CREATE TABLE customers (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS intermediate;
+
+CREATE TABLE intermediate (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    agent_id INT NOT NULL,
+    customer_id INT
+);
+
 INSERT INTO
     customers
 SET
