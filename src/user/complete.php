@@ -2,6 +2,7 @@
 <?php
 require("../dbconnect.php");
 
+
 $stmt = $db->query('SELECT * FROM agents');
 $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if (!empty($_POST)) {
@@ -18,6 +19,8 @@ if (!empty($_POST)) {
     major =?,
     department =?,
     major_subject =?,
+    graduation_year=?,
+    graduation_status=?,
     comments =?
     ');
   $stmt->execute(array(
@@ -33,6 +36,8 @@ if (!empty($_POST)) {
     $_POST['major'],
     $_POST['department'],
     $_POST['major_subject'],
+    $_POST['graduation_year'],
+    $_POST['graduation_status'],
     $_POST['comments']
   ));
 }
@@ -99,13 +104,13 @@ $_BTP = '一覧に戻る';
   };
   ?>
   <a href="./index.php">一覧に戻る</a>
-    <!-- footer -->
-    <?php
-    require(dirname(__FILE__) . "/components/_footer.php");
-    ?>
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+  <!-- footer -->
+  <?php
+  require(dirname(__FILE__) . "/components/_footer.php");
+  ?>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>
