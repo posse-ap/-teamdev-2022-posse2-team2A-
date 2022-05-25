@@ -120,3 +120,59 @@ department = "ミュージカル学部",
 major_subject = "ミュージカル学科",
 comments = "歌いたい";
 
+
+
+DROP TABLE IF EXISTS agent_contents;
+CREATE TABLE agent_contents (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  agent_id INT NOT NULL,
+  agent_name VARCHAR(255) NOT NULL ,
+  image VARCHAR(255) NOT NULL,
+  feature1 VARCHAR(255) NOT NULL,
+  feature2 VARCHAR(255) NOT NULL,
+  feature3 VARCHAR(255) NOT NULL,
+  feature4 VARCHAR(255) NOT NULL,
+  feature5 VARCHAR(255) NOT NULL,
+  recruitment_number VARCHAR(255) NOT NULL,
+  private_recruitment_number VARCHAR(255) NOT NULL,
+  target_age VARCHAR(255) NOT NULL,
+  area VARCHAR(255) NOT NULL,
+  pr_point VARCHAR(255) NOT NULL,
+  -- created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  -- updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO
+  agent_contents
+SET
+agent_id = 1,
+agent_name = "リクルートダイレクトスカウト",
+-- image = "",
+feature1 = "年収750万以上の方向け！",
+feature2 = "ハイクラス転職後平均年収950万以上",
+feature3 = "担当コンサルタントを自分で選べる",
+feature4 = "3,000名以上のヘッドハンター数",
+feature5 = "企業から直接スカウトが届く",
+recruitment_number = "103,000件以上",
+private_recruitment_number = "非公開",
+dtarget_age = "全年齢",
+major_subject = "渡邉瑛貴",
+area = "全国対応";
+pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";
+INSERT INTO
+  agent_contents
+SET
+agent_id = 2,
+agent_name = "ジョブオファーダイレクトスカウト",
+-- image = "",
+feature1 = "年収750万以上の方向け！",
+feature2 = "ハイクラス転職後平均年収950万以上",
+feature3 = "担当コンサルタントを自分で選べる",
+feature4 = "3,000名以上のヘッドハンター数",
+feature5 = "企業オカラ直接スカウトが届く",
+recruitment_number = "103,000件以上",
+private_recruitment_number = "非公開",
+dtarget_age = "全年齢",
+major_subject = "渡邉瑛貴",
+area = "全国対応";
+pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";

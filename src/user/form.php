@@ -37,7 +37,7 @@ if (!empty($_POST)) {
         $_POST['major_subject'],
         $_POST['comments']
     ));
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/user/index.php');
     exit();
 }
 ?>
