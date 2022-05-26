@@ -131,7 +131,8 @@ SET
     major = "文系",
     department = "ミュージカル学部",
     major_subject = "ミュージカル学科",
-    comments = "歌いたい";
+    graduation_year = 2025,
+    graduation_status = "卒業見込み";
 
 DROP TABLE IF EXISTS agent_contents;
 
@@ -139,7 +140,6 @@ CREATE TABLE agent_contents (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     agent_id INT NOT NULL,
     agent_name VARCHAR(255) NOT NULL,
-    image VARCHAR(255) NOT NULL,
     feature1 VARCHAR(255) NOT NULL,
     feature2 VARCHAR(255) NOT NULL,
     feature3 VARCHAR(255) NOT NULL,
@@ -159,7 +159,6 @@ INSERT INTO
 SET
     agent_id = 1,
     agent_name = "リクルートダイレクトスカウト",
-    -- image = "",
     feature1 = "年収750万以上の方向け！",
     feature2 = "ハイクラス転職後平均年収950万以上",
     feature3 = "担当コンサルタントを自分で選べる",
@@ -167,8 +166,7 @@ SET
     feature5 = "企業から直接スカウトが届く",
     recruitment_number = "103,000件以上",
     private_recruitment_number = "非公開",
-    dtarget_age = "全年齢",
-    major_subject = "渡邉瑛貴",
+    target_age = "全年齢",
     area = "全国対応",
     pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";
 
@@ -177,7 +175,6 @@ INSERT INTO
 SET
     agent_id = 2,
     agent_name = "ジョブオファーダイレクトスカウト",
-    -- image = "",
     feature1 = "年収750万以上の方向け！",
     feature2 = "ハイクラス転職後平均年収950万以上",
     feature3 = "担当コンサルタントを自分で選べる",
@@ -185,7 +182,15 @@ SET
     feature5 = "企業オカラ直接スカウトが届く",
     recruitment_number = "103,000件以上",
     private_recruitment_number = "非公開",
-    dtarget_age = "全年齢",
-    major_subject = "渡邉瑛貴",
+    target_age = "全年齢",
     area = "全国対応",
     pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";
+
+CREATE TABLE images (
+    image_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    image_name VARCHAR(255) NOT NULL,
+    image_type varchar(64) NOT NULL,
+    image_content mediumblob,
+    image_size int NOT NULL,
+    created_at DATETIME
+) ENGINE = InnoDB DEFAULT CHARSET = utf8 COLLATE = utf8_unicode_ci;

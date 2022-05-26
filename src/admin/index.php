@@ -9,8 +9,11 @@ if (isset($_SESSION['admin_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
     exit();
 }
 
-$stmt = $db->query('SELECT * FROM customers');
-$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $db->query('SELECT * FROM agents');
+$agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+foreach ($agents as $key => $agent) {
+    echo $agent['email'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +44,6 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?= $customer["major"]; ?>
                 <?= $customer["department"]; ?>
                 <?= $customer["major_subject"]; ?>
-                <?= $customer["comments"]; ?>
             </li>
         <?php endforeach; ?>
     </ul>
