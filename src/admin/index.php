@@ -172,11 +172,9 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <input type="file" name="img" onchange="previewFile(this);">
                         </div>
                         <ul class="agent-pr-list">
-                            <li class="agent-pr-item strong w-full"><input type="text"></li>
-                            <li class="agent-pr-item"><input type="text"></li>
-                            <li class="agent-pr-item"><input type="text"></li>
-                            <li class="agent-pr-item"><input type="text"></li>
-                            <li class="agent-pr-item"><input type="text"></li>
+                            <li class="agent-pr-item strong rounded border-solid border-2 m-2"><input type="text" placeholder="３大アピールポイント"></li>
+                            <li class="agent-pr-item strong rounded border-solid border-2 m-2"><input type="text" placeholder="３大アピールポイント"></li>
+                            <li class="agent-pr-item strong rounded border-solid border-2 m-2"><input type="text" placeholder="３大アピールポイント"></li>
                         </ul>
                     </div>
                     <table class="agent-info-table mt-4 mb-4">
@@ -188,10 +186,10 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <th>エリア</th>
                             </tr>
                             <tr>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
-                                <td><input type="text"></td>
+                                <td><input class="rounded border-solid border-2" type="text"></td>
+                                <td><input class="rounded border-solid border-2" type="text"></td>
+                                <td><input class="rounded border-solid border-2" type="text"></td>
+                                <td><input class="rounded border-solid border-2" type="text"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -208,7 +206,7 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">フリーター</li>
                             <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">未経験</li>
                             <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">中小企業</li>
-                            <li class="">選択してください</li>
+                            <li class="field-item">選択してください</li>
                         </ul>
                     </div>
                     <p class="agent-pr-text border-solid rounded-2xl w-full bg-white mt-4 mb-4 p-2">
