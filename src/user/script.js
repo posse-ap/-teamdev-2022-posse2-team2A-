@@ -82,6 +82,7 @@ const returninfo = ({
 
 
 
+
 // 月ごとの報酬を表示するここから
 
 // 見たい月を動的に変更できるようにするここから
@@ -170,6 +171,8 @@ function CheckEmail(input){
 //form関連ここまで
 
 // boozer画面、企業情報追加の部分ここから
+
+// 画像のプレビューここから
 function previewFile(hoge){
   var fileData = new FileReader();
   fileData.onload = (function() {
@@ -179,4 +182,21 @@ function previewFile(hoge){
   });
   fileData.readAsDataURL(hoge.files[0]);
 }
+
+// 画像のプレビューここまで
+
+// 得意分野の選択ここから
+
+for(let i=0; i<10; i++){
+  if(document.getElementById(`fieldItem${i}`).checked){
+    document.getElementById(`fieldItem${i}`).classList.remove("bg-gray-500");
+    document.getElementById(`fieldItem${i}`).classList.add("bg-blue-600");
+  } else{
+    document.getElementById(`fieldItem${i}`).classList.add("bg-gray-500");
+    document.getElementById(`fieldItem${i}`).classList.remove("bg-blue-600");
+  }
+}
+
+
+// 得意分野の選択ここまで
 // boozer画面、企業情報追加の部分ここまで

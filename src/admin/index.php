@@ -196,25 +196,25 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <div class="field-wrapper flex flex-row items-center bg-blue-200 mt-4 mb-4">
                         <p class="field-text text-blue-600 w-10 text-xs text-center m-4">得意分野</p>
                         <ul class="field flex flex-wrap text-xs">
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">大手企業</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">外資・海外</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">ベンチャー</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">ハイクラス</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">IT業界</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">女性向け</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">第二新卒</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">フリーター</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">未経験</li>
-                            <li class="field-item text-white bg-blue-600 rounded-2xl m-1 p-1">中小企業</li>
-                            <li class="field-item">選択してください</li>
+                            <li id="fieldItem0" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">大手企業</li>
+                            <li id="fieldItem1" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">外資・海外</li>
+                            <li id="fieldItem2" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">ベンチャー</li>
+                            <li id="fieldItem3" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">ハイクラス</li>
+                            <li id="fieldItem4" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">IT業界</li>
+                            <li id="fieldItem5" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">女性向け</li>
+                            <li id="fieldItem6" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">第二新卒</li>
+                            <li id="fieldItem7" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">フリーター</li>
+                            <li id="fieldItem8" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">未経験</li>
+                            <li id="fieldItem9" class="field-item text-white bg-gray-500 rounded-2xl m-1 p-1"><input type="checkbox">中小企業</li>
+                            <li class="field-item m-1 p-1">選択してください</li>
                         </ul>
                     </div>
                     <p class="agent-pr-text border-solid rounded-2xl w-full bg-white mt-4 mb-4 p-2">
                         PRポイント
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <textarea class="w-full" name="pr_comments" id="" cols="30" rows="10"></textarea>
                     </p>
                     <div class="btn-wrapper">                    
-                        <input class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20" type="submit" value="企業を追加する"></input></a>
+                        <input class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20" type="submit" value="企業を追加する"></a>
                     </div>
                 </form>
             </div>
