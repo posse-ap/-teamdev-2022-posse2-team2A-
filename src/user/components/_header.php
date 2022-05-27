@@ -10,6 +10,6 @@
             <li class="menu-item p-1 lg:p-2">就活エージェント</li>
             <li class="menu-item p-1 lg:p-2">就活の教科書とは</li>
             <li class="menu-item p-1 lg:p-2">お問い合わせ</li>
-            <li class="menu-item p-1 lg:p-2">企業の方へ</li>
+            <a href="../agent/login.php"><li class="menu-item p-1 lg:p-2">企業の方へ</li></a>
         </ul>
 </header>
