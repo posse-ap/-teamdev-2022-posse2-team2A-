@@ -100,8 +100,8 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             <p> 特徴：<input type="text" name="feature3" required value="<?= $agent_contents[0]['feature3'] ?>"></p>
             <p> 特徴：<input type="text" name="feature4" required value="<?= $agent_contents[0]['feature4'] ?>"></p>
             <p> 特徴：<input type="text" name="feature5" required value="<?= $agent_contents[0]['feature5'] ?>"></p>
-            <p>求人数：<input type="text" name="recruitment_number" value="<?= $agent_contents[0]['recruitment_number'] ?>"></p>
-            <p>非公開求人数：<input type="text" name="private_recruitment_number" value="<?= $agent_contents[0]['private_recruitment_number'] ?>"></p>
+            <p>求人数：<input type="text" name="recruitment_number" required value="<?= $agent_contents[0]['recruitment_number'] ?>"></p>
+            <p>非公開求人数：<input type="text" name="private_recruitment_number" required value="<?= $agent_contents[0]['private_recruitment_number'] ?>"></p>
             <p> 対象年代：<input type="text" name="target_age" required value="<?= $agent_contents[0]['target_age'] ?>"></p>
             <p> エリア：<input type="text" name="area" required value="<?= $agent_contents[0]['area'] ?>"></p>
             <p> PRポイント：<textarea rows="9" cols="80" name="pr_point" required value="<?= $agent_contents[0]['pr_point'] ?>"></textarea></p>
