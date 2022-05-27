@@ -11,9 +11,6 @@ if (isset($_SESSION['admin_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
 
 $stmt = $db->query('SELECT * FROM agents');
 $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
-foreach ($agents as $key => $agent) {
-    echo $agent['email'];
-}
 
 ?>
 <!DOCTYPE html>
@@ -29,18 +26,6 @@ foreach ($agents as $key => $agent) {
 </head>
 
 <body>
-    <ul>
-        <?php foreach ($agents as $key => $agent) : ?>
-            <li>
-                <?php print_r($agent) ?>
-                <?= $agent["name"]; ?>
-                <?= $agent["email"]; ?>
-                <a href="./add_agents.php?<?= $agent["id"] ?>">
-                    企業情報追加
-                </a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
     <a href="logout.php">ログアウト</a>
     <div class="tab-panel">
         <!--タブ-->
@@ -81,6 +66,11 @@ foreach ($agents as $key => $agent) {
                                 <td>
                                     <a href="./add_agents.php?<?= $agent["id"] ?>">
                                         企業情報追加
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="./change_agents.php?<?= $agent["id"] ?>">
+                                        企業情報変更
                                     </a>
                                 </td>
                             </tr>
