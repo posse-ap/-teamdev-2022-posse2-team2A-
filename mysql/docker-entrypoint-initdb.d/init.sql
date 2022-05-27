@@ -22,7 +22,7 @@ INSERT INTO
     admin
 SET
     email = 'test@posse-ap.com',
-    password = sha1('123456');
+    password = sha1('password');
 
 DROP TABLE IF EXISTS agents;
 
@@ -55,6 +55,15 @@ SET
     name = "jobTV",
     status = 'tentative';
 
+INSERT INTO
+    agents
+SET
+    email = 'jober@posse-ap.com',
+    password = sha1('password'),
+    name = "jober";
+
+status = 'tentative';
+
 DROP TABLE IF EXISTS passwords_reset;
 
 CREATE TABLE password_resets (
@@ -67,7 +76,6 @@ DROP TABLE IF EXISTS customers;
 
 CREATE TABLE customers (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    agent_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     name_kana VARCHAR(255) NOT NULL,
     sex VARCHAR(255) NOT NULL,
@@ -79,15 +87,24 @@ CREATE TABLE customers (
     major VARCHAR(255) NOT NULL,
     department VARCHAR(255) NOT NULL,
     major_subject VARCHAR(255) NOT NULL,
-    comments VARCHAR(255) NOT NULL,
+    graduation_year INT NOT NULL,
+    graduation_status VARCHAR(80) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+DROP TABLE IF EXISTS intermediate;
+
+CREATE TABLE intermediate (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    agent_id INT NOT NULL,
+    customer_id INT,
+    comments VARCHAR(80)
 );
 
 INSERT INTO
     customers
 SET
-    agent_id = 1,
     name = "渡邉瑛貴",
     name_kana = "わたなべえいき",
     sex = "男",
@@ -99,12 +116,12 @@ SET
     major = "文系",
     department = "経済学科",
     major_subject = "渡邉瑛貴",
-    comments = "この企業は嫌いですねぇ";
+    graduation_year = 2023,
+    graduation_status = "卒業見込み";
 
 INSERT INTO
     customers
 SET
-    agent_id = 1,
     name = "多田和樹",
     name_kana = "ただかずき",
     sex = "男",
@@ -116,12 +133,12 @@ SET
     major = "文系",
     department = "経済学部",
     major_subject = "経済学科",
-    comments = "この企業は好きですねぇ";
+    graduation_year = 2023,
+    graduation_status = "卒業見込み";
 
 INSERT INTO
     customers
 SET
-    agent_id = 2,
     name = "鈴木楓花",
     name_kana = "すずきかのか",
     sex = "女",
@@ -133,4 +150,69 @@ SET
     major = "文系",
     department = "ミュージカル学部",
     major_subject = "ミュージカル学科",
-    comments = "歌いたい";
+    graduation_year = 2025,
+    graduation_status = "卒業見込み";
+
+DROP TABLE IF EXISTS agent_contents;
+
+CREATE TABLE agent_contents (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    agent_id INT NOT NULL,
+    agent_name VARCHAR(255) NOT NULL,
+    special_feature VARCHAR(255) NOT NULL,
+    feature1 VARCHAR(255) NOT NULL,
+    feature2 VARCHAR(255) NOT NULL,
+    feature3 VARCHAR(255) NOT NULL,
+    feature4 VARCHAR(255) NOT NULL,
+    feature5 VARCHAR(255) NOT NULL,
+    recruitment_number VARCHAR(255) NOT NULL,
+    private_recruitment_number VARCHAR(255) NOT NULL,
+    target_age VARCHAR(255) NOT NULL,
+    area VARCHAR(255) NOT NULL,
+    pr_point VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO
+    agent_contents
+SET
+    agent_id = 1,
+    agent_name = "リクルートダイレクトスカウト",
+    special_feature = '紹介率No.1!!',
+    feature1 = "年収750万以上の方向け！",
+    feature2 = "ハイクラス転職後平均年収950万以上",
+    feature3 = "担当コンサルタントを自分で選べる",
+    feature4 = "3,000名以上のヘッドハンター数",
+    feature5 = "企業から直接スカウトが届く",
+    recruitment_number = "103,000件以上",
+    private_recruitment_number = "非公開",
+    target_age = "全年齢",
+    area = "全国対応",
+    pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";
+
+INSERT INTO
+    agent_contents
+SET
+    agent_id = 2,
+    agent_name = "ジョブオファーダイレクトスカウト",
+    special_feature = '紹介率No.1!!',
+    feature1 = "年収750万以上の方向け！",
+    feature2 = "ハイクラス転職後平均年収950万以上",
+    feature3 = "担当コンサルタントを自分で選べる",
+    feature4 = "3,000名以上のヘッドハンター数",
+    feature5 = "企業オカラ直接スカウトが届く",
+    recruitment_number = "103,000件以上",
+    private_recruitment_number = "非公開",
+    target_age = "全年齢",
+    area = "全国対応",
+    pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";
+
+CREATE TABLE images (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+INSERT INTO images SET id=1, name='1.png';
+
+INSERT INTO images SET id=2, name='2.png';

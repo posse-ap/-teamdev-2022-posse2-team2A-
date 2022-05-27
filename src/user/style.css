@@ -574,7 +574,6 @@ form input[type="submit"] {
 /* 表のcssここから、基本的に全て共通 */
 table {
   border-collapse: collapse;
-  background-color: #04a49c;
 }
 .scroll {
   white-space: nowrap; /* 勝手に折り返さない */
