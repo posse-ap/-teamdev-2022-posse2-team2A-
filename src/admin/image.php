@@ -1,13 +1,13 @@
 <?php
-require_once '../dbconnect.php';
+require_once('../dbconnect.php');
 
-
-$sql = 'SELECT * FROM images WHERE image_id = :image_id LIMIT 1';
+$sql = "SELECT * FROM images WHERE id = :id";
 $stmt = $db->prepare($sql);
-$stmt->bindValue(':image_id', (int)$_GET['id'], PDO::PARAM_INT);
+$stmt->bindValue(':id', $id);
 $stmt->execute();
 $image = $stmt->fetch();
+?>
 
-header('Content-type: ' . $image['image_type']);
-echo $image['image_content'];
-exit();
+<h1>画像表示</h1>
+<img src="images/<?php echo $image['name']; ?>" width="300" height="300">
+<a href="upload.php">画像アップロード</a>

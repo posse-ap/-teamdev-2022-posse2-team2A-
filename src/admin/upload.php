@@ -1,43 +1,54 @@
 <?php
-require_once('../dbconnect.php');
+require_once("../dbconnect.php");
+$allow = array('jpeg', 'jpg', 'png');
+
+if (isset($_POST['upload'])) { //送信ボタンが押された場合
+    $image = 1; //ファイル名
+    $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1); //アップロードされたファイルの拡張子を取得
+    $file_name = substr(strrchr($_FILES['image']['name'], '.'), 1);
+    $file = "images/$image";
+    if (!empty($_FILES['image']['name'])) { //ファイルが選択されていれば$imageにファイル名を代入
+        if (in_array($file_name, $allow) == true) { //画像ファイルかのチェック
+            move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image); //imagesディレクトリにファイル保存
+
+            $sql = "INSERT INTO images(name) VALUES (:image)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':image', $image, PDO::PARAM_STR);
+
+            $message = '画像をアップロードしました';
+            $stmt->execute();
+            $stmt = $db->prepare('INSERT INTO agent_contents SET 
+            agent_name =?,
+            feature1 =?,
+            feature2 =?,
+            feature3 =?,
+            feature4 =?,
+            feature5 =?,
+            recruitment_number =?,
+            private_recruitment_number =?,
+            target_age =?,
+            area =?,
+            pr_point =?
+            ');
+            $stmt->execute(array(
+                $_POST['agent_name'],
+                $_POST['feature1'],
+                $_POST['feature2'],
+                $_POST['feature3'],
+                $_POST['feature4'],
+                $_POST['feature5'],
+                $_POST['recruitment_number'],
+                $_POST['private_recruitment_number'],
+                $_POST['target_age'],
+                $_POST['area'],
+                $_POST['pr_point']
+            ));
 
 
-if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    // 画像を取得
-    $sql = 'SELECT * FROM images ORDER BY created_at DESC';
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $images = $stmt->fetchAll();
-} else {
-    // 画像を保存
-    if (!empty($_FILES['image']['name'])) {
-        $name = $_FILES['image']['name'];
-        $type = $_FILES['image']['type'];
-        $content = file_get_contents($_FILES['image']['tmp_name']);
-        $size = $_FILES['image']['size'];
 
-        $sql = 'INSERT INTO images(image_name, image_type, image_content, image_size, created_at)
-                VALUES (:image_name, :image_type, :image_content, :image_size, now())';
-        $stmt = $db->prepare($sql);
-        $stmt->bindValue(':image_name', $name, PDO::PARAM_STR);
-        $stmt->bindValue(':image_type', $type, PDO::PARAM_STR);
-        $stmt->bindValue(':image_content', $content, PDO::PARAM_STR);
-        $stmt->bindValue(':image_size', $size, PDO::PARAM_INT);
-        $stmt->execute();
+            header('Location:add_agents.php');
+        } else {
+            $message = '画像ファイルではありません';
+        }
     }
-    header('Location:add_agents.php');
-    exit();
 }
-
-
-for ($i = 0; $i < count($images); $i++) : ?>
-    <li class="media mt-5">
-        <a href="#lightbox" data-toggle="modal" data-slide-to="<?= $i; ?>">
-            <img src="image.php?id=<?= $images[$i]['image_id']; ?>" width="100" height="auto" class="mr-3">
-        </a>
-        <div class="media-body">
-            <h5><?= $images[$i]['image_name']; ?> (<?= number_format($images[$i]['image_size'] / 1000, 2); ?> KB)</h5>
-            <a href="#"><i class="far fa-trash-alt"></i> 削除</a>
-        </div>
-    </li>
-<?php endfor; ?>

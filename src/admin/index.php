@@ -30,20 +30,14 @@ foreach ($agents as $key => $agent) {
 
 <body>
     <ul>
-        <?php foreach ($customers as $key => $customer) : ?>
+        <?php foreach ($agents as $key => $agent) : ?>
             <li>
-                <?= $customer["id"]; ?>
-                <?= $customer["name"]; ?>
-                <?= $customer["name_kana"]; ?>
-                <?= $customer["sex"]; ?>
-                <?= $customer["birth"]; ?>
-                <?= $customer["address"]; ?>
-                <?= $customer["email"]; ?>
-                <?= $customer["phone_number"]; ?>
-                <?= $customer["education"]; ?>
-                <?= $customer["major"]; ?>
-                <?= $customer["department"]; ?>
-                <?= $customer["major_subject"]; ?>
+                <?php print_r($agent) ?>
+                <?= $agent["name"]; ?>
+                <?= $agent["email"]; ?>
+                <a href="./add_agents.php?<?= $agent["id"] ?>">
+                    企業情報追加
+                </a>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -70,19 +64,27 @@ foreach ($agents as $key => $agent) {
                             <th>電話番号</th>
                             <th>今月の問い合わせ人数</th>
                             <th>今月の報酬予定額</th>
+                            <th>企業情報</th>
                         </tr>
-                        <tr class="white">
-                            <td onclick="showInfo({hidden:panel, show:memberDetail})">amazon</td>
-                            <td>表示</td>
-                            <td>takaharatomoaki
-                            </td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                        </tr>
+                        <?php foreach ($agents as $key => $agent) : ?>
+                            <tr class="white">
+                                <td onclick="showInfo({hidden:panel, show:memberDetail})"><?= $agent["name"]; ?> </td>
+                                <td>表示</td>
+                                <td><?= $agent["name"]; ?>
+                                </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td>
+                                    <a href="./add_agents.php?<?= $agent["id"] ?>">
+                                        企業情報追加
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                         <tr class="mint">
                             <td>amazon</td>
                             <td>表示</td>
