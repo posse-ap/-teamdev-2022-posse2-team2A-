@@ -26,7 +26,7 @@ if (!empty($_POST)) {
 <html lang="ja">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../user/style.css">
@@ -55,7 +55,7 @@ if (!empty($_POST)) {
             <a href="" class="text-xs">パスワードを忘れた方へ</a>
         </div>
         <div class="text-center m-10">
-            <a class="newAgent_input_button" href="../user/newAgentform.php">お申し込み</a>
+            <a class="newAgent_input_button" href="../user/new_apply/newAgentform.php">お申し込み</a>
             <p class="text-xs m-5">新たに自社情報の掲載を希望される方は"お申し込みボタン"から登録をお願いいたします。</p>
         </div>
     </main>
