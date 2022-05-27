@@ -26,9 +26,6 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             $sql = "INSERT INTO images(name) VALUES (:image)";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':image', $image, PDO::PARAM_STR);
-
-            $alert = "<script type='text/javascript'>alert('画像をアップロードしました');</script>";
-            echo $alert;
             $stmt->execute();
             $stmt = $db->prepare('INSERT INTO agent_contents SET 
             agent_id=?,
@@ -61,7 +58,9 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
                 $_POST['pr_point']
             ));
 
-            header('Location:add_agents.php');
+            header('Location:index.php');
+            $alert = "<script type='text/javascript'>alert('画像をアップロードしました');</script>";
+            echo $alert;
         } else {
             $alert = "<script type='text/javascript'>alert('画像はpng jpg jpegにしてください');</script>";
             echo $alert;
