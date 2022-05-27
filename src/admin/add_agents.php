@@ -10,11 +10,12 @@ if (isset($_SESSION['admin_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
 }
 // agent_id取得
 $data = explode(",", $_SERVER['QUERY_STRING']);
+
 // 許可する拡張子
 $allow = array('jpeg', 'jpg', 'png');
 
 if (isset($_POST['upload'])) { //送信ボタンが押された場合
-    $image =  $data[0]; //ファイル名
+    $image =  $_POST['agent_id']; //ファイル名
     $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1); //アップロードされたファイルの拡張子を取得
     $file_name = substr(strrchr($_FILES['image']['name'], '.'), 1);
     $file = "images/$image";
@@ -30,7 +31,7 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             echo $alert;
             $stmt->execute();
             $stmt = $db->prepare('INSERT INTO agent_contents SET 
-            agent_id-?,
+            agent_id=?,
             agent_name =?,
             special_feature=?,
             feature1 =?,
@@ -45,7 +46,7 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             pr_point =?
             ');
             $stmt->execute(array(
-                $data[0],
+                $_POST['agent_id'],
                 $_POST['agent_name'],
                 $_POST['special_feature'],
                 $_POST['feature1'],
@@ -83,6 +84,7 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
     <section>
         <h1>企業情報追加</h1>
         <form action="/admin/add_agents.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" value=<?= $data[0]; ?> name="agent_id">
             <p> 企業名：<input type="text" name="agent_name" required></p>
             <p> 企業画像：<input type="file" name="image" required></p>
             <p> 推しポイント：<input type="text" name="special_feature" required></p>

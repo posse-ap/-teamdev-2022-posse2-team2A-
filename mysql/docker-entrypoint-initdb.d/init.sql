@@ -45,6 +45,13 @@ SET
     password = sha1('password3'),
     name = "jobTV";
 
+INSERT INTO
+    agents
+SET
+    email = 'jober@posse-ap.com',
+    password = sha1('password'),
+    name = "jober";
+
 DROP TABLE IF EXISTS passwords_reset;
 
 CREATE TABLE password_resets (
@@ -192,4 +199,8 @@ SET
 CREATE TABLE images (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL
-)
+);
+
+INSERT INTO images SET id=1, name='1.png';
+
+INSERT INTO images SET id=2, name='2.png';

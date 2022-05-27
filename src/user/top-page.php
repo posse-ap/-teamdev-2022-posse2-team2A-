@@ -2,7 +2,9 @@
 require_once('../dbconnect.php');
 $stmt = $db->prepare('SELECT * FROM agent_contents ');
 $stmt->execute();
-$agent_infos = $stmt->fetchAll();
+$agent_contents = $stmt->fetchAll();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -40,20 +42,27 @@ $agent_infos = $stmt->fetchAll();
             <ul class="agent-list">
                 <!-- 例ここから -->
                 <!-- 例1 -->
-                <?php foreach ($agent_infos as $key => $agent_info) { ?>
+                <?php foreach ($agent_contents as $key => $agent_content) {
+                    // 画像名前取得
+                    $id = $agent_content['agent_id'];
+                    $sql = "SELECT * FROM images WHERE id = :id";
+                    $stmt_img = $db->prepare($sql);
+                    $stmt_img->bindValue(':id', $id);
+                    $stmt_img->execute();
+                    $image = $stmt_img->fetch(); ?>
                     <li class="agent-list-item">
                         <div class="text-wrapper">
-                            <p class="text1"><?= $agent_info['agent_name'] ?></p>
-                            <p class="text2 strong"><?= $agent_info['special_feature'] ?></p>
+                            <p class="text1"><?= $agent_content['agent_name'] ?></p>
+                            <p class="text2 strong"><?= $agent_content['special_feature'] ?></p>
                         </div>
                         <div class="agent-pr-wrapper">
-                            <img class="agent-pr-img" src="./agent-image.png" alt="">
+                            <img class="agent-pr-img" src="../admin/images/<?php echo $image['name']; ?>" alt="">
                             <ul class="agent-pr-list">
-                                <li class="agent-pr-item strong"><?= $agent_info['feature1'] ?></li>
-                                <li class="agent-pr-item strong"><?= $agent_info['feature2'] ?></li>
-                                <li class="agent-pr-item strong"><?= $agent_info['feature3'] ?></li>
-                                <li class="agent-pr-item"><?= $agent_info['feature4'] ?></li>
-                                <li class="agent-pr-item"><?= $agent_info['feature5'] ?></li>
+                                <li class="agent-pr-item strong"><?= $agent_content['feature1'] ?></li>
+                                <li class="agent-pr-item strong"><?= $agent_content['feature2'] ?></li>
+                                <li class="agent-pr-item strong"><?= $agent_content['feature3'] ?></li>
+                                <li class="agent-pr-item"><?= $agent_content['feature4'] ?></li>
+                                <li class="agent-pr-item"><?= $agent_content['feature5'] ?></li>
                             </ul>
                         </div>
                         <table class="agent-info-table mt-4 mb-4">
@@ -65,10 +74,10 @@ $agent_infos = $stmt->fetchAll();
                                     <th>エリア</th>
                                 </tr>
                                 <tr>
-                                    <td><?= $agent_info['recruitment_number'] ?></td>
-                                    <td><?= $agent_info['private_recruitment_number'] ?></td>
-                                    <td><?= $agent_info['target_age'] ?></td>
-                                    <td><?= $agent_info['area'] ?></td>
+                                    <td><?= $agent_content['recruitment_number'] ?></td>
+                                    <td><?= $agent_content['private_recruitment_number'] ?></td>
+                                    <td><?= $agent_content['target_age'] ?></td>
+                                    <td><?= $agent_content['area'] ?></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -90,10 +99,10 @@ $agent_infos = $stmt->fetchAll();
                         <p class="agent-pr-text border-solid rounded-2xl w-full bg-white mt-4 mb-4 p-2">
                             PRポイント
                             <br>
-                            <?= $agent_info['pr_point'] ?>
+                            <?= $agent_content['pr_point'] ?>
                         </p>
                         <div class="btn-wrapper">
-                            <a href="./form.php?1"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
+                            <a href="./form.php?<?= $agent_content['agent_id'] ?>"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                         </div>
                     </li>
                 <?php } ?>
