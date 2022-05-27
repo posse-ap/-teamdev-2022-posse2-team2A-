@@ -46,10 +46,11 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </ul>
     <a href="logout.php">ログアウト</a>
+    <main>
     <div class="tab-panel">
         <!--タブ-->
         <ul class="tab-group">
-            <li id="tabA" class="tab tab-A is-active">企業一覧</li>
+            <a href="./index.php"><li id="tabA" class="tab tab-A is-active"><a href="./index.php">企業一覧</a></li>
             <li class="tab tab-B">企業情報追加</li>
             <li class="tab tab-C">企業情報変更</li>
         </ul>
@@ -68,18 +69,19 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <th>電話番号</th>
                             <th>今月の問い合わせ人数</th>
                             <th>今月の報酬予定額</th>
+                            <th>編集</th>
                         </tr>
                         <tr class="white">
                             <td onclick="showInfo({hidden:panel, show:memberDetail})">amazon</td>
                             <td>表示</td>
-                            <td>takaharatomoaki
-                            </td>
+                            <td>takaharatomoaki</td>
                             <td>a</td>
                             <td>a</td>
                             <td>a</td>
                             <td>a</td>
                             <td>a</td>
                             <td>a</td>
+                            <td><a href="./change_agents.php">企業情報変更</a></td>
                         </tr>
                         <tr class="mint">
                             <td>amazon</td>
@@ -91,6 +93,7 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td>a</td>
                             <td>a</td>
                             <td>a</td>
+                            <td><a href="./add_agents.php">企業情報追加</a></td>
                         </tr>
                     </table>
                 </div>
@@ -221,6 +224,7 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="panel tab-C">Content-C</div>
         </div>
     </div>
+    </main>
     <footer>
         <!-- jquery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

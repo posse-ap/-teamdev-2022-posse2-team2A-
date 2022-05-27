@@ -554,7 +554,6 @@ form input[type = "submit"]{
   border:solid 1px #CCC;
   line-height: 60px;
   text-align:center;
-  cursor:pointer;
 }
 .panel-group{
   /* position: relative; */
