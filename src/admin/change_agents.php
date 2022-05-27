@@ -11,8 +11,6 @@ if (isset($_SESSION['admin_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
 
 // agent_id取得
 $data = explode(",", $_SERVER['QUERY_STRING']);
-$stmt = $db->query('SELECT *FROM agent_contents WHERE id =' . $data[0]);
-$agent_contents = $stmt->fetchAll();
 
 // 許可する拡張子
 $allow = array('jpeg', 'jpg', 'png');
@@ -88,6 +86,11 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
 </head>
 
 <body>
+    <?php
+    $stmt = $db->prepare('SELECT * FROM agent_contents WHERE id =  ' . $data[0]);
+    $stmt->execute();
+    $agent_contents = $stmt->fetchAll();
+    ?>
     <section>
         <h1>企業情報変更</h1>
         <form action="/admin/change_agents.php" method="POST" enctype="multipart/form-data">
@@ -104,7 +107,7 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             <p>非公開求人数：<input type="text" name="private_recruitment_number" required value="<?= $agent_contents[0]['private_recruitment_number'] ?>"></p>
             <p> 対象年代：<input type="text" name="target_age" required value="<?= $agent_contents[0]['target_age'] ?>"></p>
             <p> エリア：<input type="text" name="area" required value="<?= $agent_contents[0]['area'] ?>"></p>
-            <p> PRポイント：<textarea rows="9" cols="80" name="pr_point" required value="<?= $agent_contents[0]['pr_point'] ?>"></textarea></p>
+            <p> PRポイント：<textarea rows="9" cols="80" name="pr_point" required><?= $agent_contents[0]['pr_point'] ?></textarea></p>
             <p><input type="submit" value="変更する" name="upload"></p>
         </form>
     </section>
