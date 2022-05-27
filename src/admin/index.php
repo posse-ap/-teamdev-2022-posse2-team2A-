@@ -9,8 +9,8 @@ if (isset($_SESSION['admin_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
     exit();
 }
 
-$stmt = $db->query('SELECT * FROM customers');
-$customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt = $db->query('SELECT * FROM agents');
+$agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -26,25 +26,6 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <ul>
-        <?php foreach ($customers as $key => $customer) : ?>
-            <li>
-                <?= $customer["id"]; ?>
-                <?= $customer["name"]; ?>
-                <?= $customer["name_kana"]; ?>
-                <?= $customer["sex"]; ?>
-                <?= $customer["birth"]; ?>
-                <?= $customer["address"]; ?>
-                <?= $customer["email"]; ?>
-                <?= $customer["phone_number"]; ?>
-                <?= $customer["education"]; ?>
-                <?= $customer["major"]; ?>
-                <?= $customer["department"]; ?>
-                <?= $customer["major_subject"]; ?>
-                <?= $customer["comments"]; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
     <a href="logout.php">ログアウト</a>
     <div class="tab-panel">
         <!--タブ-->
@@ -68,19 +49,32 @@ $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <th>電話番号</th>
                             <th>今月の問い合わせ人数</th>
                             <th>今月の報酬予定額</th>
+                            <th>企業情報</th>
                         </tr>
-                        <tr class="white">
-                            <td onclick="showInfo({hidden:panel, show:memberDetail})">amazon</td>
-                            <td>表示</td>
-                            <td>takaharatomoaki
-                            </td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                        </tr>
+                        <?php foreach ($agents as $key => $agent) : ?>
+                            <tr class="white">
+                                <td onclick="showInfo({hidden:panel, show:memberDetail})"><?= $agent["name"]; ?> </td>
+                                <td>表示</td>
+                                <td><?= $agent["name"]; ?>
+                                </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["name"]; ?> </td>
+                                <td>
+                                    <a href="./add_agents.php?<?= $agent["id"] ?>">
+                                        企業情報追加
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="./change_agents.php?<?= $agent["id"] ?>">
+                                        企業情報変更
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                         <tr class="mint">
                             <td>amazon</td>
                             <td>表示</td>

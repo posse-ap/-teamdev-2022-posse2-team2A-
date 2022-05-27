@@ -45,6 +45,13 @@ SET
     password = sha1('password3'),
     name = "jobTV";
 
+INSERT INTO
+    agents
+SET
+    email = 'jober@posse-ap.com',
+    password = sha1('password'),
+    name = "jober";
+
 DROP TABLE IF EXISTS passwords_reset;
 
 CREATE TABLE password_resets (
@@ -133,3 +140,67 @@ SET
     major_subject = "ミュージカル学科",
     graduation_year = 2025,
     graduation_status = "卒業見込み";
+
+DROP TABLE IF EXISTS agent_contents;
+
+CREATE TABLE agent_contents (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    agent_id INT NOT NULL,
+    agent_name VARCHAR(255) NOT NULL,
+    special_feature VARCHAR(255) NOT NULL,
+    feature1 VARCHAR(255) NOT NULL,
+    feature2 VARCHAR(255) NOT NULL,
+    feature3 VARCHAR(255) NOT NULL,
+    feature4 VARCHAR(255) NOT NULL,
+    feature5 VARCHAR(255) NOT NULL,
+    recruitment_number VARCHAR(255) NOT NULL,
+    private_recruitment_number VARCHAR(255) NOT NULL,
+    target_age VARCHAR(255) NOT NULL,
+    area VARCHAR(255) NOT NULL,
+    pr_point VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO
+    agent_contents
+SET
+    agent_id = 1,
+    agent_name = "リクルートダイレクトスカウト",
+    special_feature = '紹介率No.1!!',
+    feature1 = "年収750万以上の方向け！",
+    feature2 = "ハイクラス転職後平均年収950万以上",
+    feature3 = "担当コンサルタントを自分で選べる",
+    feature4 = "3,000名以上のヘッドハンター数",
+    feature5 = "企業から直接スカウトが届く",
+    recruitment_number = "103,000件以上",
+    private_recruitment_number = "非公開",
+    target_age = "全年齢",
+    area = "全国対応",
+    pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";
+
+INSERT INTO
+    agent_contents
+SET
+    agent_id = 2,
+    agent_name = "ジョブオファーダイレクトスカウト",
+    special_feature = '紹介率No.1!!',
+    feature1 = "年収750万以上の方向け！",
+    feature2 = "ハイクラス転職後平均年収950万以上",
+    feature3 = "担当コンサルタントを自分で選べる",
+    feature4 = "3,000名以上のヘッドハンター数",
+    feature5 = "企業オカラ直接スカウトが届く",
+    recruitment_number = "103,000件以上",
+    private_recruitment_number = "非公開",
+    target_age = "全年齢",
+    area = "全国対応",
+    pr_point = "〜〜と〜〜が強みで、〜〜のような形で力になってくれる転職サイトです。〜〜なら必ず登録するべきサイトになります。";
+
+CREATE TABLE images (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+INSERT INTO images SET id=1, name='1.png';
+
+INSERT INTO images SET id=2, name='2.png';
