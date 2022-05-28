@@ -571,9 +571,10 @@ form input[type="submit"] {
   /* position: relative; */
   margin: 0 auto;
   width: 99.8%;
-  height: 300px;
+  min-height: 600px;
   border: solid 1px #ccc;
   background: rgb(255, 255, 255);
+  overflow: scroll;
 }
 .panel {
   display: none;

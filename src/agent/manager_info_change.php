@@ -35,36 +35,37 @@
                         <tr>
                             <th class="contact-item">担当者様のお名前<span style="color:red">*</span><br>Name(Kanji)</th>
                             <td class="contact-body">
-                                <span class="inline-block">姓：<?= $_POST['']; ?> </span>
-                                <span class="inline-block">名：<?= $_POST['']; ?></span>
+                                <span class="inline-block">姓：<input class="m-2 rounded border-solid border-2" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="first_name" placeholder="山田" required></span>
+                                <span class="inline-block">名：<input class="m-2 rounded border-solid border-2"  pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="last_name" placeholder="太郎" required></span>
                             </td>
                         </tr>
                         <tr>
                             <th class="contact-item">フリガナ<span style="color:red">*</span><br>Name(Kana)</th>
                             <td class="contact-body">
-                                <span class="inline-block">セイ：<?= $_POST['']; ?></span>
-                                <span class="inline-block">カナ：<?= $_POST['']; ?></span>
+                                <span class="inline-block">セイ：<input class="m-2 rounded border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="first_name_kana" placeholder="ヤマダ" required></span>
+                                <span class="inline-block">カナ：<input class="m-2 rounded border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="last_name_kana" placeholder="タロウ" required></span>
                             </td>
                         </tr>
                         <tr>
                             <th class="contact-item">担当者様の部署名<span style="color:red">*</span><br>Department name</th>
                             <td class="contact-body">
-                                <span class="inline-block"><?= $_POST['']; ?></span>
+                                <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="text" name="department_name" placeholder="リクナビ" required></span>
                             </td>
                         </tr>
                         <tr>
                             <th class="contact-item">メールアドレス<span style="color:red">*</span><br>E-mail</th>
                             <td class="contact-body">
-                                <span class="inline-block">メール：<?= $_POST['']; ?></span>
+                                <span class="inline-block">メール：<input class=" rounded border-solid border-2 m-2" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" placeholder="△△△△△@ooo.xx" required></span>
+                                <span class="inline-block">確認用：<input class=" rounded border-solid border-2 m-2" id="emailConfirm" type="text" name="email_check" placeholder="△△△△△@ooo.xx" required oninput="CheckEmail(this)"></span>
                             </td>
                         </tr>
                         <tr>
                             <th class="contact-item">電話番号<span style="color:red">*</span><br>Phone</th>
-                            <td class="contact-body"><?= $_POST['']; ?></td>
+                            <td class="contact-body"><input class=" rounded border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required></td>
                         </tr>
                     </table>
                     <div class="text-right">
-                        <input class="mt-4 mr-0 ml-auto rounded-lg text-center  shadow-lg hover:shadow-none p-4 text-sm sm:text-base" type="submit" value="編集する">
+                        <input class="mt-4 mr-0 ml-auto rounded-lg text-center  shadow-lg hover:shadow-none p-4 text-sm sm:text-base" type="submit" value="編集確定">
                     </div>
                 </form>
             </div>
