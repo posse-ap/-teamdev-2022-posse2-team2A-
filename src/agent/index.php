@@ -50,8 +50,12 @@ $agent_customers = $agent->fetchAll();
             </li>
         <?php endforeach; ?>
     </ul>
-    <a href="logout.php">ログアウト</a>
-    <main>
+    <main class="relative">
+    <div class="title-wrapper flex flex-row">
+        <h1 class="title">CRAFT</h1>
+        <h2 class="subtitle">ー企業管理画面</h2>
+    </div>
+    <a class="absolute top-10 right-10" href="logout.php">ログアウト</a>
     <div class="tab-panel">
         <!--タブ-->
         <ul class="tab-group">
@@ -66,7 +70,6 @@ $agent_customers = $agent->fetchAll();
                 <table>
                         <tr>
                             <th>対応ステータス</th>
-                            <th>応募先企業名</th>
                             <th>氏名</th>
                             <th>氏名カナ</th>
                             <th>生年月日</th>
@@ -81,7 +84,6 @@ $agent_customers = $agent->fetchAll();
                         </tr>
                         <tr class="white">
                             <td>対応中</td>
-                            <td>Daiso</td>
                             <td>takaharatomoaki</td>
                             <td>タカハラトモアキ</td>
                             <td>2000年9月16日</td>
@@ -96,7 +98,6 @@ $agent_customers = $agent->fetchAll();
                         </tr>
                         <tr class="mint">
                             <td>非対応</td>
-                            <td>amazon</td>
                             <td>たか</td>
                             <td>タカ</td>
                             <td>1895年4月1日</td>

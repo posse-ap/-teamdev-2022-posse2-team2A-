@@ -26,7 +26,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
     require("../../user/components/_nav.php");
     ?>
     <main>
-        <div class="title-wrapper">
+        <div class="title-wrapper flex-column">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
         </div>

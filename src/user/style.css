@@ -254,11 +254,14 @@ main .title-wrapper {
   padding: 8px;
   background-color: #ffffff;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 main .title-wrapper .title {
   font-size: 40px;
+}
+main .title-wrapper .subtitle{
+  font-size: 16px;
 }
 
 .agent-container {
