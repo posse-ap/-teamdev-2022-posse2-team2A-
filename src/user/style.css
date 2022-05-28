@@ -549,10 +549,19 @@ form input[type="submit"] {
 }
 /* boozer,エージェントログイン画面のログインボタンのデザインここまで */
 
+
+/* 企業管理画面。企業名とログインしたユーザー名の表示ここから */
+.agent_login_wrapper{
+  margin-top: 16px;
+  margin-left: 10%;
+}
+/* 企業名とログインしたユーザー名の表示ここまで */
+
+
 /* タブ切り替えなどここから */
 .tab-panel {
   width: 80%;
-  margin: 0 auto;
+  margin: 16px auto 0 auto;
 }
 .tab-group {
   display: flex;

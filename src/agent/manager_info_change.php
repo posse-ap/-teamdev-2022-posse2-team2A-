@@ -18,7 +18,11 @@
         <h1 class="title">CRAFT</h1>
         <h2 class="subtitle">ー企業管理画面</h2>
     </div>
-    <a class="bg-yellow absolute top-10 right-10" href="logout.php">ログアウト</a>
+    <a class="bg-yellow absolute top-1 right-10 rounded-lg text-center  shadow-lg hover:shadow-none p-4 text-sm sm:text-base" href="logout.php">ログアウト</a>
+    <div class="agent_login_wrapper">
+        <span class="ml-4">企業名：</span><span>HarborS 表参道</span>
+        <span class="ml-4">ユーザー名：</span><span>harbors@gmail.com</span>
+    </div>
     <div class="tab-panel">
         <!--タブ-->
         <ul class="tab-group">
@@ -29,7 +33,7 @@
         <!--タブを切り替えて表示するコンテンツ-->
         <div class="panel-group">
             <div class="panel tab-C is-show">
-                <form action="" method="POST" class="m-2 p-2">
+                <form action="manager_info.php" method="POST" class="m-2 p-2">
                     <!-- <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id"> -->
                     <table class="w-full">
                         <tr>
