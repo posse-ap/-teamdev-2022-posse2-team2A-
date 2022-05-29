@@ -51,9 +51,9 @@ $agent_contents = $stmt->fetchAll();
                     $stmt_img->execute();
                     $image = $stmt_img->fetch(); ?>
                     <li class="agent-list-item">
-                        <div class="text-wrapper">
+                        <div class="text-wrapper inline-block">
                             <p class="text1"><?= $agent_content['agent_name'] ?></p>
-                            <p class="text2 strong"><?= $agent_content['special_feature'] ?></p>
+                            <span class="text2 strong"><?= $agent_content['special_feature'] ?></span>
                         </div>
                         <div class="agent-pr-wrapper">
                             <img class="agent-pr-img" src="../admin/images/<?php echo $image['name']; ?>" alt="">

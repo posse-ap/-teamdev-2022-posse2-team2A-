@@ -289,12 +289,12 @@ main .title-wrapper .subtitle{
   flex-direction: column;
 }
 .text-wrapper .text1 {
-  font-size: 16px;
+  font-size: 32px;
   color: #b56441;
   margin-left: 3rem;
 }
 .text-wrapper .text2 {
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 3rem;
 }
 
