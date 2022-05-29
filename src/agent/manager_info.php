@@ -13,13 +13,33 @@
 
 
 <body>
+    <ul>
+        <?php foreach ($customers as $key => $customer) : ?>
+            <li>
+                <?= $customer["id"]; ?>
+                <?= $customer["name"]; ?>
+                <?= $customer["name_kana"]; ?>
+                <?= $customer["sex"]; ?>
+                <?= $customer["birth"]; ?>
+                <?= $customer["address"]; ?>
+                <?= $customer["email"]; ?>
+                <?= $customer["phone_number"]; ?>
+                <?= $customer["education"]; ?>
+                <?= $customer["major"]; ?>
+                <?= $customer["department"]; ?>
+                <?= $customer["major_subject"]; ?>
+                <?= $customer["comments"]; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <a href="logout.php">ログアウト</a>
     <main>
     <div class="tab-panel">
         <!--タブ-->
         <ul class="tab-group">
             <li id="tabA" class="tab tab-A"><a href="./index.php">応募者一覧</a></li>
-            <li class="tab tab-B is-active"><a href="./money.php">今月の支払予定額</a></li>
-            <li class="tab tab-C"><a href="./manager_info.php">担当者情報</a></li>
+            <li class="tab tab-B"><a href="./money.php">今月の支払予定額</a></li>
+            <li class="tab tab-C is-active"><a href="./manager_info.php">担当者情報</a></li>
         </ul>
         <!--タブを切り替えて表示するコンテンツ-->
         <div class="panel-group">
@@ -139,7 +159,7 @@
                 </div>
                 <div class="text-green-600 text-sm text-right mr-2 mt-2" onclick="returninfo({undo:memberDetail, display:panel})">企業一覧に戻る</div>
             </div>
-            <div id="panel" class="panel tab-B is-show">
+            <div id="panel" class="panel tab-B">
                 Content-B
                 <div class="status">
                     <div class="w-full text-center">
@@ -155,7 +175,48 @@
                     </div>
                 </div>
             </div>
-            <div class="panel tab-C">Content-C</div>
+            <div class="panel tab-C is-show">
+                Content-C
+                <form action="" method="POST" class="m-2 p-2">
+                    <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id">
+                    <table class="">
+                        <tr>
+                            <th class="contact-item">担当者様のお名前<span style="color:red">*</span><br>Name(Kanji)</th>
+                            <td class="contact-body">
+                                <span class="inline-block">姓：<input class="m-2 rounded border-solid border-2" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="first_name" placeholder="山田" required></span>
+                                <span class="inline-block">名：<input class="m-2 rounded border-solid border-2"  pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" type="text" name="last_name" placeholder="太郎" required></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="contact-item">フリガナ<span style="color:red">*</span><br>Name(Kana)</th>
+                            <td class="contact-body">
+                                <span class="inline-block">セイ：<input class="m-2 rounded border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="first_name_kana" placeholder="ヤマダ" required></span>
+                                <span class="inline-block">カナ：<input class="m-2 rounded border-solid border-2" pattern="[\u30A1-\u30F6]*" type="text" name="last_name_kana" placeholder="タロウ" required></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="contact-item">担当者様の部署名<span style="color:red">*</span><br>Department name</th>
+                            <td class="contact-body">
+                                <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="text" name="department_name" placeholder="リクナビ" required></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="contact-item">メールアドレス<span style="color:red">*</span><br>E-mail</th>
+                            <td class="contact-body">
+                                <span class="inline-block">メール：<input class=" rounded border-solid border-2 m-2" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" placeholder="△△△△△@ooo.xx" required></span>
+                                <span class="inline-block">確認用：<input class=" rounded border-solid border-2 m-2" id="emailConfirm" type="text" name="email_check" placeholder="△△△△△@ooo.xx" required oninput="CheckEmail(this)"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="contact-item">電話番号<span style="color:red">*</span><br>Phone</th>
+                            <td class="contact-body"><input class=" rounded border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required></td>
+                        </tr>
+                    </table>
+                    <div>
+                        <input class="bg-yellow rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="編集確定">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     </main>
