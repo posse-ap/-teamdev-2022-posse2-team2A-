@@ -49,7 +49,7 @@ $agent_info = $stmt->fetch();
             </ul>
             <!--タブを切り替えて表示するコンテンツ-->
             <div class="panel-group">
-                <div class="panel tab-C is-show">
+                <div class="panel tab-C is-show m-2 p-2">
                     <table class="w-full">
 
                         <tr>
@@ -81,8 +81,8 @@ $agent_info = $stmt->fetch();
                             <td class="contact-body"><?= $agent_info['phone_number']; ?></td>
                         </tr>
                     </table>
-                    <div class="text-right mt-4 mr-0 ml-auto rounded-lg text-center  shadow-lg hover:shadow-none p-4 text-sm sm:text-base">
-                        <a href="./manager_info_change.php">編集する</a>
+                    <div class="w-1/6 mt-4 ml-auto rounded-lg text-center shadow-lg hover:shadow-none text-sm sm:text-base">
+                        <a href="./manager_info_change.php" style="display:block; background-color:#e06d2d; border-radius :6px; padding:7%; color:white;">編集する</a>
                     </div>
                 </div>
 
