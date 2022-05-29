@@ -35,24 +35,29 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-<header class="boozer-login-icon">
-  <div class="icon">
-    <img src="../user/_header phpに入れてる.png" alt="">
+  <header class="boozer-login-icon">
+    <div class="icon">
+      <img src="../user/_header phpに入れてる.png" alt="">
+    </div>
+  </header>
+  <div class="text-center">
+    <h1 class="text-2xl font-bold mt-4 mb-4 sm:text-4xl">管理者ログイン</h1>
   </div>
-</header>
-<div class="text-center">
-  <h1 class="text-2xl font-bold mt-4 mb-4 sm:text-4xl">管理者ログイン</h1>
+  <form class="width-full flex p-4 justify-center" action="/admin/login.php" method="POST">
+    <div>
+      <input class="block border-2 my-3 rounded mb-7" type="email" name="email" size="20" placeholder="メールアドレス" required>
+      <input class="block border-2 my-3 rounded mb-7" type="password" size="20" placeholder="パスワード" required name="password">
+      <input class="block my-0 mx-auto mt-4 py-3 rounded" type="submit" value="ログイン">
     </div>
-    <form class="width-full flex p-4 justify-center" action="/admin/login.php" method="POST">
-      <div>
-        <input class="block border-2 my-3 rounded mb-7" type="email" name="email" size="20" placeholder="メールアドレス" required>
-        <input class="block border-2 my-3 rounded mb-7" type="password" size="20" placeholder="パスワード" required name="password">
-        <input class="block my-0 mx-auto mt-4 py-3 rounded" type="submit" value="ログイン">
-      </div>
-    </form>
-    <div class="text-center">
-      <a href="" class="text-xs">パスワードを忘れた方へ</a>
-    </div>
-  </body>
+  </form>
+  <div class="text-center">
+    <a href="./password_reset/show_request_form.php" class="text-xs">パスワードを忘れた方へ</a>
+  </div>
+  <div class="text-center">
+    <a href="./new_apply/show_tmp_register_form.php">新規登録</a>
+  </div>
+
+
+</body>
 
 </html>
