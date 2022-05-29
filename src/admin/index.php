@@ -33,8 +33,7 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <!--タブ-->
         <ul class="tab-group">
             <li id="tabA" class="tab tab-A is-active">企業一覧</li>
-            <li class="tab tab-B">企業情報追加</li>
-            <li class="tab tab-C">企業情報変更</li>
+            <li class="tab tab-B">掲載依頼企業</li>
         </ul>
         <!--タブを切り替えて表示するコンテンツ-->
         <div class="panel-group">
@@ -192,7 +191,6 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <?php endforeach; ?>
                 </table>
             </div>
-            <div class="panel tab-C">Content-C</div>
         </div>
     </div>
     <footer>
