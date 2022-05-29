@@ -109,8 +109,9 @@ if ($_SESSION['cart'] == NULL) {
             <div class="flex justify-around w-full">
                 <h1 class="font-bold text-2xl">応募フォーム</h1>
             </div>
+            <div class="w-4/5 ml-auto mr-auto flex justify-center flex-col">
             <p><span style="color:red">*</span>は必須項目です。</p>
-            <table class="">
+            <table>
                 <tr>
                     <th class="contact-item">姓名<span style="color:red">*</span><br>Name(Kanji)</th>
                     <td class="contact-body">
@@ -189,9 +190,11 @@ if ($_SESSION['cart'] == NULL) {
             <div class=" relative">
                 <button class="absolute top-1 right-1 green" type="button" onclick="history.back()">修正する</button>
             </div>
+            </div>
+            
 
 
-            <!-- 裏側で送るデータここから下は変更しないで　to ともあき -->
+            <!-- 裏側で送るデータここから下は変更しないで -->
             <div class="sm:flex justify-around w-full mt-10">
                 <?php
                 $full_name = $_POST['first_name'] . $_POST['last_name'];
@@ -217,7 +220,6 @@ if ($_SESSION['cart'] == NULL) {
                     <input type="hidden" name="comments" value="<?= $_POST['comments']; ?>">
                     <input class="mt-10 bg-orange rounded-lg text-center shadow-lg hover:shadow-none w-full p-4 text-sm sm:text-base" type="submit" value="お問い合わせ">
                 </form>
-
             </div>
         </div>
     </main>
@@ -229,5 +231,4 @@ if ($_SESSION['cart'] == NULL) {
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </body>
-
 </html>
