@@ -12,6 +12,8 @@ if (isset($_SESSION['admin_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
 $stmt = $db->query('SELECT * FROM agents');
 $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -62,14 +64,20 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?= $agent["phone_number"]; ?> </td>
                                 <td><?= $agent["phone_number"]; ?> </td>
                                 <td>
-                                    <a href="./add_agents.php?<?= $agent["id"] ?>">
-                                        企業情報追加
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="./change_agents.php?<?= $agent["id"] ?>">
-                                        企業情報変更
-                                    </a>
+                                    <?php
+                                    $stmt = $db->query('SELECT * FROM agent_contents WHERE agent_id =' . $agent['id']);
+                                    $agent_contents = $stmt->fetch(PDO::FETCH_ASSOC);
+                                    if (!empty($agent_contents)) { ?>
+                                        <a href="./change_agents.php?<?= $agent["id"] ?>">
+                                            企業情報変更
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="./add_agents.php?<?= $agent["id"] ?>">
+                                            企業情報追加
+                                        </a>
+                                    <?php }
+                                    ?>
+                                    <?php ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
