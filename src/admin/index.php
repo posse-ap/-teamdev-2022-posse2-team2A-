@@ -28,7 +28,12 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <a href="logout.php">ログアウト</a>
+    <main class="relative">
+    <div class="title-wrapper flex flex-row">
+        <h1 class="title">CRAFT</h1>
+        <h2 class="subtitle">ーboozer管理画面</h2>
+    </div>
+    <a class="bg-yellow absolute top-1 right-10 rounded-lg text-center  shadow-lg hover:shadow-none p-4 text-sm sm:text-base" href="logout.php">ログアウト</a>
     <div class="tab-panel">
         <!--タブ-->
         <ul class="tab-group">
@@ -195,6 +200,7 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
+    </main>
     <footer>
         <!-- jquery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

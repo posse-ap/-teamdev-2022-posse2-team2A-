@@ -91,10 +91,16 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
     <title>企業情報変更</title>
 </head>
 
-<body class="mt-20 p-2">
-<?php
-    $stmt = $db->query('SELECT *FROM agent_contents WHERE id =' . $data[0]);
-    $agent_contents = $stmt->fetchAll(); ?>
+<body>
+<main class="relative">
+    <div class="title-wrapper flex flex-row">
+        <h1 class="title">CRAFT</h1>
+        <h2 class="subtitle">ーboozer管理画面</h2>
+    </div>
+    <a class="bg-yellow absolute top-1 right-10 rounded-lg text-center  shadow-lg hover:shadow-none p-4 text-sm sm:text-base" href="logout.php">ログアウト</a>
+        <?php
+            $stmt = $db->query('SELECT *FROM agent_contents WHERE id =' . $data[0]);
+            $agent_contents = $stmt->fetchAll(); ?>
 
     <section class="w-4/5 ml-auto mr-auto mt-0 mb-10">
         <h1 class="text-4xl">企業情報変更</h1>
@@ -147,7 +153,7 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             </div>
         </form>
     </section>
-    
+</main>
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="../user/script.js"></script>
