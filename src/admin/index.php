@@ -43,8 +43,7 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <th>企業名</th>
                             <th>表示ステータス</th>
                             <th>担当者名</th>
-                            <th>部署名</th>
-                            <th>役所名</th>
+                            <th>フリガナ</th>
                             <th>メールアドレス</th>
                             <th>電話番号</th>
                             <th>今月の問い合わせ人数</th>
@@ -53,16 +52,15 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                         <?php foreach ($agents as $key => $agent) : ?>
                             <tr class="white">
-                                <td onclick="showInfo({hidden:panel, show:memberDetail})"><?= $agent["name"]; ?> </td>
+                                <td onclick="showInfo({hidden:panel, show:memberDetail})"><?= $agent["agent_name"]; ?> </td>
                                 <td>表示</td>
-                                <td><?= $agent["name"]; ?>
+                                <td><?= $agent["pic_name"]; ?>
                                 </td>
-                                <td><?= $agent["name"]; ?> </td>
-                                <td><?= $agent["name"]; ?> </td>
-                                <td><?= $agent["name"]; ?> </td>
-                                <td><?= $agent["name"]; ?> </td>
-                                <td><?= $agent["name"]; ?> </td>
-                                <td><?= $agent["name"]; ?> </td>
+                                <td><?= $agent["pic_name_kana"]; ?> </td>
+                                <td><?= $agent["email"]; ?> </td>
+                                <td><?= $agent["phone_number"]; ?> </td>
+                                <td><?= $agent["phone_number"]; ?> </td>
+                                <td><?= $agent["phone_number"]; ?> </td>
                                 <td>
                                     <a href="./add_agents.php?<?= $agent["id"] ?>">
                                         企業情報追加
@@ -75,17 +73,6 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                        <tr class="mint">
-                            <td>amazon</td>
-                            <td>表示</td>
-                            <td>たか</td>
-                            <td>aaaaaaaaaaaaaaaaaaaaaaaa</td>
-                            <td>aaaaaaaaaaaaaa</td>
-                            <td>aaaaaaaaaaaaaaaaaaa</td>
-                            <td>a</td>
-                            <td>a</td>
-                            <td>a</td>
-                        </tr>
                     </table>
                 </div>
             </div>
@@ -152,9 +139,51 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                     </table>
                 </div>
-                <div class="text-green-600 text-sm text-right mr-2 mt-2" onclick="returninfo({undo:memberDetail, display:panel})">企業一覧に戻る</div>
+                <div class="text-green-600 text-sm text-right mr-2 mt-2" onclick="returninfo({undo:memberDetail, display:panel})">
+                    企業一覧に戻る
+                </div>
             </div>
-            <div id="panel" class="panel tab-B">Content-B</div>
+            <div id="panel" class="panel tab-B">
+                <table>
+                    <tr>
+                        <th>企業名</th>
+                        <th>住所</th>
+                        <th>担当者名</th>
+                        <th>フリガナ</th>
+                        <th>メールアドレス</th>
+                        <th>電話番号</th>
+                        <th>自由記入欄</th>
+                        <th>メール送信</th>
+                        <th>削除</th>
+                    </tr>
+                    <?php
+                    $stmt = $db->query('SELECT * FROM apply_agents');
+                    $apply_agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($apply_agents as $key => $apply_agent) : ?>
+                        <tr class="white">
+                            <td><?= $apply_agent["agent_name"]; ?> </td>
+                            <td><?= $apply_agent["address"]; ?> </td>
+                            <td><?= $apply_agent["email"]; ?></td>
+                            <td><?= $apply_agent["phone_number"]; ?> </td>
+                            <td><?= $apply_agent["pic_name"]; ?> </td>
+                            <td><?= $apply_agent["pic_name_kana"]; ?> </td>
+                            <td><?= $apply_agent["comments"]; ?> </td>
+                            <td>
+                                <form action="./new_agent_mail.php" method="post">
+                                    <input type="hidden" name="email" value="<?= $apply_agent["email"]; ?>">
+                                    <input type="submit" value="この企業に新規登録メールを送る">
+                                </form>
+                            </td>
+                            <td>
+                                <form action="./delete_apply_agents.php" method="post">
+                                    <input type="hidden" name="id" value="<?= $apply_agent["id"]; ?>">
+                                    <input type="submit" value="削除する">
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
             <div class="panel tab-C">Content-C</div>
         </div>
     </div>

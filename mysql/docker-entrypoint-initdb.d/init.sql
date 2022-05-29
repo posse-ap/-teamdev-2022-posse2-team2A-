@@ -28,9 +28,12 @@ DROP TABLE IF EXISTS agents;
 
 CREATE TABLE agents (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255),
-    name VARCHAR(255) UNIQUE NOT NULL,
+    agent_name VARCHAR(255),
+    pic_name VARCHAR(80),
+    pic_name_kana VARCHAR(80),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone_number VARCHAR(80),
     register_token VARCHAR(255),
     register_token_sent_at DATETIME,
     register_token_verified_at DATETIME,
@@ -42,27 +45,35 @@ CREATE TABLE agents (
 INSERT INTO
     agents
 SET
-    email = 'agent@posse-ap.com',
     password = sha1('password2'),
-    name = "リクルート",
+    agent_name = "リクルート",
+    pic_name = '渡邉瑛貴',
+    pic_name_kana = 'ワタナベエイキ',
+    email = 'agent@posse-ap.com',
+    phone_number = '090-0000-0000',
     status = 'public';
 
 INSERT INTO
     agents
 SET
-    email = 'jobTV@posse-ap.com',
     password = sha1('password3'),
-    name = "jobTV",
+    agent_name = "jobTV",
+    pic_name = '渡邉瑛貴',
+    pic_name_kana = 'ワタナベエイキ',
+    email = 'jobTV@posse-ap.com',
+    phone_number = '090-0000-0000',
     status = 'tentative';
 
 INSERT INTO
     agents
 SET
-    email = 'jober@posse-ap.com',
     password = sha1('password'),
-    name = "jober";
-
-status = 'tentative';
+    agent_name = "アンチパターン株式会社",
+    pic_name = '渡邉瑛貴',
+    pic_name_kana = 'ワタナベエイキ',
+    email = 'jober@posse-ap.com',
+    phone_number = '090-0000-0000',
+    status = 'tentative';
 
 DROP TABLE IF EXISTS passwords_reset;
 
@@ -178,7 +189,7 @@ INSERT INTO
     agent_contents
 SET
     agent_id = 1,
-    agent_name = "リクルートダイレクトスカウト",
+    agent_name = "リクルート",
     special_feature = '紹介率No.1!!',
     feature1 = "年収750万以上の方向け！",
     feature2 = "ハイクラス転職後平均年収950万以上",
@@ -195,7 +206,7 @@ INSERT INTO
     agent_contents
 SET
     agent_id = 2,
-    agent_name = "ジョブオファーダイレクトスカウト",
+    agent_name = "jobTV",
     special_feature = '紹介率No.1!!',
     feature1 = "年収750万以上の方向け！",
     feature2 = "ハイクラス転職後平均年収950万以上",
@@ -210,9 +221,47 @@ SET
 
 CREATE TABLE images (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    agent_id INT NOT NULL,
     name VARCHAR(255) NOT NULL
 );
 
-INSERT INTO images SET id=1, name='1.png';
+INSERT INTO images SET id=1, agent_id=1 ,name='1.jpeg';
 
-INSERT INTO images SET id=2, name='2.png';
+INSERT INTO images SET id=2, agent_id=2, name='2.png';
+
+DROP TABLE IF EXISTS apply_agents;
+
+CREATE TABLE apply_agents (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    agent_name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    pic_name VARCHAR(80) NOT NULL,
+    pic_name_kana VARCHAR(80) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone_number VARCHAR(80) NOT NULL,
+    comments VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO
+    apply_agents
+SET
+    agent_name = 'amazonJapan',
+    address = '東京都大田区大森西',
+    email = 'test@posse-ap.com',
+    pic_name = '渡邉瑛貴',
+    pic_name_kana = 'ワタナベエイキ',
+    phone_number = '090-0000-0000',
+    comments = '是非お願いします！';
+
+INSERT INTO
+    apply_agents
+SET
+    agent_name = 'YahooJapan',
+    address = '東京',
+    email = 'test2@posse-ap.com',
+    pic_name = '渡邉瑛貴',
+    pic_name_kana = 'ワタナベエイキ',
+    phone_number = '060-0000-0000',
+    comments = '是非お願い';

@@ -23,9 +23,10 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
         if (in_array($file_name, $allow) == true) { //画像ファイルかのチェック
             move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image); //imagesディレクトリにファイル保存
 
-            $sql = "INSERT INTO images(name) VALUES (:image)";
+            $sql = "INSERT INTO images SET agent_id=:agent_id , name = :image ";
             $stmt = $db->prepare($sql);
             $stmt->bindValue(':image', $image, PDO::PARAM_STR);
+            $stmt->bindValue(':agent_id', $_POST['agent_id'], PDO::PARAM_STR);
             $stmt->execute();
             $stmt = $db->prepare('INSERT INTO agent_contents SET 
             agent_id=?,

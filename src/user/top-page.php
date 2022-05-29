@@ -44,10 +44,10 @@ $agent_contents = $stmt->fetchAll();
                 <!-- 例1 -->
                 <?php foreach ($agent_contents as $key => $agent_content) {
                     // 画像名前取得
-                    $id = $agent_content['agent_id'];
-                    $sql = "SELECT * FROM images WHERE id = :id";
+                    $agent_id = $agent_content['agent_id'];
+                    $sql = "SELECT * FROM images WHERE agent_id = :agent_id";
                     $stmt_img = $db->prepare($sql);
-                    $stmt_img->bindValue(':id', $id);
+                    $stmt_img->bindValue(':agent_id', $agent_id);
                     $stmt_img->execute();
                     $image = $stmt_img->fetch(); ?>
                     <li class="agent-list-item">

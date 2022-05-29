@@ -39,27 +39,18 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
         </div>
         <div class="form-section">
             <div class="flex justify-around w-full">
-                <h1 class="font-bold text-2xl">登録フォーム</h1>
+                <h1 class="font-bold text-2xl">>正式登録フォーム</h1>
             </div>
             <p><span style="color:red">*</span>は必須項目です。</p>
-            <form action="./newAgentcheck.php" method="POST" class="m-2 p-2">
+            <form action="/agent/new_apply/register.php" method="POST">
                 <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id">
+                <input type="hidden" name="_csrf_token" value="<?= $_SESSION['_csrf_token']; ?>">
+                <input type="hidden" name="register_token" value="<?= $registerToken; ?>">
                 <table class="">
                     <tr>
                         <th class="contact-item">企業名<span style="color:red">*</span><br>Company Name</th>
                         <td class="contact-body">
                             <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="text" name="agent_name" placeholder="リクナビ" required></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="contact-item">住所<span style="color:red">*</span><br>Address</th>
-                        <td class="contact-body">
-                            <span class="inline-block">郵便番号<span style="color:red">*</span>：〒<input class="m-2 rounded border-solid border-2" pattern="[0-9]{3}-?[0-9]{4}" type="text" name="address_postal" placeholder="000-0000" required></span>
-                            <p class="text-xs text-gray-500">＊海外の方は000-0000と入力してください。</p>
-                            <span class="inline-block">都道府県<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_prefecture" placeholder="東京都" required></span>
-                            <span class="inline-block">市区町村・町名・丁目<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_municipalities" placeholder="港区南青山3丁目" required></span>
-                            <span class="inline-block">番地・号<span style="color:red">*</span>：<input class="m-2 rounded border-solid border-2" type="text" name="address_number" placeholder="15-9" required></span>
-                            <span class="inline-block">建物名等：<input class="m-2 rounded border-solid border-2" type="text" name="address_building" placeholder="MINOWA表参道 3階"></span>
                         </td>
                     </tr>
                     <tr>
@@ -77,26 +68,19 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                         </td>
                     </tr>
                     <tr>
-                        <th class="contact-item">担当者様の部署名<span style="color:red">*</span><br>Department name</th>
-                        <td class="contact-body">
-                            <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="text" name="department_name" placeholder="リクナビ" required></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="contact-item">メールアドレス<span style="color:red">*</span><br>E-mail</th>
-                        <td class="contact-body">
-                            <span class="inline-block">メール：<input class=" rounded border-solid border-2 m-2" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="text" name="email" placeholder="△△△△△@ooo.xx" required></span>
-                            <span class="inline-block">確認用：<input class=" rounded border-solid border-2 m-2" id="emailConfirm" type="text" name="email_check" placeholder="△△△△△@ooo.xx" required oninput="CheckEmail(this)"></span>
-                        </td>
-                    </tr>
-                    <tr>
                         <th class="contact-item">電話番号<span style="color:red">*</span><br>Phone</th>
                         <td class="contact-body"><input class=" rounded border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required></td>
                     </tr>
                     <tr>
-                        <th class="contact-item">何かございましたらこちらにお書きください<br>Comments</th>
+                        <th class="contact-item">パスワード<span style="color:red">*</span><br>Password</th>
                         <td class="contact-body">
-                            <textarea class=" rounded border-solid border-2" type="text" name="comments" col="30" rows="5"></textarea>
+                            <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="password" name="password" required></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="contact-item">パスワード<span style="color:red">*</span><br>Password</th>
+                        <td class="contact-body">
+                            <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="password" name="department_name" required></span>
                         </td>
                     </tr>
                 </table>

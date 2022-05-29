@@ -20,7 +20,7 @@ $email = filter_input(INPUT_POST, 'email');
 require_once '../../dbconnect.php';
 
 // emailがusersテーブルに登録済みか確認
-$sql = 'SELECT * FROM admin WHERE `email` = :email';
+$sql = 'SELECT * FROM agents WHERE `email` = :email';
 $stmt = $db->prepare($sql);
 $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
 $stmt->execute();
@@ -36,11 +36,11 @@ if ($user && $user->status !== 'tentative') {
 
 if (!$user) {
     // ユーザーがいなければ、仮登録としてテーブルにインサート
-    $sql = 'INSERT INTO admin(email, register_token, register_token_sent_at) VALUES(:email, :register_token, :register_token_sent_at)';
+    $sql = 'INSERT INTO agents(email, register_token, register_token_sent_at) VALUES(:email, :register_token, :register_token_sent_at)';
 } else {
     // 既に仮登録済みのユーザーがいる場合、register_tokenの再発行と有効期限のリセットを行う
     // 有効期限切れで再度仮登録する場合はこちらの処理になる
-    $sql = 'UPDATE admin SET register_token = :register_token, register_token_sent_at = :register_token_sent_at WHERE email = :email';
+    $sql = 'UPDATE agents SET register_token = :register_token, register_token_sent_at = :register_token_sent_at WHERE email = :email';
 }
 
 // register token生成
@@ -63,7 +63,7 @@ try {
 
     // URLはご自身の環境に合わせてください
 
-    $url = "http://localhost:80/admin/new_apply/show_register_form.php?token={$registerToken}";
+    $url = "http://localhost:80/agent/new_apply/show_register_form.php?token={$registerToken}";
     $subject =  '仮登録が完了しました';
 
     $body = <<<EOD
@@ -74,7 +74,7 @@ try {
             EOD;
 
     // Fromはご自身の環境に合わせてください
-    $headers = ['From' => 'boozer.jp>', 'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit'];
+    $headers = ['From' => 'テスト<foo@example.jp>', 'Content-Type' => 'text/plain; charset=UTF-8', 'Content-Transfer-Encoding' => '8bit'];
 
     // mb_send_mailは成功したらtrue、失敗したらfalseを返す
     $isSent = mb_send_mail($email, $subject, $body, $headers);
