@@ -215,7 +215,7 @@ if ($_SESSION['cart'] == NULL) {
                     <input type="hidden" name="graduation_year" value="<?= $_POST['graduation_year']; ?>">
                     <input type="hidden" name="graduation_status" value="<?= $_POST['graduation_status']; ?>">
                     <input type="hidden" name="comments" value="<?= $_POST['comments']; ?>">
-                    <input class="mt-10 bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="お問い合わせ">
+                    <input class="mt-10 bg-orange rounded-lg text-center shadow-lg hover:shadow-none w-full p-4 text-sm sm:text-base" type="submit" value="お問い合わせ">
                 </form>
 
             </div>
