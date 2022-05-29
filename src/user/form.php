@@ -62,7 +62,7 @@ if (!empty($_POST)) {
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
     <main>
-        <div class="title-wrapper">
+        <div class="title-wrapper flex-column">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
         </div>

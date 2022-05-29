@@ -143,7 +143,7 @@ $_BTP = '一覧に戻る';
   require(dirname(__FILE__) . "/components/_header.php");
   ?>
   <main>
-    <div class="title-wrapper">
+    <div class="title-wrapper flex-column">
       <h1 class="title">CRAFT</h1>
       <h2 class="subtitle">就活生のための就活情報サイト</h2>
     </div>
