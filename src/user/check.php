@@ -143,7 +143,7 @@ if ($_SESSION['cart'] == NULL) {
                 <tr>
                     <th class=" contact-item">メールアドレス<span style="color:red">*</span><br>E-mail</th>
                     <td class="contact-body">
-                        <span class="inline-block">メール：<?= $_POST['email']; ?>< /span>
+                        <span class="inline-block">メール：<?= $_POST['email']; ?></span>
                     </td>
                 </tr>
                 <tr>
