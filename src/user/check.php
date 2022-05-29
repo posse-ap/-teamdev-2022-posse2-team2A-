@@ -94,7 +94,7 @@ if ($_SESSION['cart'] == NULL) {
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
     <main>
-        <div class="title-wrapper flex-column">
+        <div class="title-wrapper flex-col">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
         </div>
@@ -102,7 +102,7 @@ if ($_SESSION['cart'] == NULL) {
             <div class="progressbar">
                 <div class="item">登録</div>
                 <div class="item-last active">確認</div>
-                <div class="item">お問い合わせ完了</div>
+                <div class="item pl-5">お問い合わせ完了</div>
             </div>
         </div>
         <div class="form-section">
@@ -216,7 +216,6 @@ if ($_SESSION['cart'] == NULL) {
                     <input type="hidden" name="graduation_status" value="<?= $_POST['graduation_status']; ?>">
                     <input type="hidden" name="comments" value="<?= $_POST['comments']; ?>">
                     <input class="mt-10 bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="お問い合わせ">
-                    <input class="mt-10 bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="他の企業にも問い合わせる">
                 </form>
 
             </div>

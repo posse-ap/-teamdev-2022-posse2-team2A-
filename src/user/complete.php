@@ -143,7 +143,7 @@ $_BTP = '一覧に戻る';
   require(dirname(__FILE__) . "/components/_header.php");
   ?>
   <main>
-    <div class="title-wrapper flex-column">
+    <div class="title-wrapper flex-col">
       <h1 class="title">CRAFT</h1>
       <h2 class="subtitle">就活生のための就活情報サイト</h2>
     </div>
@@ -151,7 +151,7 @@ $_BTP = '一覧に戻る';
       <div class="progressbar">
         <div class="item">登録</div>
         <div class="item">確認</div>
-        <div class="item-last active">お問い合わせ完了</div>
+        <div class="item-last pl-5 active">お問い合わせ完了</div>
       </div>
     </div>
     <div class="text-center">

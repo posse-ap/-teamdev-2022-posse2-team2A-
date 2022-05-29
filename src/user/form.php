@@ -62,7 +62,7 @@ if (!empty($_POST)) {
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
     <main>
-        <div class="title-wrapper flex-column">
+        <div class="title-wrapper flex-col">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
         </div>
@@ -70,7 +70,7 @@ if (!empty($_POST)) {
             <div class="progressbar">
                 <div class="item-last active">登録</div>
                 <div class="item">確認</div>
-                <div class="item">お問い合わせ完了</div>
+                <div class="item pl-5">お問い合わせ完了</div>
             </div>
         </div>
         <div class="form-section">
