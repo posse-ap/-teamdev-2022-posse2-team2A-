@@ -116,7 +116,7 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
                         <th>エリア</th>
                     </tr>
                     <tr>
-                        <td><input class="rounded border-solid border-2" type="number" name="recruitment_number" require>件以上</td>
+                        <td><input class="rounded border-solid border-2" type="text" name="recruitment_number" required></td>
                         <td><input class="rounded border-solid border-2" type="text" name="private_recruitment_number" required></td>
                         <td><input class="rounded border-solid border-2" type="text" name="target_age" required></td>
                         <td><input class="rounded border-solid border-2" type="text" name="area" required></td>
@@ -149,7 +149,7 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             <!-- <p><input type="submit" value="企業を追加する" name="upload"></p> -->
         </form>
     </section>
-    
+
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="../user/script.js"></script>
