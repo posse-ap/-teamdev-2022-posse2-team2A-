@@ -42,7 +42,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                 <h1 class="font-bold text-2xl">登録フォーム</h1>
             </div>
             <p><span style="color:red">*</span>は必須項目です。</p>
-            <form action="/user/newAgentcomplete.php" method="POST" class="m-2 p-2">
+            <form action="/agent/new_apply/newAgentcomplete.php" method="POST" class="m-2 p-2">
                 <input type="hidden" value=<?php echo $data[0]; ?> name="agent_id">
                 <table class="">
                     <tr>
