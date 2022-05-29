@@ -107,10 +107,10 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
 
                 <ul class="agent-pr-list">
                     <li class="agent-pr-item"> 特徴：<input class="rounded border-solid border-2 m-2" type="text" name="feature1" required></li>
-                    <li class="agent-pr-item"> 特徴：<input class="rounded border-solid border-2 m-2" type="text" name="feature1" required></li>
                     <li class="agent-pr-item"> 特徴：<input class="rounded border-solid border-2 m-2" type="text" name="feature2" required></li>
                     <li class="agent-pr-item"> 特徴：<input class="rounded border-solid border-2 m-2" type="text" name="feature3" required></li>
                     <li class="agent-pr-item"> 特徴：<input class="rounded border-solid border-2 m-2" type="text" name="feature4" required></li>
+                    <li class="agent-pr-item"> 特徴：<input class="rounded border-solid border-2 m-2" type="text" name="feature5" required></li>
                 </ul>
             </div>
             <table class="agent-info-table mt-4 mb-4">

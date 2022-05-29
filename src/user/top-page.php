@@ -51,9 +51,9 @@ $agent_contents = $stmt->fetchAll();
                     $stmt_img->execute();
                     $image = $stmt_img->fetch(); ?>
                     <li class="agent-list-item">
-                        <div class="text-wrapper">
+                        <div class="text-wrapper inline-block">
                             <p class="text1"><?= $agent_content['agent_name'] ?></p>
-                            <p class="text2 strong"><?= $agent_content['special_feature'] ?></p>
+                            <span class="text2 strong"><?= $agent_content['special_feature'] ?></span>
                         </div>
                         <div class="agent-pr-wrapper">
                             <img class="agent-pr-img" src="../admin/images/<?php echo $image['name']; ?>" alt="">
@@ -102,7 +102,7 @@ $agent_contents = $stmt->fetchAll();
                             <?= $agent_content['pr_point'] ?>
                         </p>
                         <div class="btn-wrapper">
-                            <a href="./form.php?<?= $agent_content['agent_id'] ?>"><button class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
+                            <a href="./form.php?<?= $agent_content['agent_id'] ?>"><button class="entry-btn bg-red-500 text-white text-sm sm:text-2xl rounded-3xl m-1 p-3 pl-20 pr-20">この企業に問い合わせる</button></a>
                         </div>
                     </li>
                 <?php } ?>

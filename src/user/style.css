@@ -283,18 +283,26 @@ main .title-wrapper .subtitle {
   margin-top: 8px;
   padding: 8px;
 }
+
+  .agent-list .agent-list-item{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
 .text-wrapper {
   margin-top: 8px;
   display: flex;
   flex-direction: column;
 }
 .text-wrapper .text1 {
-  font-size: 16px;
+  font-size: 32px;
   color: #b56441;
   margin-left: 3rem;
 }
 .text-wrapper .text2 {
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 3rem;
 }
 
@@ -309,12 +317,28 @@ main .title-wrapper .subtitle {
   flex-direction: row;
   column-gap: 40px;
 }
+@media screen and (max-width: 640px) {
+  .agent-pr-wrapper {
+    flex-direction: column;
+  }
+}
 .agent-pr-img {
   width: 25%;
   object-fit: cover;
 }
+@media screen and (max-width: 640px) {
+  .agent-pr-img {
+    width: 100%;
+  }
+}
 .agent-pr-list {
   width: calc(70%-40px);
+}
+@media screen and (max-width: 640px) {
+  .agent-pr-item{
+    font-size: 12px;
+    margin-top: 8px;
+  }
 }
 .agent-info-table {
   width: 100%;
@@ -382,6 +406,7 @@ a.btn:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 /* 一覧に戻るボタンここまで */
+
 
 /* formのcssここから */
 .form-section {
