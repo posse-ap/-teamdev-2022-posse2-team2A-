@@ -221,10 +221,6 @@ if ($_SESSION['cart'] == NULL) {
             </div>
         </div>
     </main>
-    <!-- アイコンの部分 -->
-    <?php
-    require(dirname(__FILE__) . "/components/_mainFooter.php");
-    ?>
     <!-- footer -->
     <?php
     require(dirname(__FILE__) . "/components/_footer.php");
