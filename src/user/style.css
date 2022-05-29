@@ -283,6 +283,14 @@ main .title-wrapper .subtitle{
   margin-top: 8px;
   padding: 8px;
 }
+
+  .agent-list .agent-list-item{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
 .text-wrapper {
   margin-top: 8px;
   display: flex;
@@ -309,12 +317,28 @@ main .title-wrapper .subtitle{
   flex-direction: row;
   column-gap: 40px;
 }
+@media screen and (max-width: 640px) {
+  .agent-pr-wrapper {
+    flex-direction: column;
+  }
+}
 .agent-pr-img {
   width: 25%;
   object-fit: cover;
 }
+@media screen and (max-width: 640px) {
+  .agent-pr-img {
+    width: 100%;
+  }
+}
 .agent-pr-list {
   width: calc(70%-40px);
+}
+@media screen and (max-width: 640px) {
+  .agent-pr-item{
+    font-size: 12px;
+    margin-top: 8px;
+  }
 }
 .agent-info-table {
   width: 100%;
