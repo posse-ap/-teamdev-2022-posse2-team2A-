@@ -38,9 +38,7 @@ CREATE TABLE agents (
     register_token VARCHAR(255),
     register_token_sent_at DATETIME,
     register_token_verified_at DATETIME,
-    status ENUM('tentative', 'public') DEFAULT 'tentative',
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    status ENUM('tentative', 'public') DEFAULT 'tentative'
 );
 
 INSERT INTO
@@ -103,18 +101,7 @@ CREATE TABLE customers (
     department VARCHAR(255) NOT NULL,
     major_subject VARCHAR(255) NOT NULL,
     graduation_year INT NOT NULL,
-    graduation_status VARCHAR(80) NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-DROP TABLE IF EXISTS intermediate;
-
-CREATE TABLE intermediate (
-    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    agent_id INT NOT NULL,
-    customer_id INT,
-    comments VARCHAR(80)
+    graduation_status VARCHAR(80) NOT NULL
 );
 
 INSERT INTO
@@ -167,6 +154,37 @@ SET
     major_subject = "ミュージカル学科",
     graduation_year = 2025,
     graduation_status = "卒業見込み";
+
+DROP TABLE IF EXISTS intermediate;
+
+CREATE TABLE intermediate (
+    id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    agent_id INT NOT NULL,
+    customer_id INT,
+    comments VARCHAR(80),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO
+    intermediate
+SET
+    agent_id = 1,
+    customer_id = 1,
+    comments = 'こんにちは';
+
+INSERT INTO
+    intermediate
+SET
+    agent_id = 2,
+    customer_id = 1,
+    comments = 'こんにちは';
+
+INSERT INTO
+    intermediate
+SET
+    agent_id = 2,
+    customer_id = 2,
+    comments = 'こんにちは';
 
 DROP TABLE IF EXISTS agent_contents;
 
