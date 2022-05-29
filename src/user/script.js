@@ -34,27 +34,27 @@ function ScrollAnime() {
     beforePos = scroll;//現在のスクロール値を比較用のbeforePosに格納
 }
 
-// // タブの動きここから
-// document.addEventListener('DOMContentLoaded', function(){
-//   // タブに対してクリックイベントを適用
-//   const tabs = document.getElementsByClassName('tab');
-//   for(let i = 0; i < tabs.length; i++) {
-//     tabs[i].addEventListener('click', tabSwitch, false);
-//   }
+// タブの動きここから
+document.addEventListener('DOMContentLoaded', function(){
+  // タブに対してクリックイベントを適用
+  const tabs = document.getElementsByClassName('tab');
+  for(let i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', tabSwitch, false);
+  }
 
-//   // タブをクリックすると実行する関数
-//   function tabSwitch(){
-//     // タブのclassの値を変更
-//     document.getElementsByClassName('is-active')[0].classList.remove('is-active');
-//     this.classList.add('is-active');
-//     // コンテンツのclassの値を変更
-//     document.getElementsByClassName('is-show')[0].classList.remove('is-show');
-//     const arrayTabs = Array.prototype.slice.call(tabs);
-//     const index = arrayTabs.indexOf(this);
-//     document.getElementsByClassName('panel')[index].classList.add('is-show');
-//   };
-// }, false);
-// // タブの動きここまで
+  // タブをクリックすると実行する関数
+  function tabSwitch(){
+    // タブのclassの値を変更
+    document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+    this.classList.add('is-active');
+    // コンテンツのclassの値を変更
+    document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+    const arrayTabs = Array.prototype.slice.call(tabs);
+    const index = arrayTabs.indexOf(this);
+    document.getElementsByClassName('panel')[index].classList.add('is-show');
+  };
+}, false);
+// タブの動きここまで
 
 
 // 企業への応募者の表示ここから
@@ -168,3 +168,17 @@ function CheckEmail(input){
 
 
 //form関連ここまで
+
+
+// 画像のプレビューここから
+function previewFile(hoge){
+  var fileData = new FileReader();
+  fileData.onload = (function() {
+      //id属性が付与されているimgタグのsrc属性に、fileReaderで取得した値の結果を入力することで
+      //プレビュー表示している
+      document.getElementById('preview').src = fileData.result;
+  });
+  fileData.readAsDataURL(hoge.files[0]);
+}
+
+// 画像のプレビューここまで

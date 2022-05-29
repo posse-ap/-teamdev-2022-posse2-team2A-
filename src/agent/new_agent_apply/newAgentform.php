@@ -48,7 +48,7 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                     <tr>
                         <th class="contact-item">企業名<span style="color:red">*</span><br>Company Name</th>
                         <td class="contact-body">
-                            <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="text" name="company_name" placeholder="リクナビ" required></span>
+                            <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="text" name="agent_name" placeholder="リクナビ" required></span>
                         </td>
                     </tr>
                     <tr>
