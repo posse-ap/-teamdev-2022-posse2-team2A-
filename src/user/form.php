@@ -118,19 +118,19 @@ if (!empty($_POST)) {
                     <tr>
                         <th class="contact-item">生年月日<span style="color:red">*</span><br>Date of Birth</th>
                         <td class="contact-body">
-                            <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_year" list="birth_year" placeholder="選択" size="8" required value=<?php
+                            <span class="inline-block"><input class=" rounded border-solid border-2" type="number" name="birth_year" list="birth_year" placeholder="選択" size="8" required value=<?php
                                                                                                                                                                                                 if ($_SESSION['cart']) {
                                                                                                                                                                                                     echo $_SESSION['cart'][0]['birth_year'];
                                                                                                                                                                                                 } else {
                                                                                                                                                                                                     echo "";
                                                                                                                                                                                                 } ?>>年　</span>
-                            <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_month" list="birth_month" placeholder="選択" size="8" required value=<?php
+                            <span class="inline-block"><input class=" rounded border-solid border-2" type="number" name="birth_month" list="birth_month" placeholder="選択" size="8" required value=<?php
                                                                                                                                                                                                 if ($_SESSION['cart']) {
                                                                                                                                                                                                     echo $_SESSION['cart'][0]['birth_month'];
                                                                                                                                                                                                 } else {
                                                                                                                                                                                                     echo "";
                                                                                                                                                                                                 } ?>>月　</span>
-                            <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_day" list="birth_day" placeholder="選択" size="8" required value=<?php
+                            <span class="inline-block"><input class=" rounded border-solid border-2" type="number" name="birth_day" list="birth_day" placeholder="選択" size="8" required value=<?php
                                                                                                                                                                                             if ($_SESSION['cart']) {
                                                                                                                                                                                                 echo $_SESSION['cart'][0]['birth_day'];
                                                                                                                                                                                             } else {
