@@ -10,6 +10,25 @@ if (isset($_SESSION['agent_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
     exit();
 }
 
+$stmt = $db->prepare(
+    'SELECT * FROM 
+intermediate 
+LEFT JOIN 
+agents 
+ON 
+intermediate.agent_id = agents.id
+RIGHT JOIN
+customers
+ON
+intermediate.customer_id= customers.id
+WHERE 
+agent_id=:agent_id'
+);
+$stmt->bindValue(':agent_id', $_SESSION["agent_id"], PDO::PARAM_STR);
+$stmt->execute();
+$customer_info = $stmt->fetchAll();
+
+
 // agent_id=各企業のid
 $agent_id = $_SESSION['agent_id'];
 $agent = $db->prepare('SELECT * FROM customers ');
@@ -63,36 +82,23 @@ $agent = $db->prepare('SELECT * FROM customers ');
                                 <th>学校学部学科</th>
                                 <th>卒業年度</th>
                                 <th>質問等</th>
-                                <th>非対応理由</th>
                             </tr>
-                            <tr class="white">
-                                <td>対応中</td>
-                                <td>takaharatomoaki</td>
-                                <td>タカハラトモアキ</td>
-                                <td>2000年9月16日</td>
-                                <td>未回答</td>
-                                <td>b@gmail.com</td>
-                                <td>09098764321</td>
-                                <td>〒999-3421沖縄県石垣市大浜9-5</td>
-                                <td>琉球大学人文社会学部琉球アジア文化学科</td>
-                                <td>23卒</td>
-                                <td>なし</td>
-                                <td></td>
-                            </tr>
-                            <tr class="mint">
-                                <td>非対応</td>
-                                <td>たか</td>
-                                <td>タカ</td>
-                                <td>1895年4月1日</td>
-                                <td>女性</td>
-                                <td>a@gmeil.com</td>
-                                <td>08012346789</td>
-                                <td>〒000-678東京都港区南大山3丁目15-9 MINOWA 3階</td>
-                                <td>posse大学Web製作学部フロント学科</td>
-                                <td>24卒</td>
-                                <td>特になし</td>
-                                <td>重複応募のため</td>
-                            </tr>
+                            <?php foreach ($customer_info as $key => $info) {
+                                $education = $info['education'] . $info['department'] . $info['major_subject'] ?>
+                                <tr class="white">
+                                    <td>対応中</td>
+                                    <td><?= $info['name'] ?></td>
+                                    <td><?= $info['name_kana'] ?></td>
+                                    <td><?= $info['birth'] ?></td>
+                                    <td><?= $info['sex'] ?></td>
+                                    <td><?= $info['email'] ?></td>
+                                    <td><?= $info['phone_number'] ?></td>
+                                    <td><?= $info['address'] ?></td>
+                                    <td><?= $education ?></td>
+                                    <td><?= $info['graduation_year'] ?></td>
+                                    <td><?= $info['comments'] ?></td>
+                                </tr>
+                            <?php } ?>
                         </table>
                     </div>
                 </div>

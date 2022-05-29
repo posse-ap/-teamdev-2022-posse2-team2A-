@@ -129,21 +129,6 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td>なし</td>
                             <td></td>
                         </tr>
-                        <tr class="mint">
-                            <td>非対応</td>
-                            <td>amazon</td>
-                            <td>たか</td>
-                            <td>タカ</td>
-                            <td>1895年4月1日</td>
-                            <td>女性</td>
-                            <td>a@gmeil.com</td>
-                            <td>08012346789</td>
-                            <td>〒000-678東京都港区南大山3丁目15-9 MINOWA 3階</td>
-                            <td>posse大学Web製作学部フロント学科</td>
-                            <td>24卒</td>
-                            <td>特になし</td>
-                            <td>重複応募のため</td>
-                        </tr>
                     </table>
                 </div>
                 <div class="text-green-600 text-sm text-right mr-2 mt-2" onclick="returninfo({undo:memberDetail, display:panel})">

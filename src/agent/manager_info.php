@@ -5,7 +5,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
 if (isset($_SESSION['agent_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
     $_SESSION['time'] = time();
 } else {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/login.php');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/agent/login.php');
     exit();
 }
 

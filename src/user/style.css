@@ -260,7 +260,7 @@ main .title-wrapper {
 main .title-wrapper .title {
   font-size: 40px;
 }
-main .title-wrapper .subtitle{
+main .title-wrapper .subtitle {
   font-size: 16px;
 }
 
@@ -464,8 +464,8 @@ a.btn:hover {
 .bg-orange {
   background-color: #ffa549;
 }
-.bg-yellow{
-  background: #FBD87F;
+.bg-yellow {
+  background: #fbd87f;
 }
 /* formのcssここまで */
 
@@ -536,11 +536,11 @@ form input[type="password"] {
   height: 40px;
 }
 
-form input[type="submit"] {
+/* form input[type="submit"] {
   background-color: #e16e2d;
   color: #f5f5f5;
   padding: 10px 60px;
-}
+} */
 
 .newAgent_input_button {
   color: #e16e2d;
@@ -549,14 +549,12 @@ form input[type="submit"] {
 }
 /* boozer,エージェントログイン画面のログインボタンのデザインここまで */
 
-
 /* 企業管理画面。企業名とログインしたユーザー名の表示ここから */
-.agent_login_wrapper{
+.agent_login_wrapper {
   margin-top: 16px;
   margin-left: 10%;
 }
 /* 企業名とログインしたユーザー名の表示ここまで */
-
 
 /* タブ切り替えなどここから */
 .tab-panel {
