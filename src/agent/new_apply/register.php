@@ -25,6 +25,7 @@ $sql = 'UPDATE agents SET
     agent_name=:agent_name,
     pic_name=:pic_name,
     pic_name_kana=:pic_name_kana,
+    department_name=:department_name,
     phone_number=:phone_number
     WHERE register_token = :register_token';
 
@@ -42,9 +43,10 @@ $stmt->bindValue(':status', 'public', \PDO::PARAM_STR);
 $stmt->bindValue(':agent_name', $_POST['agent_name'], \PDO::PARAM_STR);
 $stmt->bindValue(':pic_name', $pic_name, \PDO::PARAM_STR);
 $stmt->bindValue(':pic_name_kana', $pic_name_kana, \PDO::PARAM_STR);
+$stmt->bindValue(':department_name', $_POST['department_name'], \PDO::PARAM_STR);
 $stmt->bindValue(':phone_number', $_POST['phone_number'], \PDO::PARAM_STR);
 $stmt->bindValue(':register_token', $request['register_token'], \PDO::PARAM_STR);
 
 $stmt->execute();
 
-echo '本会員登録が完了しました。';
+echo '新規登録が完了しました。<br/>　ログイン画面からログインしてください。';
