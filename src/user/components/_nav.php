@@ -9,6 +9,6 @@
             <li class=""><a href="">就活エージェント</a></li>
             <li class=""><a href="">就活の教科書とは</a></li>
             <li class=""><a href="">お問い合わせ</a></li>
-            <li class=""><a href="">企業の方へ</a></li>
+            <li class=""><a href="/agent/login.php">企業の方へ</a></li>
         </ul>
 </nav>
