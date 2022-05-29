@@ -68,6 +68,12 @@ $data = explode(",", $_SERVER['QUERY_STRING']);
                         </td>
                     </tr>
                     <tr>
+                        <th class="contact-item">担当者様の部署名<span style="color:red">*</span><br>Department name</th>
+                        <td class="contact-body">
+                            <span class="inline-block"><input class="m-2 rounded border-solid border-2" type="text" name="department_name" placeholder="リクナビ" required></span>
+                        </td>
+                    </tr>
+                    <tr>
                         <th class="contact-item">電話番号<span style="color:red">*</span><br>Phone</th>
                         <td class="contact-body"><input class=" rounded border-solid border-2" type="text" pattern="^[0-9]+$" name="phone_number" placeholder="半角数字ハイフン無し" required></td>
                     </tr>

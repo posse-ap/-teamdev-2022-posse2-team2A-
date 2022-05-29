@@ -29,25 +29,6 @@ $agent = $db->prepare('SELECT * FROM customers ');
 </head>
 
 <body>
-    <ul>
-        <?php foreach ($customers as $key => $customer) : ?>
-            <li>
-                <?= $customer["id"]; ?>
-                <?= $customer["name"]; ?>
-                <?= $customer["name_kana"]; ?>
-                <?= $customer["sex"]; ?>
-                <?= $customer["birth"]; ?>
-                <?= $customer["address"]; ?>
-                <?= $customer["email"]; ?>
-                <?= $customer["phone_number"]; ?>
-                <?= $customer["education"]; ?>
-                <?= $customer["major"]; ?>
-                <?= $customer["department"]; ?>
-                <?= $customer["major_subject"]; ?>
-                <?= $customer["comments"]; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
     <main class="relative">
         <div class="title-wrapper flex flex-row">
             <h1 class="title">CRAFT</h1>

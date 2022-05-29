@@ -33,6 +33,7 @@ CREATE TABLE agents (
     pic_name VARCHAR(80),
     pic_name_kana VARCHAR(80),
     email VARCHAR(255) UNIQUE NOT NULL,
+    department_name VARCHAR(80),
     phone_number VARCHAR(80),
     register_token VARCHAR(255),
     register_token_sent_at DATETIME,
@@ -50,6 +51,7 @@ SET
     pic_name = '渡邉瑛貴',
     pic_name_kana = 'ワタナベエイキ',
     email = 'agent@posse-ap.com',
+    department_name = '人事部',
     phone_number = '090-0000-0000',
     status = 'public';
 
@@ -61,8 +63,9 @@ SET
     pic_name = '渡邉瑛貴',
     pic_name_kana = 'ワタナベエイキ',
     email = 'jobTV@posse-ap.com',
+    department_name = '経理',
     phone_number = '090-0000-0000',
-    status = 'tentative';
+    status = 'public';
 
 INSERT INTO
     agents
@@ -72,8 +75,9 @@ SET
     pic_name = '渡邉瑛貴',
     pic_name_kana = 'ワタナベエイキ',
     email = 'jober@posse-ap.com',
+    department_name = '人事部',
     phone_number = '090-0000-0000',
-    status = 'tentative';
+    status = 'public';
 
 DROP TABLE IF EXISTS passwords_reset;
 
