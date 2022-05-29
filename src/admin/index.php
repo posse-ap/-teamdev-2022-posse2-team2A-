@@ -13,7 +13,6 @@ $stmt = $db->query('SELECT * FROM agents');
 $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -58,7 +57,9 @@ $agents = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                         <?php foreach ($agents as $key => $agent) : ?>
                             <tr class="white">
-                                <td onclick="showInfo({hidden:panel, show:memberDetail})"><?= $agent["agent_name"]; ?> </td>
+                                <td> <a href="./agent_info.php?<?= $agent["id"] ?>">
+                                        <?= $agent['agent_name'] ?>
+                                    </a></td>
                                 <td>表示</td>
                                 <td><?= $agent["pic_name"]; ?>
                                 </td>
