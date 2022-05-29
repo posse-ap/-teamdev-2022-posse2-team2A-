@@ -100,6 +100,8 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             <p> PRポイント：<textarea rows="9" cols="80" name="pr_point" required></textarea></p>
             <p><input type="submit" value="企業を追加する" name="upload"></p>
         </form>
+
+        <a href="./index.php">戻る</a>
     </section>
 </body>
 

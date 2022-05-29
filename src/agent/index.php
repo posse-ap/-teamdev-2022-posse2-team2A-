@@ -12,9 +12,7 @@ if (isset($_SESSION['agent_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
 
 // agent_id=各企業のid
 $agent_id = $_SESSION['agent_id'];
-$agent = $db->prepare('SELECT * FROM customers WHERE agent_id = ?');
-$agent->execute(array($agent_id));
-$agent_customers = $agent->fetchAll();
+$agent = $db->prepare('SELECT * FROM customers ');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -29,11 +27,7 @@ $agent_customers = $agent->fetchAll();
 <body>
     <div>
         <h1>企業ページ</h1>
-        <?php
-        foreach ($agent_customers as $customer) {
-            print $customer['name'] . "<br>";
-        }
-        ?>
+
         <a href="logout.php">ログアウト</a>
     </div>
 
