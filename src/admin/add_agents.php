@@ -139,20 +139,6 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
             <div class="btn-wrapper">                    
                 <input class="entry-btn bg-red-500 text-white rounded-3xl m-1 p-3 pl-20 pr-20" type="submit" value="企業を追加する" name="upload">
             </div>
-            <!-- <p> 企業名：<input type="text" name="agent_name" required></p> -->
-            <!-- <p> 企業画像：<input type="file" name="image" required></p> -->
-            <!-- <p> 推しポイント：<input type="text" name="special_feature" required></p> -->
-            <!-- <p> 特徴：<input type="text" name="feature1" required></p> -->
-            <!-- <p> 特徴：<input type="text" name="feature2" required></p> -->
-            <!-- <p> 特徴：<input type="text" name="feature3" required></p> -->
-            <!-- <p> 特徴：<input type="text" name="feature4" required></p> -->
-            <!-- <p> 特徴：<input type="text" name="feature5" required></p> -->
-            <!-- <p>求人数：<input type="number" name="recruitment_number"></p> -->
-            <!-- <p>非公開求人数：<input type="number" name="private_recruitment_number"></p> -->
-            <!-- <p> 対象年代：<input type="number" name="target_age" required></p> -->
-            <!-- <p> エリア：<input type="text" name="area" required></p> -->
-            <!-- <p> PRポイント：<textarea rows="9" cols="80" name="pr_point" required></textarea></p> -->
-            <!-- <p><input type="submit" value="企業を追加する" name="upload"></p> -->
         </form>
     </section>
 </main>

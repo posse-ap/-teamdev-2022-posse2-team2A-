@@ -159,31 +159,4 @@ if (isset($_POST['upload'])) { //送信ボタンが押された場合
     <script src="../user/script.js"></script>
 </body>
 
-<!-- <body>
-    <?php
-    $stmt = $db->query('SELECT *FROM agent_contents WHERE id =' . $data[0]);
-    $agent_contents = $stmt->fetchAll(); ?>
-    <section>
-        <h1>企業情報変更</h1>
-        <form action="/admin/change_agents.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" value=<?= $data[0]; ?> name="agent_id">
-            <p> 企業名：<input type="text" name="agent_name" required value="<?= $agent_contents[0]['agent_name'] ?>"></p>
-            <p> 企業画像：<input type="file" name="image" required></p>
-            <p> 推しポイント：<input type="text" name="special_feature" required value="<?= $agent_contents[0]['special_feature'] ?>"></p>
-            <p> 特徴：<input type="text" name="feature1" required value="<?= $agent_contents[0]['feature1'] ?>"></p>
-            <p> 特徴：<input type="text" name="feature2" required value="<?= $agent_contents[0]['feature2'] ?>"></p>
-            <p> 特徴：<input type="text" name="feature3" required value="<?= $agent_contents[0]['feature3'] ?>"></p>
-            <p> 特徴：<input type="text" name="feature4" required value="<?= $agent_contents[0]['feature4'] ?>"></p>
-            <p> 特徴：<input type="text" name="feature5" required value="<?= $agent_contents[0]['feature5'] ?>"></p>
-            <p>求人数：<input type="text" name="recruitment_number" required value="<?= $agent_contents[0]['recruitment_number'] ?>"></p>
-            <p>非公開求人数：<input type="text" name="private_recruitment_number" required value="<?= $agent_contents[0]['private_recruitment_number'] ?>"></p>
-            <p> 対象年代：<input type="text" name="target_age" required value="<?= $agent_contents[0]['target_age'] ?>"></p>
-            <p> エリア：<input type="text" name="area" required value="<?= $agent_contents[0]['area'] ?>"></p>
-            <p> PRポイント：<textarea rows="9" cols="80" name="pr_point" required value="<?= $agent_contents[0]['pr_point'] ?>"></textarea></p>
-            <p><input type="submit" value="変更する" name="upload"></p>
-        </form>
-        <a href="./index.php">戻る</a>
-    </section>
-</body> -->
-
 </html>

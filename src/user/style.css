@@ -214,20 +214,6 @@ header .menu .menu-item {
   border-left-color: #fff;
 }
 
-/* @media screen and (max-width: 767px) {
-.progressbar .item {
-    font-size: 12px;
-    line-height: 1.4;
-    padding: 8px 0;
-}
-.progressbar .item:not(:last-child)::before,
-.progressbar .item:not(:last-child)::after, 
-.progressbar .item-last::before,
-.progressbar .item-last::after{
-    border-width: 25px;
-    border-left-width: 12px;
-}
-} */
 
 /* active */
 
@@ -297,18 +283,26 @@ main .title-wrapper .subtitle{
   margin-top: 8px;
   padding: 8px;
 }
+
+  .agent-list .agent-list-item{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
 .text-wrapper {
   margin-top: 8px;
   display: flex;
   flex-direction: column;
 }
 .text-wrapper .text1 {
-  font-size: 16px;
+  font-size: 32px;
   color: #b56441;
   margin-left: 3rem;
 }
 .text-wrapper .text2 {
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 3rem;
 }
 
@@ -323,12 +317,28 @@ main .title-wrapper .subtitle{
   flex-direction: row;
   column-gap: 40px;
 }
+@media screen and (max-width: 640px) {
+  .agent-pr-wrapper {
+    flex-direction: column;
+  }
+}
 .agent-pr-img {
   width: 25%;
   object-fit: cover;
 }
+@media screen and (max-width: 640px) {
+  .agent-pr-img {
+    width: 100%;
+  }
+}
 .agent-pr-list {
   width: calc(70%-40px);
+}
+@media screen and (max-width: 640px) {
+  .agent-pr-item{
+    font-size: 12px;
+    margin-top: 8px;
+  }
 }
 .agent-info-table {
   width: 100%;
@@ -357,45 +367,6 @@ main .title-wrapper .subtitle{
 
 /* top-pageのmainここから */
 
-/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここから */
-/* jsも使ってるからコピペしてね */
-
-/* 上に上がる動き */
-#mainFooter {
-  top: 100vh;
-}
-#mainFooter.UpMove {
-  animation: UpAnime 0.5s forwards;
-}
-
-@keyframes UpAnime {
-  from {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-100px);
-  }
-}
-
-/*　下に下がる動き　*/
-
-#mainFooter.DownMove {
-  animation: DownAnime 0.5s forwards;
-}
-@keyframes DownAnime {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 下にスクロール時footerのアイコンが消え、上にスクロールすると現れる動きここまで */
 
 /* 一覧に戻るボタンここから */
 a.btn {

@@ -62,7 +62,7 @@ if (!empty($_POST)) {
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
     <main>
-        <div class="title-wrapper flex-column">
+        <div class="title-wrapper flex-col">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
         </div>
@@ -70,7 +70,7 @@ if (!empty($_POST)) {
             <div class="progressbar">
                 <div class="item-last active">登録</div>
                 <div class="item">確認</div>
-                <div class="item">お問い合わせ完了</div>
+                <div class="item pl-5">お問い合わせ完了</div>
             </div>
         </div>
         <div class="form-section">
@@ -118,19 +118,19 @@ if (!empty($_POST)) {
                     <tr>
                         <th class="contact-item">生年月日<span style="color:red">*</span><br>Date of Birth</th>
                         <td class="contact-body">
-                            <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_year" list="birth_year" placeholder="選択" size="8" required value=<?php
+                            <span class="inline-block"><input class=" rounded border-solid border-2" type="number" name="birth_year" list="birth_year" placeholder="選択" size="8" required value=<?php
                                                                                                                                                                                                 if ($_SESSION['cart']) {
                                                                                                                                                                                                     echo $_SESSION['cart'][0]['birth_year'];
                                                                                                                                                                                                 } else {
                                                                                                                                                                                                     echo "";
                                                                                                                                                                                                 } ?>>年　</span>
-                            <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_month" list="birth_month" placeholder="選択" size="8" required value=<?php
+                            <span class="inline-block"><input class=" rounded border-solid border-2" type="number" name="birth_month" list="birth_month" placeholder="選択" size="8" required value=<?php
                                                                                                                                                                                                 if ($_SESSION['cart']) {
                                                                                                                                                                                                     echo $_SESSION['cart'][0]['birth_month'];
                                                                                                                                                                                                 } else {
                                                                                                                                                                                                     echo "";
                                                                                                                                                                                                 } ?>>月　</span>
-                            <span class="inline-block"><input class=" rounded border-solid border-2" type="text" name="birth_day" list="birth_day" placeholder="選択" size="8" required value=<?php
+                            <span class="inline-block"><input class=" rounded border-solid border-2" type="number" name="birth_day" list="birth_day" placeholder="選択" size="8" required value=<?php
                                                                                                                                                                                             if ($_SESSION['cart']) {
                                                                                                                                                                                                 echo $_SESSION['cart'][0]['birth_day'];
                                                                                                                                                                                             } else {
@@ -343,10 +343,6 @@ if (!empty($_POST)) {
             </form>
         </div>
     </main>
-    <!-- アイコンの部分 -->
-    <?php
-    require(dirname(__FILE__) . "/components/_mainFooter.php");
-    ?>
     <!-- footer -->
     <?php
     require(dirname(__FILE__) . "/components/_footer.php");

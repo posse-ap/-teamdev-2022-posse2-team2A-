@@ -94,7 +94,7 @@ if ($_SESSION['cart'] == NULL) {
     require(dirname(__FILE__) . "/components/_nav.php");
     ?>
     <main>
-        <div class="title-wrapper flex-column">
+        <div class="title-wrapper flex-col">
             <h1 class="title">CRAFT</h1>
             <h2 class="subtitle">就活生のための就活情報サイト</h2>
         </div>
@@ -102,15 +102,16 @@ if ($_SESSION['cart'] == NULL) {
             <div class="progressbar">
                 <div class="item">登録</div>
                 <div class="item-last active">確認</div>
-                <div class="item">お問い合わせ完了</div>
+                <div class="item pl-5">お問い合わせ完了</div>
             </div>
         </div>
         <div class="form-section">
             <div class="flex justify-around w-full">
                 <h1 class="font-bold text-2xl">応募フォーム</h1>
             </div>
+            <div class="w-4/5 ml-auto mr-auto flex justify-center flex-col">
             <p><span style="color:red">*</span>は必須項目です。</p>
-            <table class="">
+            <table>
                 <tr>
                     <th class="contact-item">姓名<span style="color:red">*</span><br>Name(Kanji)</th>
                     <td class="contact-body">
@@ -189,9 +190,11 @@ if ($_SESSION['cart'] == NULL) {
             <div class=" relative">
                 <button class="absolute top-1 right-1 green" type="button" onclick="history.back()">修正する</button>
             </div>
+            </div>
+            
 
 
-            <!-- 裏側で送るデータここから下は変更しないで　to ともあき -->
+            <!-- 裏側で送るデータここから下は変更しないで -->
             <div class="sm:flex justify-around w-full mt-10">
                 <?php
                 $full_name = $_POST['first_name'] . $_POST['last_name'];
@@ -215,17 +218,11 @@ if ($_SESSION['cart'] == NULL) {
                     <input type="hidden" name="graduation_year" value="<?= $_POST['graduation_year']; ?>">
                     <input type="hidden" name="graduation_status" value="<?= $_POST['graduation_status']; ?>">
                     <input type="hidden" name="comments" value="<?= $_POST['comments']; ?>">
-                    <input class="mt-10 bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="お問い合わせ">
-                    <input class="mt-10 bg-orange rounded-lg text-center w-full shadow-lg hover:shadow-none sm:w-2/5 p-4 text-sm sm:text-base" type="submit" value="他の企業にも問い合わせる">
+                    <input class="mt-10 bg-orange rounded-lg text-center shadow-lg hover:shadow-none w-full p-4 text-sm sm:text-base" type="submit" value="お問い合わせ">
                 </form>
-
             </div>
         </div>
     </main>
-    <!-- アイコンの部分 -->
-    <?php
-    require(dirname(__FILE__) . "/components/_mainFooter.php");
-    ?>
     <!-- footer -->
     <?php
     require(dirname(__FILE__) . "/components/_footer.php");
@@ -234,5 +231,4 @@ if ($_SESSION['cart'] == NULL) {
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
 </body>
-
 </html>
